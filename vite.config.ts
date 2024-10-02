@@ -10,7 +10,24 @@ export default defineConfig({
   plugins: [vue(), vueJsx(), vueDevTools()],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@core': fileURLToPath(new URL('./src/modules/core', import.meta.url)),
+      '@search': fileURLToPath(new URL('./src/modules/search', import.meta.url)),
+      '@auth': fileURLToPath(new URL('./src/modules/auth', import.meta.url)),
+      '@duplicate': fileURLToPath(new URL('./src/modules/duplicate', import.meta.url)),
+      '@invalid-replacement': fileURLToPath(
+        new URL('./src/modules/invalid-replacement', import.meta.url)
+      ),
+      '@obsolete-without-replacement': fileURLToPath(
+        new URL('./src/modules/obsolete-without-replacement', import.meta.url)
+      ),
+      '@relevant-with-replacement': fileURLToPath(
+        new URL('./src/modules/relevant-with-replacement', import.meta.url)
+      ),
+      '@self-replacement': fileURLToPath(
+        new URL('./src/modules/self-replacement', import.meta.url)
+      ),
+      '@without-brand': fileURLToPath(new URL('./src/modules/without-brand', import.meta.url))
     }
   }
 })
