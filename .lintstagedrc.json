@@ -1,4 +1,4 @@
 {
   "src/**/*.css": ["prettier --write"],
-  "src/**/*.{ts,vue}": ["prettier --write", "eslint --fix", "vue-tsc --noEmit"]
+  "src/**/*.{ts,vue}": ["prettier --write", "eslint --fix", "bash -c vue-tsc --noEmit"]
 }
