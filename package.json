@@ -15,6 +15,13 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@radix-icons/vue": "^1.0.0",
+    "@vueuse/core": "^11.1.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "radix-vue": "^1.9.6",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
   },

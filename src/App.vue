@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ROUTES_PATHS } from '@/modules/core/router'
+import { DarkModeSwitcher } from '@core/components'
 </script>
 
 <template>
@@ -13,6 +14,7 @@ import { ROUTES_PATHS } from '@/modules/core/router'
     <RouterLink :to="ROUTES_PATHS.private.selfReplacement">Заменены сами на себя</RouterLink>
     <RouterLink :to="ROUTES_PATHS.private.withoutBrand">Без бренда</RouterLink>
   </nav>
+  <DarkModeSwitcher />
   <RouterView />
 </template>
 
