@@ -9,24 +9,32 @@ import { SelfReplacementPage } from '@self-replacement/components'
 import { WithoutBrandPage } from '@without-brand/components'
 
 export const routes = [
-  { path: ROUTES_PATHS.public.search, component: SearchPage },
-  { path: ROUTES_PATHS.public.signIn, component: SignInPage },
-  { path: ROUTES_PATHS.private.duplicate, component: DuplicatePage },
-  { path: ROUTES_PATHS.private.invalidReplacement, component: InvalidReplacementPage },
+  { path: ROUTES_PATHS.search, component: SearchPage, meta: { requiresAuth: false } },
+  { path: ROUTES_PATHS.signIn, component: SignInPage, meta: { requiresAuth: false } },
+  { path: ROUTES_PATHS.duplicate, component: DuplicatePage, meta: { requiresAuth: true } },
   {
-    path: ROUTES_PATHS.private.obsoleteWithoutReplacement,
-    component: ObsoleteWithoutReplacementPage
+    path: ROUTES_PATHS.invalidReplacement,
+    component: InvalidReplacementPage,
+    meta: { requiresAuth: true }
   },
   {
-    path: ROUTES_PATHS.private.relevantWithReplacement,
-    component: RelevantWithReplacementPage
+    path: ROUTES_PATHS.obsoleteWithoutReplacement,
+    component: ObsoleteWithoutReplacementPage,
+    meta: { requiresAuth: true }
   },
   {
-    path: ROUTES_PATHS.private.selfReplacement,
-    component: SelfReplacementPage
+    path: ROUTES_PATHS.relevantWithReplacement,
+    component: RelevantWithReplacementPage,
+    meta: { requiresAuth: true }
   },
   {
-    path: ROUTES_PATHS.private.withoutBrand,
-    component: WithoutBrandPage
+    path: ROUTES_PATHS.selfReplacement,
+    component: SelfReplacementPage,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: ROUTES_PATHS.withoutBrand,
+    component: WithoutBrandPage,
+    meta: { requiresAuth: true }
   }
 ]
