@@ -10,7 +10,7 @@ export const router = createRouter({
 router.beforeEach((to, from, next) => {
   const shouldProtectRoute = to.meta.requiresAuth
   const isSignedIn = false
-  const isSignInPage = to.href === ROUTES_PATHS.signIn
+  const isSignInPage = to.path === ROUTES_PATHS.signIn
 
   if (isSignedIn && isSignInPage) {
     return next({ path: ROUTES_PATHS.search })
