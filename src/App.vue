@@ -15,9 +15,22 @@ import { DarkModeSwitcher } from '@core/components'
     <RouterLink :to="ROUTES_PATHS.withoutBrand">Без бренда</RouterLink>
   </nav>
   <DarkModeSwitcher />
-  <RouterView />
+  <router-view v-slot="{ Component }">
+    <transition name="fade" mode="out-in">
+      <component :is="Component" :key="$route.path" />
+    </transition>
+  </router-view>
 </template>
 
 <style>
 @import './modules/core/styles';
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>
