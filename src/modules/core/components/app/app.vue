@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { ROUTES_PATHS } from '@/modules/core/router'
-import { DarkModeSwitcher, ErrorBoundary } from '@core/components'
+import { DarkModeSwitcher } from '@core/components'
+
+import { ROUTES_PATHS } from '@settings/router'
+import { ErrorCaptureProvider, RouterViewWithTransitions } from '@core/providers'
 </script>
 
 <template>
@@ -15,24 +17,11 @@ import { DarkModeSwitcher, ErrorBoundary } from '@core/components'
     <RouterLink :to="ROUTES_PATHS.withoutBrand">Без бренда</RouterLink>
   </nav>
   <DarkModeSwitcher />
-  <ErrorBoundary>
-    <router-view v-slot="{ Component }">
-      <transition name="fade" mode="out-in">
-        <component :is="Component" :key="$route.path" />
-      </transition>
-    </router-view>
-  </ErrorBoundary>
+  <ErrorCaptureProvider>
+    <RouterViewWithTransitions />
+  </ErrorCaptureProvider>
 </template>
 
 <style>
 @import '../../styles/index.css';
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
 </style>

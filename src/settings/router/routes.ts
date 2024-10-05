@@ -1,13 +1,15 @@
 import { ROUTES_PATHS } from './routes-paths'
-import { SearchPage } from '@search/components'
-import { SignInPage } from '@auth/components'
-import { DuplicatePage } from '@duplicate/components'
-import { InvalidReplacementPage } from '@invalid-replacement/components'
-import { ObsoleteWithoutReplacementPage } from '@obsolete-without-replacement/components'
-import { RelevantWithReplacementPage } from '@relevant-with-replacement/components'
-import { SelfReplacementPage } from '@self-replacement/components'
-import { WithoutBrandPage } from '@without-brand/components'
-import { NotFound } from '@core/components'
+import {
+  DuplicatePage,
+  InvalidReplacementPage,
+  NotFoundPage,
+  ObsoleteWithoutReplacementPage,
+  RelevantWithReplacementPage,
+  SearchPage,
+  SelfReplacementPage,
+  SignInPage,
+  WithoutBrandPage
+} from '@/pages'
 
 export const routes = [
   { path: ROUTES_PATHS.search, component: SearchPage, meta: { requiresAuth: false } },
@@ -40,7 +42,7 @@ export const routes = [
   },
   {
     path: '/:pathMatch(.*)*',
-    component: NotFound,
+    component: NotFoundPage,
     meta: { requiresAuth: false }
   }
 ]

@@ -17,7 +17,7 @@ defineProps<{
       <template v-if="error === '404'">
         <img src="/images/404.svg" alt="Страница не найдена" width="300" height="300" />
       </template>
-      <template v-else>
+      <template v-if="error === '500'">
         <img src="/images/500.svg" alt="Ошибка на сервере" width="250" height="250" />
       </template>
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { PageError } from '@core/components'
 import { ref, onErrorCaptured } from 'vue'
+import { ErrorTemplate } from '@core/components'
 
 const isErrorShown = ref(false)
 
@@ -13,7 +13,7 @@ onErrorCaptured(() => {
 </script>
 
 <template>
-  <PageError
+  <ErrorTemplate
     v-if="isErrorShown"
     title="Что-то пошло не так..."
     error="500"

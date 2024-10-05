@@ -12,14 +12,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@core/*": ["./src/modules/core/*"],
-      "@search/*": ["./src/modules/search/*"],
-      "@auth/*": ["./src/modules/auth/*"],
-      "@duplicate/*": ["./src/modules/duplicate/*"],
-      "@invalid-replacement/*": ["./src/modules/invalid-replacement/*"],
-      "@obsolete-without-replacement/*": ["./src/modules/obsolete-without-replacement/*"],
-      "@relevant-with-replacement/*": ["./src/modules/relevant-with-replacement/*"],
-      "@self-replacement/*": ["./src/modules/self-replacement/*"],
-      "@without-brand/*": ["./src/modules/without-brand/*"]
+      "@pages/*": ["./src/pages/*"],
+      "@settings/*": ["./src/settings/*"]
     }
   }
 }
