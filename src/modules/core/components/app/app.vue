@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ROUTES_PATHS } from '@/modules/core/router'
-import { DarkModeSwitcher } from '@core/components'
-import ErrorBoundary from '../error-boundary/error-boundary.vue'
+import { DarkModeSwitcher, ErrorBoundary } from '@core/components'
 </script>
 
 <template>

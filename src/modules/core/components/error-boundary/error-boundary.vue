@@ -1,24 +1,15 @@
-<script>
+<script setup lang="ts">
 import { PageError } from '@core/components'
+import { ref, onErrorCaptured } from 'vue'
 
-export default {
-  components: { PageError },
-  data() {
-    return {
-      isErrorShown: false
-    }
-  },
-  methods: {
-    reloadPage() {
-      window.location.reload()
-    }
-  },
-  errorCaptured() {
-    this.isErrorShown = true
+const isErrorShown = ref(false)
 
-    return false
-  }
-}
+const reloadPage = () => window.location.reload()
+
+onErrorCaptured(() => {
+  isErrorShown.value = true
+  return false
+})
 </script>
 
 <template>
