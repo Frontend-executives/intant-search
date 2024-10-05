@@ -7,6 +7,7 @@ import { ObsoleteWithoutReplacementPage } from '@obsolete-without-replacement/co
 import { RelevantWithReplacementPage } from '@relevant-with-replacement/components'
 import { SelfReplacementPage } from '@self-replacement/components'
 import { WithoutBrandPage } from '@without-brand/components'
+import { NotFound } from '@core/components'
 
 export const routes = [
   { path: ROUTES_PATHS.search, component: SearchPage, meta: { requiresAuth: false } },
@@ -36,5 +37,10 @@ export const routes = [
     path: ROUTES_PATHS.withoutBrand,
     component: WithoutBrandPage,
     meta: { requiresAuth: true }
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    component: NotFound,
+    meta: { requiresAuth: false }
   }
 ]
