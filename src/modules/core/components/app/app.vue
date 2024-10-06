@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { Navigation } from '@core/components'
-
 import { ErrorCaptureProvider, RouterViewWithTransitions } from '@core/providers'
+import { Sidebar } from '@core/components'
 </script>
 
 <template>
   <ErrorCaptureProvider>
-    <div class="grid grid-cols-[200px_1fr] min-h-dvh">
-      <Navigation />
+    <div class="grid grid-cols-[240px_1fr] m-4 border border-border rounded-sm">
+      <Sidebar />
       <RouterViewWithTransitions />
     </div>
   </ErrorCaptureProvider>
