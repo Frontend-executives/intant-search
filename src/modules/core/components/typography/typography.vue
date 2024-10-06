@@ -3,32 +3,20 @@ import { computed } from 'vue'
 
 const props = defineProps<{
   text: string
-  type:
-    | 'h1'
-    | 'h2'
-    | 'h3'
-    | 'h4'
-    | 'p'
-    | 'blockquote'
-    | 'inlineCode'
-    | 'lead'
-    | 'large'
-    | 'small'
-    | 'muted'
+  type: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'lead' | 'large' | 'small' | 'extraSmall' | 'muted'
   element: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'li' | 'span' | 'blockquote'
 }>()
 
 const styles = {
-  h1: 'scroll-m-20 text-4xl font-extrabold tracking-tight sm:text-5xl',
-  h2: 'scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0',
-  h3: 'scroll-m-20 text-2xl font-semibold tracking-tight',
-  h4: 'scroll-m-20 text-xl font-semibold tracking-tight',
+  h1: 'text-4xl font-extrabold sm:text-5xl',
+  h2: 'border-b pb-2 text-3xl font-semibold',
+  h3: 'text-2xl font-semibold',
+  h4: 'text-xl font-semibold',
   p: 'leading-7',
-  blockquote: 'mt-6 border-l-2 pl-6 italic',
-  inlineCode: 'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold',
   lead: 'text-xl text-muted-foreground',
   large: 'text-lg font-semibold',
   small: 'text-sm font-medium leading-none',
+  extraSmall: 'text-xs leading-none',
   muted: 'text-sm text-muted-foreground'
 }
 

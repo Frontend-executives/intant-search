@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { useDark, useToggle } from '@vueuse/core'
 import { Button } from '@core/lib/shad-cn/components/ui/button'
+import { SunMoon } from 'lucide-vue-next'
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 </script>
 
 <template>
-  <Button @click="toggleDark()">Toggle Theme</Button>
+  <Button size="icon" variant="secondary" @click="toggleDark()">
+    <SunMoon width="16" stroke-width="1.5" />
+  </Button>
 </template>
 
 <style>
