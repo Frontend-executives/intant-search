@@ -21,5 +21,8 @@ export default defineConfig({
       '@pages': fileURLToPath(new URL('./src/pages', import.meta.url)),
       '@settings': fileURLToPath(new URL('./src/settings', import.meta.url))
     }
+  },
+  build: {
+    target: 'esnext'
   }
 })
