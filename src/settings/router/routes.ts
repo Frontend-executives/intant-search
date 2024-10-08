@@ -45,4 +45,4 @@ export const routes = [
     component: NotFoundPage,
     meta: { requiresAuth: false }
   }
-]
+] as const

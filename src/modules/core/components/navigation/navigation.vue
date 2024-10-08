@@ -1,22 +1,20 @@
 <script setup lang="ts">
 import { ROUTES_PATHS } from '@settings/router'
-import { Typography } from '@core/components'
+import { NavigationLink } from '@core/components'
 import {
   CircleHelp,
   Files,
+  LogIn,
   RefreshCcw,
   Search,
   TriangleAlert,
   VenetianMask,
   VideoOff
 } from 'lucide-vue-next'
+import { $isSignedIn } from '@/modules/user/model/auth'
+import { useUnit } from 'effector-vue/composition'
 
 const NAVIGATION_LINKS = [
-  {
-    path: ROUTES_PATHS.search,
-    text: 'Поиск',
-    icon: Search
-  },
   {
     path: ROUTES_PATHS.duplicate,
     text: 'Дубликаты',
@@ -48,21 +46,26 @@ const NAVIGATION_LINKS = [
     icon: VenetianMask
   }
 ]
+
+const isSignedIn = useUnit($isSignedIn)
 </script>
 
 <template>
   <nav>
     <ul class="flex flex-col gap-1 p-4">
-      <li v-for="({ path, text, icon }, index) in NAVIGATION_LINKS" :key="index">
-        <RouterLink
-          active-class="bg-primary hover:!bg-primary text-primary-foreground hover:!text-primary-foreground"
-          class="font-medium flex gap-2 items-center px-3 py-2 rounded-md w-full hover:bg-secondary transition-colors"
-          :to="path"
-        >
-          <component :is="icon" class="h-4 w-4" />
-          <Typography element="span" :text="text" type="extraSmall" />
-        </RouterLink>
+      <li>
+        <NavigationLink :icon="Search" text="Поиск" :path="ROUTES_PATHS.search" />
       </li>
+      <template v-if="isSignedIn">
+        <li v-for="({ path, text, icon }, index) in NAVIGATION_LINKS" :key="index">
+          <NavigationLink :icon="icon" :text="text" :path="path" />
+        </li>
+      </template>
+      <template v-else>
+        <li>
+          <NavigationLink :icon="LogIn" text="Войти" :path="ROUTES_PATHS.signIn" />
+        </li>
+      </template>
     </ul>
   </nav>
 </template>

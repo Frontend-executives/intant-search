@@ -15,8 +15,8 @@ const styles = {
   p: 'leading-7',
   lead: 'text-xl text-muted-foreground',
   large: 'text-lg font-semibold',
-  small: 'text-sm font-medium leading-none',
-  extraSmall: 'text-xs leading-none',
+  small: 'text-sm font-medium',
+  extraSmall: 'text-xs',
   muted: 'text-sm text-muted-foreground'
 }
 

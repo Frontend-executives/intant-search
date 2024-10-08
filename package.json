@@ -16,15 +16,21 @@
   },
   "dependencies": {
     "@radix-icons/vue": "^1.0.0",
+    "@vee-validate/zod": "^4.13.2",
     "@vueuse/core": "^11.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "effector": "^23.2.3",
+    "effector-vue": "^23.0.0",
     "lucide-vue-next": "^0.447.0",
+    "patronum": "^2.2.0",
     "radix-vue": "^1.9.6",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
+    "vee-validate": "^4.13.2",
     "vue": "^3.4.29",
-    "vue-router": "^4.3.3"
+    "vue-router": "^4.3.3",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",

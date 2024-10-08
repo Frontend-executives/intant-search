@@ -5,7 +5,7 @@ import { Sidebar } from '@core/components'
 
 <template>
   <ErrorCaptureProvider>
-    <div class="grid grid-cols-[240px_1fr] m-4 border border-border rounded-sm">
+    <div class="grid grid-cols-[260px_1fr] m-4 border border-border rounded-sm">
       <Sidebar />
       <RouterViewWithTransitions />
     </div>
