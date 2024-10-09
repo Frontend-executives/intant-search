@@ -12,7 +12,7 @@ import {
 import { Input } from '@core/lib/shad-cn/components/ui/input'
 import { Button } from '@core/lib/shad-cn/components/ui/button'
 import { useUnit } from 'effector-vue/composition'
-import { $isPasswordErrorShown, $isSignedIn, signedIn } from '@/modules/user/model/auth'
+import { $isPasswordValid, $isSignedIn, authFormSubmitted } from '@/modules/user/model/auth'
 import { watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { ROUTES_PATHS } from '@settings/router'
@@ -23,18 +23,17 @@ const formSchema = toTypedSchema(
   })
 )
 
+const { push } = useRouter()
+
+const isPasswordValid = useUnit($isPasswordValid)
+const isSignedIn = useUnit($isSignedIn)
+const authFormSubmitHandler = useUnit(authFormSubmitted)
+
 const { handleSubmit, isFieldDirty, values } = useForm({
   validationSchema: formSchema
 })
 
-const { push } = useRouter()
-
-const isPasswordErrorShown = useUnit($isPasswordErrorShown)
-
-const signInEvent = useUnit(signedIn)
-const onSubmit = handleSubmit(({ password }) => signInEvent(password))
-
-const isSignedIn = useUnit($isSignedIn)
+const onSubmit = handleSubmit(({ password }) => authFormSubmitHandler(password))
 
 watch(isSignedIn, (isSignedIn) => {
   if (isSignedIn) {
@@ -60,7 +59,7 @@ watch(isSignedIn, (isSignedIn) => {
               placeholder="Введите пароль"
             />
           </FormControl>
-          <FormDescription v-if="isPasswordErrorShown" class="text-red-600 font-semibold">
+          <FormDescription v-if="!isPasswordValid" class="text-red-600 font-semibold">
             Неверный пароль
           </FormDescription>
         </FormItem>
