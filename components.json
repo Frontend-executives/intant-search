@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "src/app/globals.css",
+    "baseColor": "zinc",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/shared/lib/shad-cn/components",
+    "utils": "@/shared/lib/shad-cn/utils",
+    "ui": "@/shared/lib/shad-cn/components/ui",
+    "lib": "@/shared/lib/shad-cn/lib",
+    "hooks": "@/shared/lib/shad-cn/hooks"
+  },
+  "iconLibrary": "lucide"
+}
