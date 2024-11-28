@@ -1,6 +1,5 @@
 import { ReactElement, ReactNode } from 'react'
-import Image from 'next/image'
-import { Typography } from '@/shared/ui/typography'
+import { Notification } from '@/shared/ui/notification'
 
 interface Props {
   children: ReactNode | ReactNode[]
@@ -9,16 +8,13 @@ interface Props {
 export const OnlyDesktop = ({ children }: Props): ReactElement => {
   return (
     <>
-      <div className="flex sm:hidden flex-col items-center p-6 gap-6 text-center">
-        <Image
-          draggable={false}
-          src={'/desktop.svg'}
-          alt={'desktop'}
-          width={400}
-          height={400}
+      <div className={'sm:hidden'}>
+        <Notification
+          title={'Ой, а мобильной версии нет'}
+          description={'Её украли...'}
+          image={'/mobile.svg'}
+          button={null}
         />
-        <Typography type="h1">Поиск не работает в мобильной версии</Typography>
-        <Typography type="p">По крайней мере пока...</Typography>
       </div>
       <div className="hidden sm:block">{children}</div>
     </>
