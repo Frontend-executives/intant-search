@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@effector/next": "^0.7.0",
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "effector": "^23.2.3",
+    "effector-react": "^23.2.1",
     "lucide-react": "^0.461.0",
     "next": "15.0.3",
     "react": "^18.3.1",
