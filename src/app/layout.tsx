@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { ReactNode } from 'react'
 import { OnlyDesktop } from '@/features/only-desktop/ui'
 import './globals.css'
+import { LoadingScreen } from '@/features/loading-screen/ui'
 
 export const metadata: Metadata = {
   title: 'EquipFinder',
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body>
-        <OnlyDesktop>{children}</OnlyDesktop>
+        <OnlyDesktop>
+          <LoadingScreen>{children}</LoadingScreen>
+        </OnlyDesktop>
       </body>
     </html>
   )
