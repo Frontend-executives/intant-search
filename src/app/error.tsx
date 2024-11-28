@@ -3,7 +3,7 @@
 import { ReactElement } from 'react'
 import { Notification } from '@/shared/ui/notification'
 
-const MyComponent = (): ReactElement => {
+const Error = (): ReactElement => {
   return (
     <Notification
       title={'Ой...'}
@@ -19,4 +19,4 @@ const MyComponent = (): ReactElement => {
   )
 }
 
-export default MyComponent
+export default Error
