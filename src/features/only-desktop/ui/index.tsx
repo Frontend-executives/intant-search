@@ -8,7 +8,7 @@ interface Props {
 export const OnlyDesktop = ({ children }: Props): ReactElement => {
   return (
     <>
-      <div className={'sm:hidden'}>
+      <div className="sm:hidden flex-grow flex flex-col items-center justify-center">
         <Notification
           title={'Ой, а мобильной версии нет'}
           description={'Её украли...'}
@@ -16,7 +16,7 @@ export const OnlyDesktop = ({ children }: Props): ReactElement => {
           button={null}
         />
       </div>
-      <div className="hidden sm:block">{children}</div>
+      <div className="hidden sm:flex flex-grow flex-col">{children}</div>
     </>
   )
 }

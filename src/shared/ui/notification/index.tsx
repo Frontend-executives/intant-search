@@ -20,8 +20,8 @@ export const Notification = ({
   button
 }: Props): ReactElement => {
   return (
-    <div className="p-6 min-h-dvh flex items-center justify-center">
-      <div className="text-center flex flex-col items-center justify-center gap-6 w-[400px]">
+    <div className="flex-grow p-6 flex items-center justify-center w-full">
+      <div className="text-center flex flex-col items-center justify-center gap-6 max-w-[400px]">
         <Image
           draggable="false"
           src={image}

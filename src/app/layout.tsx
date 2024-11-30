@@ -6,9 +6,9 @@ import { Header } from '@/shared/ui/header'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'EquipFinder',
+  title: 'Поиск оборудования',
   description:
-    'Удобное приложение для быстрого поиска оборудования. Пользователи могут легко найти модели по названию, проверять их актуальность и узнавать рекомендуемые замены, если оборудование больше не производится.'
+    'Приложение для быстрого поиска оборудования. Пользователи могут легко найти модели по названию, проверять их актуальность и узнавать рекомендуемые замены, если оборудование больше не производится.'
 }
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body>
+      <body className="min-h-dvh flex flex-col">
         <OnlyDesktop>
           <LoadingScreen>
             <Header />

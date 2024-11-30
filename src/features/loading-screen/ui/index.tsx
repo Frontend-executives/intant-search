@@ -11,7 +11,7 @@ export const LoadingScreen = ({ children }: Props) => {
   if (isLoading) {
     return (
       <Notification
-        title={'Загрузка'}
+        title={'Идет загрузка'}
         description={'Подождите...'}
         image={'/loading.svg'}
         button={null}
