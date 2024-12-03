@@ -5,7 +5,7 @@ interface Props {
   children: ReactNode | ReactNode[]
 }
 
-export const OnlyDesktop = ({ children }: Props): ReactElement => {
+export const OnlyDesktopProvider = ({ children }: Props): ReactElement => {
   return (
     <>
       <div className="sm:hidden flex-grow flex flex-col items-center justify-center">

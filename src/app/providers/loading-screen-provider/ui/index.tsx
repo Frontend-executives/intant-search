@@ -1,12 +1,16 @@
+'use client'
+
 import { ReactNode } from 'react'
 import { Notification } from '@/shared/ui/notification'
+import { useUnit } from 'effector-react'
+import { $isLoading } from '@/app/model'
 
 interface Props {
   children: ReactNode
 }
 
-export const LoadingScreen = ({ children }: Props) => {
-  const isLoading = false
+export const LoadingScreenProvider = ({ children }: Props) => {
+  const isLoading = useUnit($isLoading)
 
   if (isLoading) {
     return (
