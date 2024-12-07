@@ -6,9 +6,9 @@ import { Notification } from '@/shared/ui/notification'
 const Error = (): ReactElement => {
   return (
     <Notification
-      title={'Ой...'}
+      title={'Что-то пошло не так...'}
       description={
-        'Мы столкнулись с проблемой. Пожалуйста, попробуйте обновить страницу или вернитесь позже.'
+        'Сервер устал и ушёл пить кофе. Обновите страницу или подождите, он скоро вернётся'
       }
       image={'/500.svg'}
       button={{

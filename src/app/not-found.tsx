@@ -10,11 +10,13 @@ const NotFound = (): ReactElement => {
 
   return (
     <Notification
-      title={'Убирайтесь отсюда!'}
-      description={'Вы не должны были здесь оказаться. Вернитесь на главную'}
+      title={'Ой, такой страницы не существует...'}
+      description={
+        'Кажется, вы нашли секретное место! Только тут ничего нет...'
+      }
       image={'/404.svg'}
       button={{
-        text: 'На главную',
+        text: 'Вернуться домой',
         handler: () => router.push(ROUTER_PATHS.search)
       }}
     />

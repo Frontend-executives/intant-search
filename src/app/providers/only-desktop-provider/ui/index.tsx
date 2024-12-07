@@ -11,7 +11,9 @@ export const OnlyDesktopProvider = ({ children }: Props): ReactElement => {
       <div className="sm:hidden flex-grow flex flex-col items-center justify-center">
         <Notification
           title={'Ой, а мобильной версии нет'}
-          description={'Её украли...'}
+          description={
+            'Кажется, наш сайт не дружит с маленькими экранами. Но на большом экране всё супер — приходите!'
+          }
           image={'/mobile.svg'}
           button={null}
         />
