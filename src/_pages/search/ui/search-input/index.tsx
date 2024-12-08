@@ -5,6 +5,7 @@ import { useUnit } from 'effector-react'
 import { $searchQuery, searchResultSet } from '../../model'
 import { Button } from '@/shared/lib/shad-cn/components/ui/button'
 import { ReactElement } from 'react'
+import { Eraser } from 'lucide-react'
 
 export const SearchInput = (): ReactElement => {
   const onSearchResult = useUnit(searchResultSet)
@@ -15,18 +16,17 @@ export const SearchInput = (): ReactElement => {
       <Input
         type={'text'}
         placeholder={'Введите модель...'}
-        value={searchQuery}
-        onChange={(evt) =>
-          onSearchResult(evt.target.value.toLowerCase().trim())
-        }
+        value={searchQuery.toUpperCase()}
+        onChange={(evt) => onSearchResult(evt.target.value)}
       />
       <Button
+        size={'icon'}
         disabled={!searchQuery}
         onClick={() => {
           onSearchResult('')
         }}
       >
-        Начать заново
+        <Eraser />
       </Button>
     </div>
   )

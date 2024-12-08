@@ -1,7 +1,6 @@
 import { Typography } from '@/shared/ui/typography'
 import { SearchInput } from './search-input'
-import { EmptyResults } from './empty-results'
-import { SomeResults } from './some-results'
+import { SearchResultsStepper } from './search-result-stepper'
 
 export const SearchPage = () => {
   return (
@@ -14,8 +13,7 @@ export const SearchPage = () => {
 
       <SearchInput />
 
-      <EmptyResults />
-      <SomeResults />
+      <SearchResultsStepper />
     </div>
   )
 }

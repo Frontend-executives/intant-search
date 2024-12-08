@@ -20,7 +20,7 @@ const Layout = ({
 }>): ReactElement => {
   return (
     <html lang="ru">
-      <body className="min-h-dvh flex flex-col">
+      <body className="min-h-dvh flex flex-col text-gray-700">
         <OnlyDesktopProvider>
           <EffectorNext>
             <CoreDataProvider>
