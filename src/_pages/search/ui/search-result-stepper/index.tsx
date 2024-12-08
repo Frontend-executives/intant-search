@@ -4,7 +4,6 @@ import { ReactElement } from 'react'
 import { useUnit } from 'effector-react'
 import { $foundModels, $searchQuery } from '@/_pages/search/model'
 import { Notification } from '@/shared/ui/notification'
-import { Badge } from '@/shared/lib/shad-cn/components/ui/badge'
 import { FoundEquipmentBadge } from '@/_pages/search/ui/found-equipment-badge'
 
 export const SearchResultsStepper = (): ReactElement | null => {
