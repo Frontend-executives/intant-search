@@ -22,7 +22,7 @@ export const $equipmentList = getGeneralDataQuery.$data.map(
   (data) => data?.equipmentList ?? []
 )
 
-export const $isLoading = createStore(false)
+export const $isLoading = createStore(true)
 
 sample({
   clock: appStarted,
