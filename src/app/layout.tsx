@@ -6,6 +6,7 @@ import './globals.css'
 import { CoreDataProvider } from '@/app/providers/core-data-provider/ui'
 import { OnlyDesktopProvider } from '@/app/providers/only-desktop-provider/ui'
 import { LoadingScreenProvider } from '@/app/providers/loading-screen-provider/ui'
+import { Toaster } from 'sonner'
 
 export const metadata: Metadata = {
   title: 'Поиск оборудования',
@@ -27,6 +28,7 @@ const Layout = ({
               <LoadingScreenProvider>
                 <Header />
                 {children}
+                <Toaster />
               </LoadingScreenProvider>
             </CoreDataProvider>
           </EffectorNext>
