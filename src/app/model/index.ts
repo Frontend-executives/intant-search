@@ -1,5 +1,9 @@
 import { createEvent, createStore, sample } from 'effector'
-import { concurrency, createJsonQuery } from '@farfetched/core'
+import {
+  concurrency,
+  createJsonQuery,
+  JsonApiRequestError
+} from '@farfetched/core'
 import { APP_SCRIPT_URL } from '@/shared/settings/app-script'
 import { zodContract } from '@farfetched/zod'
 import { getGeneralDataQueryResponse } from '@/shared/api'
@@ -23,6 +27,7 @@ export const $equipmentList = getGeneralDataQuery.$data.map(
 )
 
 export const $isLoading = createStore(true)
+export const $requestError = createStore<JsonApiRequestError | null>(null)
 
 sample({
   clock: appStarted,
@@ -32,4 +37,10 @@ sample({
 sample({
   clock: getGeneralDataQuery.$pending,
   target: $isLoading
+})
+
+sample({
+  clock: getGeneralDataQuery.$failed,
+  source: getGeneralDataQuery.$error,
+  target: $requestError
 })

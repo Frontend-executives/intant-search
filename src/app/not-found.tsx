@@ -10,6 +10,7 @@ const NotFound = (): ReactElement => {
 
   return (
     <Notification
+      notesList={null}
       size={'M'}
       title={'Такой страницы не существует...'}
       description={

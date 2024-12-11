@@ -6,6 +6,7 @@ import { Notification } from '@/shared/ui/notification'
 const Error = (): ReactElement => {
   return (
     <Notification
+      notesList={null}
       size={'M'}
       title={'Что-то пошло не так...'}
       description={

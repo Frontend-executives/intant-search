@@ -17,6 +17,7 @@ export const SearchResultsStepper = (): ReactElement | null => {
   if (!isSearchStarted) {
     return (
       <Notification
+        notesList={null}
         title={`Начните вводить запрос`}
         description={'Мы сделаем всю магию 🪄'}
         image={'/try-to-search.svg'}
@@ -27,6 +28,7 @@ export const SearchResultsStepper = (): ReactElement | null => {
   } else if (isSearchStarted && isSomeResults) {
     return (
       <Notification
+        notesList={null}
         title={`У нас тут больше ${foundModels.length} вариантов`}
         description={'Попробуйте уточнить запрос'}
         image={'/some-results.svg'}
@@ -37,6 +39,7 @@ export const SearchResultsStepper = (): ReactElement | null => {
   } else if (isSearchStarted && isEmptyResults) {
     return (
       <Notification
+        notesList={null}
         size={'S'}
         title={'Этой модели нет в базе'}
         description={'Свяжитесь с отделом СВН и мы обязательно её добавим'}

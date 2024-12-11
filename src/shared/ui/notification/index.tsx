@@ -22,6 +22,7 @@ interface Props {
     handler: () => void
   } | null
   size: keyof typeof imageSizeBySizeProp
+  notesList: string[] | null
 }
 
 export const Notification = ({
@@ -29,7 +30,8 @@ export const Notification = ({
   title,
   description,
   button,
-  size
+  size,
+  notesList
 }: Props): ReactElement => {
   return (
     <div className="flex-grow p-6 flex items-center justify-center w-full">
@@ -42,8 +44,23 @@ export const Notification = ({
           height={imageSizeBySizeProp[size]}
           className={'aspect-square'}
         />
+
         <Typography type={typographyTypeBySizeProp[size]}>{title}</Typography>
+
         <Typography>{description}</Typography>
+
+        {notesList && (
+          <ul>
+            {notesList.map((note) => {
+              return (
+                <li key={note}>
+                  <Typography type={'small'}>{note}</Typography>
+                </li>
+              )
+            })}
+          </ul>
+        )}
+
         {button && (
           <Button className={'w-1/2'} onClick={button.handler}>
             {button.text}

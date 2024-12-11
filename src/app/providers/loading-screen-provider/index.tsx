@@ -15,6 +15,7 @@ export const LoadingScreenProvider = ({ children }: Props) => {
   if (isLoading) {
     return (
       <Notification
+        notesList={null}
         size={'M'}
         title={'Загружаем...'}
         description={

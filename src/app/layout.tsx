@@ -3,10 +3,12 @@ import { ReactElement, ReactNode } from 'react'
 import { Header } from '@/shared/ui/header'
 import { EffectorNext } from '@effector/next'
 import './globals.css'
-import { CoreDataProvider } from '@/app/providers/core-data-provider/ui'
-import { OnlyDesktopProvider } from '@/app/providers/only-desktop-provider/ui'
-import { LoadingScreenProvider } from '@/app/providers/loading-screen-provider/ui'
+import { CoreDataProvider } from '@/app/providers/core-data-provider'
+import { OnlyDesktopProvider } from '@/app/providers/only-desktop-provider'
+import { LoadingScreenProvider } from '@/app/providers/loading-screen-provider'
 import { Toaster } from 'sonner'
+import { NProgressProvider } from '@/app/providers/n-progress-provider'
+import { GeneralRequestErrorProvider } from '@/app/providers/general-request-error-provider'
 
 export const metadata: Metadata = {
   title: 'Поиск оборудования',
@@ -24,13 +26,15 @@ const Layout = ({
       <body className="min-h-dvh flex flex-col text-gray-700">
         <OnlyDesktopProvider>
           <EffectorNext>
-            <CoreDataProvider>
-              <LoadingScreenProvider>
-                <Header />
-                {children}
-                <Toaster />
-              </LoadingScreenProvider>
-            </CoreDataProvider>
+            <GeneralRequestErrorProvider>
+              <CoreDataProvider>
+                <LoadingScreenProvider>
+                  <Header />
+                  <NProgressProvider>{children}</NProgressProvider>
+                  <Toaster />
+                </LoadingScreenProvider>
+              </CoreDataProvider>
+            </GeneralRequestErrorProvider>
           </EffectorNext>
         </OnlyDesktopProvider>
       </body>

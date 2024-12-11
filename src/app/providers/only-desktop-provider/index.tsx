@@ -10,6 +10,7 @@ export const OnlyDesktopProvider = ({ children }: Props): ReactElement => {
     <>
       <div className="sm:hidden flex-grow flex flex-col items-center justify-center">
         <Notification
+          notesList={null}
           size={'M'}
           title={'Кажется, наш сайт не дружит с маленькими экранами'}
           description={'Но на большом экране всё супер — приходите!'}
