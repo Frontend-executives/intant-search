@@ -6,6 +6,12 @@ import { $searchQuery, searchResultSet } from '../../model'
 import { Button } from '@/shared/lib/shad-cn/components/ui/button'
 import { ReactElement } from 'react'
 import { Eraser } from 'lucide-react'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from '@/shared/lib/shad-cn/components/ui/tooltip'
 
 export const SearchInput = (): ReactElement => {
   const onSearchResult = useUnit(searchResultSet)
@@ -19,15 +25,23 @@ export const SearchInput = (): ReactElement => {
         value={searchQuery.toUpperCase()}
         onChange={(evt) => onSearchResult(evt.target.value)}
       />
-      <Button
-        size={'icon'}
-        disabled={!searchQuery}
-        onClick={() => {
-          onSearchResult('')
-        }}
-      >
-        <Eraser />
-      </Button>
+
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              size={'icon'}
+              disabled={!searchQuery}
+              onClick={() => {
+                onSearchResult('')
+              }}
+            >
+              <Eraser />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>Сбросить результаты поиска</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     </div>
   )
 }

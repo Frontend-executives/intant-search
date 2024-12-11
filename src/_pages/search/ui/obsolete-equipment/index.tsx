@@ -6,6 +6,12 @@ import { replacementSelected } from '../../model'
 import { useUnit } from 'effector-react/compat'
 import { cva } from 'class-variance-authority'
 import { toast } from 'sonner'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from '@/shared/lib/shad-cn/components/ui/tooltip'
 
 const copyButtonVariants = cva('', {
   variants: {
@@ -64,20 +70,36 @@ export const ObsoleteEquipment = ({ replacement }: Props): ReactElement => {
             Замена:{' '}
             <span className={'font-bold'}>{replacement.toUpperCase()}</span>
           </Typography>
-          <Button
-            size={'icon'}
-            onClick={() => onReplacementSelected(replacement)}
-          >
-            <Search />
-          </Button>
-          <Button
-            disabled={isCopied}
-            size={'icon'}
-            className={copyButtonVariants({ isCopied })}
-            onClick={onCopyButtonClick}
-          >
-            {isCopied ? <Check /> : <Copy />}
-          </Button>
+
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  size={'icon'}
+                  onClick={() => onReplacementSelected(replacement)}
+                >
+                  <Search />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Проверить эту модель</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  disabled={isCopied}
+                  size={'icon'}
+                  className={copyButtonVariants({ isCopied })}
+                  onClick={onCopyButtonClick}
+                >
+                  {isCopied ? <Check /> : <Copy />}
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Скопировать эту модель</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
       )}
     </div>
