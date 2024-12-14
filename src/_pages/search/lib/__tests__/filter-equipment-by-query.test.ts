@@ -51,7 +51,11 @@ describe('filterEquipmentByQuery', () => {
         model: 'model-a',
         relevance: Relevance.YES,
         replacement: '',
-        link: 'https://www.example.com'
+        link: 'https://www.example.com',
+        hikvision: 'model-hikvision',
+        hilook: 'model-hilook',
+        hiwatch: 'modek-hiwatch',
+        brand: Brands.HIKVISION
       }
     ])
   })
@@ -76,7 +80,11 @@ describe('filterEquipmentByQuery', () => {
         model: 'model-a',
         relevance: Relevance.YES,
         replacement: '',
-        link: 'https://www.example.com'
+        link: 'https://www.example.com',
+        hikvision: 'model-hikvision',
+        hilook: 'model-hilook',
+        hiwatch: 'modek-hiwatch',
+        brand: Brands.HIKVISION
       }
     ])
   })
@@ -92,7 +100,11 @@ describe('filterEquipmentByQuery', () => {
         model: 'model-a',
         relevance: Relevance.YES,
         replacement: '',
-        link: 'https://www.example.com'
+        link: 'https://www.example.com',
+        hikvision: 'model-hikvision',
+        hilook: 'model-hilook',
+        hiwatch: 'modek-hiwatch',
+        brand: Brands.HIKVISION
       }
     ])
   })
