@@ -1,107 +1,42 @@
-import { ReactElement, useState } from 'react'
+import { ReactElement } from 'react'
 import { Typography } from '@/shared/ui/typography'
-import { BadgeX, Check, Copy, Search } from 'lucide-react'
-import { Button } from '@/shared/lib/shad-cn/components/ui/button'
-import { replacementSelected } from '../../model'
-import { useUnit } from 'effector-react/compat'
-import { cva } from 'class-variance-authority'
-import { toast } from 'sonner'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger
-} from '@/shared/lib/shad-cn/components/ui/tooltip'
+import { BadgeX } from 'lucide-react'
 
-const copyButtonVariants = cva('', {
-  variants: {
-    isCopied: {
-      true: 'bg-green-600'
-    }
-  }
-})
+import { BrandInfo } from '@/_pages/search/ui/brand-info'
+import { Equipment } from '@/shared/api'
+import { EquipmentAlternatives } from '@/_pages/search/ui/equipment-alternatives'
 
 interface Props {
-  replacement: string
+  replacement: Equipment['replacement']
+  brand: Equipment['brand']
+  hikvision: Equipment['hikvision']
+  hilook: Equipment['hilook']
+  hiwatch: Equipment['hiwatch']
 }
 
-export const ObsoleteEquipment = ({ replacement }: Props): ReactElement => {
-  const onReplacementSelected = useUnit(replacementSelected)
-
-  const [isCopied, setCopied] = useState<boolean>(false)
-
-  const onCopyState = () => {
-    setCopied(true)
-
-    setTimeout(() => setCopied(false), 2000)
-  }
-
-  const copyReplacementToClipboard = async () => {
-    try {
-      await navigator.clipboard.writeText(replacement.toUpperCase())
-    } catch {
-      toast.error(`Не удалось скопировать ${replacement.toUpperCase()}`, {
-        description: 'Попробуйте еще раз',
-        duration: 5000
-      })
-    }
-  }
-
-  const onCopyButtonClick = async () => {
-    onCopyState()
-
-    await copyReplacementToClipboard()
-  }
-
+export const ObsoleteEquipment = ({
+  replacement,
+  brand,
+  hikvision,
+  hiwatch,
+  hilook
+}: Props): ReactElement => {
   return (
-    <div className={'flex flex-col gap-2'}>
+    <div className={'flex flex-col items-center justify-center gap-2'}>
       <div className="flex items-center justify-center gap-2">
         <Typography>Оборудование снято с производства</Typography>
         <BadgeX color={'#dc2625'} />
       </div>
 
-      {!replacement ? (
-        <Typography type={'small'}>
-          Замена не предусмотрена. Обратитесь в отдел СВН
-        </Typography>
-      ) : (
-        <div className={'flex items-center gap-2 justify-center'}>
-          <Typography type={'small'}>
-            Замена:{' '}
-            <span className={'font-bold'}>{replacement.toUpperCase()}</span>
-          </Typography>
+      <BrandInfo brand={brand} />
 
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  size={'icon'}
-                  onClick={() => onReplacementSelected(replacement)}
-                >
-                  <Search />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>Проверить эту модель</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  disabled={isCopied}
-                  size={'icon'}
-                  className={copyButtonVariants({ isCopied })}
-                  onClick={onCopyButtonClick}
-                >
-                  {isCopied ? <Check /> : <Copy />}
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>Скопировать эту модель</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-        </div>
-      )}
+      <EquipmentAlternatives
+        isRelevant={false}
+        replacement={replacement}
+        hiwatch={hiwatch}
+        hilook={hilook}
+        hikvision={hikvision}
+      />
     </div>
   )
 }

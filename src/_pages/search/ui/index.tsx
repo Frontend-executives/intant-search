@@ -1,8 +1,9 @@
 import { Typography } from '@/shared/ui/typography'
 import { SearchInput } from './search-input'
 import { SearchResultsStepper } from './search-result-stepper'
+import { ReactElement } from 'react'
 
-export const SearchPage = () => {
+export const SearchPage = (): ReactElement => {
   return (
     <div className="max-w-[800px] flex flex-col gap-6 pt-6">
       <Typography type="h1">Проверка актуальности</Typography>
@@ -12,7 +13,6 @@ export const SearchPage = () => {
       </Typography>
 
       <SearchInput />
-
       <SearchResultsStepper />
     </div>
   )

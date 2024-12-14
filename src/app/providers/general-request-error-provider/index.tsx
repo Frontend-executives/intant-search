@@ -27,7 +27,7 @@ export const GeneralRequestErrorProvider = ({
         image={'/network-problem.svg'}
         button={{
           text: 'Повторить попытку',
-          handler: () => window.location.reload()
+          handler: (): void => window.location.reload()
         }}
         size={'M'}
       />
@@ -48,7 +48,7 @@ export const GeneralRequestErrorProvider = ({
         image={'/broken-contract.svg'}
         button={{
           text: 'Обновить',
-          handler: () => window.location.reload()
+          handler: (): void => window.location.reload()
         }}
         size={'M'}
       />
@@ -65,7 +65,7 @@ export const GeneralRequestErrorProvider = ({
       image={'/unknown-request-error.svg'}
       button={{
         text: 'Обновить страницу',
-        handler: () => window.location.reload()
+        handler: (): void => window.location.reload()
       }}
       size={'M'}
     />

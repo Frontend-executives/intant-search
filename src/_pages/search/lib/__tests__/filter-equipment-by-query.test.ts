@@ -1,24 +1,25 @@
 import { describe, expect, test } from '@jest/globals'
 import { Equipment } from '@/shared/api'
 import { filterEquipmentByQuery } from '@/_pages/search/lib/filter-equipment-by-query'
+import { Relevance } from '@/shared/enums/relevance'
 
 describe('filterEquipmentByQuery', () => {
   const mockEquipmentList: Equipment[] = [
     {
       model: 'model-a',
-      relevance: 'yes',
+      relevance: Relevance.YES,
       replacement: '',
       link: 'https://www.example.com'
     },
     {
       model: 'model-b',
-      relevance: 'no',
+      relevance: Relevance.NO,
       replacement: 'model-c',
       link: 'https://www.example.com'
     },
     {
       model: 'model-c',
-      relevance: 'yes',
+      relevance: Relevance.YES,
       replacement: '',
       link: 'https://www.example.com'
     }
@@ -33,7 +34,7 @@ describe('filterEquipmentByQuery', () => {
     expect(result).toEqual([
       {
         model: 'model-a',
-        relevance: 'yes',
+        relevance: Relevance.YES,
         replacement: '',
         link: 'https://www.example.com'
       }
@@ -58,7 +59,7 @@ describe('filterEquipmentByQuery', () => {
     expect(result).toEqual([
       {
         model: 'model-a',
-        relevance: 'yes',
+        relevance: Relevance.YES,
         replacement: '',
         link: 'https://www.example.com'
       }
@@ -74,7 +75,7 @@ describe('filterEquipmentByQuery', () => {
     expect(result).toEqual([
       {
         model: 'model-a',
-        relevance: 'yes',
+        relevance: Relevance.YES,
         replacement: '',
         link: 'https://www.example.com'
       }

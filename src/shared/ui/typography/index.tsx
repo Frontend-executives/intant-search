@@ -16,8 +16,13 @@ const variants = cva('text-current', {
 
 interface Props extends VariantProps<typeof variants> {
   children: ReactNode
+  className?: string
 }
 
-export const Typography = ({ type = 'p', children }: Props): ReactElement => {
-  return <p className={variants({ type })}>{children}</p>
+export const Typography = ({
+  type = 'p',
+  children,
+  className
+}: Props): ReactElement => {
+  return <p className={variants({ type, className })}>{children}</p>
 }

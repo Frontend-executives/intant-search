@@ -9,6 +9,8 @@ import {
 } from '@/shared/lib/shad-cn/components/ui/hover-card'
 import { RelevantEquipment } from '@/_pages/search/ui/relevant-equipment'
 import { ObsoleteEquipment } from '@/_pages/search/ui/obsolete-equipment'
+import { Equipment } from '@/shared/api'
+import { Relevance } from '@/shared/enums/relevance'
 
 const badgeVariants = cva(
   'text-white whitespace-nowrap transition-colors hover:cursor-help',
@@ -32,28 +34,48 @@ const hoverCardVariants = cva('w-[420px]', {
 })
 
 interface Props {
-  children: string
-  relevance: 'yes' | 'no'
-  replacement: string
+  equipment: Equipment
 }
 
 export const FoundEquipmentBadge = ({
-  children,
-  relevance,
-  replacement
+  equipment: {
+    relevance,
+    replacement,
+    brand,
+    model,
+    hikvision,
+    hilook,
+    hiwatch
+  }
 }: Props): ReactElement => {
   return (
     <HoverCard>
       <HoverCardTrigger>
         <Badge className={badgeVariants({ relevance })} variant={'default'}>
-          <Typography type={'small'}>{children.toUpperCase()}</Typography>
+          <Typography type={'small'}>{model.toUpperCase()}</Typography>
         </Badge>
       </HoverCardTrigger>
 
       <HoverCardContent className={hoverCardVariants({ relevance })}>
-        {relevance === 'yes' && <RelevantEquipment />}
+        {relevance === Relevance.YES && (
+          <RelevantEquipment
+            brand={brand}
+            model={model}
+            hikvision={hikvision}
+            hilook={hilook}
+            hiwatch={hiwatch}
+          />
+        )}
 
-        {relevance === 'no' && <ObsoleteEquipment replacement={replacement} />}
+        {relevance === Relevance.NO && (
+          <ObsoleteEquipment
+            replacement={replacement}
+            brand={brand}
+            hikvision={hikvision}
+            hilook={hilook}
+            hiwatch={hiwatch}
+          />
+        )}
       </HoverCardContent>
     </HoverCard>
   )

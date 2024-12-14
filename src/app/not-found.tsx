@@ -19,7 +19,7 @@ const NotFound = (): ReactElement => {
       image={'/404.svg'}
       button={{
         text: 'Вернуться домой',
-        handler: () => router.push(ROUTER_PATHS.search)
+        handler: (): void => router.push(ROUTER_PATHS.search)
       }}
     />
   )

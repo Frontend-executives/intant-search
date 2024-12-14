@@ -54,15 +54,9 @@ export const SearchResultsStepper = (): ReactElement | null => {
           'p-4 rounded-md flex items-center justify-center gap-2 flex-wrap'
         }
       >
-        {foundModels.map(({ model, relevance, replacement, link }) => {
+        {foundModels.map((equipment) => {
           return (
-            <FoundEquipmentBadge
-              key={link}
-              relevance={relevance}
-              replacement={replacement}
-            >
-              {model}
-            </FoundEquipmentBadge>
+            <FoundEquipmentBadge key={equipment.link} equipment={equipment} />
           )
         })}
       </div>

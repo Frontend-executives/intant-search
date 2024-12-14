@@ -15,7 +15,7 @@ const Error = (): ReactElement => {
       image={'/500.svg'}
       button={{
         text: 'Обновить',
-        handler: () => window.location.reload()
+        handler: (): void => window.location.reload()
       }}
     />
   )

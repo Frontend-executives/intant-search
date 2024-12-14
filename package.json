@@ -14,6 +14,7 @@
     "@effector/next": "^0.7.0",
     "@farfetched/core": "^0.13.0",
     "@farfetched/zod": "^0.13.0",
+    "@radix-ui/react-aspect-ratio": "^1.1.0",
     "@radix-ui/react-hover-card": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.4",

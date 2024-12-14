@@ -32,7 +32,7 @@ export const SearchInput = (): ReactElement => {
             <Button
               size={'icon'}
               disabled={!searchQuery}
-              onClick={() => {
+              onClick={(): void => {
                 onSearchResult('')
               }}
             >
