@@ -1,6 +1,8 @@
 import { BadgeX } from 'lucide-react'
 import { ReactElement } from 'react'
 
+import { SearchLocales } from '@app/locales/search'
+
 import { BrandInfo } from '@pages/search/ui/brand-info'
 import { EquipmentAlternatives } from '@pages/search/ui/equipment-alternatives'
 
@@ -25,7 +27,7 @@ export const ObsoleteEquipment = ({
   return (
     <div className='flex flex-col items-center justify-center gap-2'>
       <div className='flex items-center justify-center gap-2'>
-        <Typography>Оборудование снято с производства</Typography>
+        <Typography>{SearchLocales.ObsoleteEquipment}</Typography>
         <BadgeX color='#dc2625' />
       </div>
 

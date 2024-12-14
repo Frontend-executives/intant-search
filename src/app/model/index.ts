@@ -6,8 +6,9 @@ import {
 import { zodContract } from '@farfetched/zod'
 import { createEvent, createStore, sample } from 'effector'
 
+import { APP_SCRIPT_URL } from '@app/settings/app-script'
+
 import { getGeneralDataQueryResponse } from '@shared/api'
-import { APP_SCRIPT_URL } from '@shared/settings/app-script'
 
 export const appStarted = createEvent()
 

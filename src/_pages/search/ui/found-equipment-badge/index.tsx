@@ -27,7 +27,7 @@ const badgeVariants = cva(
   }
 )
 
-const hoverCardVariants = cva('w-[420px]', {
+const hoverCardVariants = cva('w-[540px]', {
   variants: {
     relevance: {
       yes: 'border-2 border-green-600',

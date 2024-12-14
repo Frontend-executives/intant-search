@@ -1,6 +1,8 @@
 import { BadgeCheck } from 'lucide-react'
 import { ReactElement } from 'react'
 
+import { SearchLocales } from '@app/locales/search'
+
 import { BrandInfo } from '@pages/search/ui/brand-info'
 import { EquipmentAlternatives } from '@pages/search/ui/equipment-alternatives'
 
@@ -30,7 +32,7 @@ export const RelevantEquipment = ({
   return (
     <div className='flex flex-col items-center justify-center gap-2'>
       <div className='flex items-center justify-center gap-2'>
-        <Typography>Оборудование актуально</Typography>
+        <Typography>{SearchLocales.RelevantEquipment}</Typography>
         <BadgeCheck color='#16a34a' />
       </div>
 
@@ -47,7 +49,7 @@ export const RelevantEquipment = ({
       {brand === Brands.HIKVISION && (
         <Button asChild>
           <a target='_blank' href={`${HIKVISION_SEARCH_URL}${model}`}>
-            Посмотреть на официальном сайте
+            {SearchLocales.WatchOnOfficialSite}
           </a>
         </Button>
       )}

@@ -3,6 +3,7 @@
 import { useUnit } from 'effector-react'
 import { ReactNode } from 'react'
 
+import { SharedLocales } from '@app/locales/shared'
 import { $isLoading } from '@app/model'
 
 import { Notification } from '@shared/ui/notification'
@@ -19,8 +20,8 @@ export const LoadingScreenProvider = ({ children }: Props) => {
       <Notification
         notesList={null}
         size='M'
-        title='Загружаем...'
-        description='Секундочку, скачиваем на ваш компьютер всё, что нужно. И даже то, что не нужно'
+        title={SharedLocales.LoadingTitle}
+        description={SharedLocales.LoadingDescription}
         image='/loading.svg'
         button={null}
       />

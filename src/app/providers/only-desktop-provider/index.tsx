@@ -1,5 +1,7 @@
 import { ReactElement, ReactNode } from 'react'
 
+import { SharedLocales } from '@app/locales/shared'
+
 import { Notification } from '@shared/ui/notification'
 
 interface Props {
@@ -13,8 +15,8 @@ export const OnlyDesktopProvider = ({ children }: Props): ReactElement => {
         <Notification
           notesList={null}
           size='M'
-          title='Кажется, наш сайт не дружит с маленькими экранами'
-          description='Но на большом экране всё супер — приходите!'
+          title={SharedLocales.OnlyDesktopTitle}
+          description={SharedLocales.OnlyDesktopDescription}
           image='/desktop.svg'
           button={null}
         />

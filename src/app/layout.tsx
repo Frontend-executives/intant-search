@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { ReactElement, ReactNode } from 'react'
 import { Toaster } from 'sonner'
 
+import { SharedLocales } from '@app/locales/shared'
 import { CoreDataProvider } from '@app/providers/core-data-provider'
 import { GeneralRequestErrorProvider } from '@app/providers/general-request-error-provider'
 import { LoadingScreenProvider } from '@app/providers/loading-screen-provider'
@@ -14,9 +15,8 @@ import { Header } from '@shared/ui/header'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Поиск оборудования',
-  description:
-    'Приложение для быстрого поиска оборудования. Пользователи могут легко найти модели по названию, проверять их актуальность и узнавать рекомендуемые замены, если оборудование больше не производится.'
+  title: SharedLocales.AppTitle,
+  description: SharedLocales.AppDescription
 }
 
 const Layout = ({

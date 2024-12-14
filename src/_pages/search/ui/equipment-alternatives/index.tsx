@@ -1,5 +1,7 @@
 import { ReactElement } from 'react'
 
+import { SearchLocales } from '@app/locales/search'
+
 import { AnotherEquipmentInfo } from '@pages/search/ui/another-equipment-info'
 
 import { Equipment } from '@shared/api'
@@ -22,34 +24,38 @@ export const EquipmentAlternatives = ({
   isRelevant
 }: Props): ReactElement => {
   return (
-    <div className='flex flex-col justify-center items-end gap-2'>
+    <>
       {!isRelevant &&
         (!replacement ? (
           <Typography type='small'>
-            Рекомендуемая замена не предусмотрена
+            {SearchLocales.ReplacementNotFound}
           </Typography>
         ) : (
           <AnotherEquipmentInfo model={replacement} text='Замена' />
         ))}
 
-      {hikvision && (
-        <AnotherEquipmentInfo
-          model={hikvision}
-          text={Brands.HIKVISION.toUpperCase()}
-        />
+      {(hilook || hiwatch || hikvision) && (
+        <div className='flex flex-col gap-2 items-end'>
+          {hikvision && (
+            <AnotherEquipmentInfo
+              model={hikvision}
+              text={Brands.HIKVISION.toUpperCase()}
+            />
+          )}
+          {hilook && (
+            <AnotherEquipmentInfo
+              model={hilook}
+              text={Brands.HILOOK.toUpperCase()}
+            />
+          )}
+          {hiwatch && (
+            <AnotherEquipmentInfo
+              model={hiwatch}
+              text={Brands.HIWATCH.toUpperCase()}
+            />
+          )}
+        </div>
       )}
-      {hilook && (
-        <AnotherEquipmentInfo
-          model={hilook}
-          text={Brands.HILOOK.toUpperCase()}
-        />
-      )}
-      {hiwatch && (
-        <AnotherEquipmentInfo
-          model={hiwatch}
-          text={Brands.HIWATCH.toUpperCase()}
-        />
-      )}
-    </div>
+    </>
   )
 }

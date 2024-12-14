@@ -3,6 +3,8 @@
 import { useUnit } from 'effector-react'
 import { ReactElement } from 'react'
 
+import { SearchLocales } from '@app/locales/search'
+
 import { $foundModels, $searchQuery } from '@pages/search/model'
 import { FoundEquipmentBadge } from '@pages/search/ui/found-equipment-badge'
 
@@ -20,8 +22,8 @@ export const SearchResultsStepper = (): ReactElement | null => {
     return (
       <Notification
         notesList={null}
-        title='Начните вводить запрос'
-        description='Мы сделаем всю магию 🪄'
+        title={SearchLocales.LetsSearchTitle}
+        description={SearchLocales.LetsSearchDescription}
         image='/try-to-search.svg'
         button={null}
         size='S'
@@ -31,8 +33,8 @@ export const SearchResultsStepper = (): ReactElement | null => {
     return (
       <Notification
         notesList={null}
-        title={`У нас тут больше ${foundModels.length} вариантов`}
-        description='Попробуйте уточнить запрос'
+        title={`${SearchLocales.SearchResultsSomeTitle1} ${foundModels.length} ${SearchLocales.SearchResultsSomeTitle2}`}
+        description={SearchLocales.SearchResultsSomeDescription}
         image='/some-results.svg'
         button={null}
         size='S'
@@ -43,8 +45,8 @@ export const SearchResultsStepper = (): ReactElement | null => {
       <Notification
         notesList={null}
         size='S'
-        title='Этой модели нет в базе'
-        description='Свяжитесь с отделом СВН и мы обязательно её добавим'
+        title={SearchLocales.SearchResultsEmptyTitle}
+        description={SearchLocales.SearchResultsEmptyDescription}
         image='/empty-search.svg'
         button={null}
       />

@@ -2,6 +2,8 @@
 
 import { ReactElement } from 'react'
 
+import { SharedLocales } from '@app/locales/shared'
+
 import { Notification } from '@shared/ui/notification'
 
 const Error = (): ReactElement => {
@@ -9,11 +11,11 @@ const Error = (): ReactElement => {
     <Notification
       notesList={null}
       size='M'
-      title='Что-то пошло не так...'
-      description='Сервер устал и ушёл пить кофе. Обновите страницу или подождите, он скоро вернётся'
+      title={SharedLocales.ErrorPageTitle}
+      description={SharedLocales.ErrorPageDescription}
       image='/500.svg'
       button={{
-        text: 'Обновить',
+        text: SharedLocales.ErrorPageButton,
         handler: (): void => window.location.reload()
       }}
     />

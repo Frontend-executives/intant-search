@@ -1,5 +1,7 @@
 import { ReactElement } from 'react'
 
+import { SearchLocales } from '@app/locales/search'
+
 import { Equipment } from '@shared/api'
 import { Brands } from '@shared/enums/brands'
 import { Typography } from '@shared/ui/typography'
@@ -14,28 +16,28 @@ export const BrandInfo = ({ brand }: Props): ReactElement | null => {
   const upperCasedBrand = brand.toUpperCase()
 
   return (
-    <div className='flex items-center gap-2 w-36'>
+    <div className='flex flex-col items-center gap-2'>
       {!brand && (
         <Typography type='small' className={TYPOGRAPHY_CLASS_NAME}>
-          Бренд неизвестен
+          {SearchLocales.UnknownBrand}
         </Typography>
       )}
 
       {brand === Brands.HIKVISION && (
         <Typography className={TYPOGRAPHY_CLASS_NAME} type='small'>
-          Бренд: {upperCasedBrand}
+          {SearchLocales.Brand} {upperCasedBrand}
         </Typography>
       )}
 
       {brand === Brands.HILOOK && (
         <Typography className={TYPOGRAPHY_CLASS_NAME} type='small'>
-          Бренд: {upperCasedBrand}
+          {SearchLocales.Brand} {upperCasedBrand}
         </Typography>
       )}
 
       {brand === Brands.HIWATCH && (
         <Typography className={TYPOGRAPHY_CLASS_NAME} type='small'>
-          Бренд: {upperCasedBrand}
+          {SearchLocales.Brand} {upperCasedBrand}
         </Typography>
       )}
     </div>

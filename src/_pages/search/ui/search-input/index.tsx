@@ -4,6 +4,8 @@ import { useUnit } from 'effector-react'
 import { Eraser } from 'lucide-react'
 import { ReactElement } from 'react'
 
+import { SearchLocales } from '@app/locales/search'
+
 import { Button } from '@shared/lib/shad-cn/components/ui/button'
 import { Input } from '@shared/lib/shad-cn/components/ui/input'
 import {
@@ -23,7 +25,7 @@ export const SearchInput = (): ReactElement => {
     <div className='flex gap-2 py-6'>
       <Input
         type='text'
-        placeholder='Введите модель...'
+        placeholder={SearchLocales.InputPlaceholder}
         value={searchQuery.toUpperCase()}
         onChange={(evt) => onSearchResult(evt.target.value)}
       />
@@ -41,7 +43,7 @@ export const SearchInput = (): ReactElement => {
               <Eraser />
             </Button>
           </TooltipTrigger>
-          <TooltipContent>Сбросить результаты поиска</TooltipContent>
+          <TooltipContent>{SearchLocales.ResetSearchResults}</TooltipContent>
         </Tooltip>
       </TooltipProvider>
     </div>

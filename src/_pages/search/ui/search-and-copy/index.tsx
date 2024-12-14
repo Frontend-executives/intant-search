@@ -4,6 +4,8 @@ import { Check, Copy, Search } from 'lucide-react'
 import { ReactElement, useState } from 'react'
 import { toast } from 'sonner'
 
+import { SearchLocales } from '@app/locales/search'
+
 import { replacementSelected } from '@pages/search/model'
 
 import { Equipment } from '@shared/api'
@@ -70,7 +72,7 @@ export const SearchAndCopy = ({ model }: Props): ReactElement => {
               <Search />
             </Button>
           </TooltipTrigger>
-          <TooltipContent>Проверить модель</TooltipContent>
+          <TooltipContent>{SearchLocales.SearchModel}</TooltipContent>
         </Tooltip>
       </TooltipProvider>
 
@@ -88,7 +90,7 @@ export const SearchAndCopy = ({ model }: Props): ReactElement => {
               {isCopied ? <Check /> : <Copy />}
             </Button>
           </TooltipTrigger>
-          <TooltipContent>Скопировать модель</TooltipContent>
+          <TooltipContent>{SearchLocales.CopyModel}</TooltipContent>
         </Tooltip>
       </TooltipProvider>
     </div>
