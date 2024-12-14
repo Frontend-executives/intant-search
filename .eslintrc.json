@@ -1,4 +1,10 @@
 {
   "plugins": ["effector"],
-  "extends": ["next/core-web-vitals", "next/typescript", "plugin:effector/react"]
+  "extends": ["next/core-web-vitals", "next/typescript", "plugin:effector/react"],
+  "rules": {
+    "react/jsx-curly-brace-presence": [
+      "error",
+      { "props": "never", "children": "never" }
+    ]
+  }
 }

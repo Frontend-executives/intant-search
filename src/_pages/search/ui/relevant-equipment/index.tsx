@@ -35,7 +35,7 @@ export const RelevantEquipment = ({
 
       <EquipmentAlternatives
         isRelevant
-        replacement={''}
+        replacement=""
         hiwatch={hiwatch}
         hilook={hilook}
         hikvision={hikvision}
@@ -43,7 +43,7 @@ export const RelevantEquipment = ({
 
       {brand === Brands.HIKVISION && (
         <Button asChild>
-          <a target={'_blank'} href={`${HIKVISION_SEARCH_URL}${model}`}>
+          <a target="_blank" href={`${HIKVISION_SEARCH_URL}${model}`}>
             Посмотреть на официальном сайте
           </a>
         </Button>

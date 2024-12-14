@@ -22,10 +22,10 @@ export const ObsoleteEquipment = ({
   hilook
 }: Props): ReactElement => {
   return (
-    <div className={'flex flex-col items-center justify-center gap-2'}>
+    <div className="flex flex-col items-center justify-center gap-2">
       <div className="flex items-center justify-center gap-2">
         <Typography>Оборудование снято с производства</Typography>
-        <BadgeX color={'#dc2625'} />
+        <BadgeX color="#dc2625" />
       </div>
 
       <BrandInfo brand={brand} />
