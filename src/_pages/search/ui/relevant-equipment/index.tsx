@@ -1,11 +1,14 @@
-import { ReactElement } from 'react'
-import { Typography } from '@/shared/ui/typography'
 import { BadgeCheck } from 'lucide-react'
-import { Brands } from '@/shared/enums/brands'
-import { BrandInfo } from '@/_pages/search/ui/brand-info'
-import { Equipment } from '@/shared/api'
-import { Button } from '@/shared/lib/shad-cn/components/ui/button'
-import { EquipmentAlternatives } from '@/_pages/search/ui/equipment-alternatives'
+import { ReactElement } from 'react'
+
+import { BrandInfo } from '@pages/search/ui/brand-info'
+import { EquipmentAlternatives } from '@pages/search/ui/equipment-alternatives'
+
+import { Equipment } from '@shared/api'
+import { Brands } from '@shared/enums/brands'
+import { Typography } from '@shared/ui/typography'
+
+import { Button } from '@shared/lib/shad-cn/components/ui/button'
 
 const HIKVISION_SEARCH_URL = 'https://www.hikvision.com/en/search/?q='
 

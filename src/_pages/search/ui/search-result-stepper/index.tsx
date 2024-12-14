@@ -1,10 +1,12 @@
 'use client'
 
-import { ReactElement } from 'react'
 import { useUnit } from 'effector-react'
-import { $foundModels, $searchQuery } from '@/_pages/search/model'
-import { Notification } from '@/shared/ui/notification'
-import { FoundEquipmentBadge } from '@/_pages/search/ui/found-equipment-badge'
+import { ReactElement } from 'react'
+
+import { $foundModels, $searchQuery } from '@pages/search/model'
+import { FoundEquipmentBadge } from '@pages/search/ui/found-equipment-badge'
+
+import { Notification } from '@shared/ui/notification'
 
 export const SearchResultsStepper = (): ReactElement | null => {
   const searchQuery = useUnit($searchQuery)
@@ -49,9 +51,7 @@ export const SearchResultsStepper = (): ReactElement | null => {
     )
   } else {
     return (
-      <div
-        className='p-4 rounded-md flex items-center justify-center gap-2 flex-wrap'
-      >
+      <div className='p-4 rounded-md flex items-center justify-center gap-2 flex-wrap'>
         {foundModels.map((equipment) => {
           return (
             <FoundEquipmentBadge key={equipment.link} equipment={equipment} />

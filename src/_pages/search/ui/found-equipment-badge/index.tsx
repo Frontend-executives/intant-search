@@ -1,16 +1,19 @@
-import { ReactElement } from 'react'
-import { Badge } from '@/shared/lib/shad-cn/components/ui/badge'
 import { cva } from 'class-variance-authority'
-import { Typography } from '@/shared/ui/typography'
+import { ReactElement } from 'react'
+
+import { ObsoleteEquipment } from '@pages/search/ui/obsolete-equipment'
+import { RelevantEquipment } from '@pages/search/ui/relevant-equipment'
+
+import { Equipment } from '@shared/api'
+import { Relevance } from '@shared/enums/relevance'
+import { Typography } from '@shared/ui/typography'
+
+import { Badge } from '@shared/lib/shad-cn/components/ui/badge'
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger
-} from '@/shared/lib/shad-cn/components/ui/hover-card'
-import { RelevantEquipment } from '@/_pages/search/ui/relevant-equipment'
-import { ObsoleteEquipment } from '@/_pages/search/ui/obsolete-equipment'
-import { Equipment } from '@/shared/api'
-import { Relevance } from '@/shared/enums/relevance'
+} from '@shared/lib/shad-cn/components/ui/hover-card'
 
 const badgeVariants = cva(
   'text-white whitespace-nowrap transition-colors hover:cursor-help',

@@ -1,9 +1,11 @@
 'use client'
 
-import { ReactElement, ReactNode } from 'react'
 import { useUnit } from 'effector-react'
-import { $requestError } from '@/app/model'
-import { Notification } from '@/shared/ui/notification'
+import { ReactElement, ReactNode } from 'react'
+
+import { $requestError } from '@app/model'
+
+import { Notification } from '@shared/ui/notification'
 
 interface Props {
   children: ReactNode | ReactNode[]

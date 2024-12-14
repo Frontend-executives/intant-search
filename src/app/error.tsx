@@ -1,7 +1,8 @@
 'use client'
 
 import { ReactElement } from 'react'
-import { Notification } from '@/shared/ui/notification'
+
+import { Notification } from '@shared/ui/notification'
 
 const Error = (): ReactElement => {
   return (

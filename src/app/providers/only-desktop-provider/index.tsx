@@ -1,5 +1,6 @@
 import { ReactElement, ReactNode } from 'react'
-import { Notification } from '@/shared/ui/notification'
+
+import { Notification } from '@shared/ui/notification'
 
 interface Props {
   children: ReactNode | ReactNode[]

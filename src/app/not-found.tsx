@@ -1,9 +1,10 @@
 'use client'
 
-import { ReactElement } from 'react'
-import { Notification } from '@/shared/ui/notification'
 import { useRouter } from 'next/navigation'
-import { ROUTER_PATHS } from '@/shared/settings/router-paths'
+import { ReactElement } from 'react'
+
+import { ROUTER_PATHS } from '@shared/settings/router-paths'
+import { Notification } from '@shared/ui/notification'
 
 const NotFound = (): ReactElement => {
   const router = useRouter()

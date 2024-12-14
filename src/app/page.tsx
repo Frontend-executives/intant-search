@@ -1,5 +1,6 @@
-import { SearchPage } from '@/_pages/search/ui'
 import { ReactElement } from 'react'
+
+import { SearchPage } from '@pages/search/ui'
 
 const Search = (): ReactElement => {
   return (

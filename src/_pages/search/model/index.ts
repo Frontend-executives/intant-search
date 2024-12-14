@@ -1,7 +1,10 @@
 import { createEvent, createStore, sample } from 'effector'
-import { Equipment } from '@/shared/api'
-import { $equipmentList } from '@/app/model'
-import { filterEquipmentByQuery } from '@/_pages/search/lib/filter-equipment-by-query'
+
+import { $equipmentList } from '@app/model'
+
+import { filterEquipmentByQuery } from '@pages/search/lib/filter-equipment-by-query'
+
+import { Equipment } from '@shared/api'
 
 export const searchResultSet = createEvent<string>()
 export const replacementSelected = createEvent<string>()

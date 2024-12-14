@@ -1,14 +1,17 @@
+import { EffectorNext } from '@effector/next'
 import type { Metadata } from 'next'
 import { ReactElement, ReactNode } from 'react'
-import { Header } from '@/shared/ui/header'
-import { EffectorNext } from '@effector/next'
-import './globals.css'
-import { CoreDataProvider } from '@/app/providers/core-data-provider'
-import { OnlyDesktopProvider } from '@/app/providers/only-desktop-provider'
-import { LoadingScreenProvider } from '@/app/providers/loading-screen-provider'
 import { Toaster } from 'sonner'
-import { NProgressProvider } from '@/app/providers/n-progress-provider'
-import { GeneralRequestErrorProvider } from '@/app/providers/general-request-error-provider'
+
+import { CoreDataProvider } from '@app/providers/core-data-provider'
+import { GeneralRequestErrorProvider } from '@app/providers/general-request-error-provider'
+import { LoadingScreenProvider } from '@app/providers/loading-screen-provider'
+import { NProgressProvider } from '@app/providers/n-progress-provider'
+import { OnlyDesktopProvider } from '@app/providers/only-desktop-provider'
+
+import { Header } from '@shared/ui/header'
+
+import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Поиск оборудования',

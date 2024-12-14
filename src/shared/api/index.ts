@@ -1,6 +1,7 @@
 import { z } from 'zod'
-import { Brands } from '@/shared/enums/brands'
-import { Relevance } from '@/shared/enums/relevance'
+
+import { Brands } from '@shared/enums/brands'
+import { Relevance } from '@shared/enums/relevance'
 
 const equipmentSchema = z.object({
   model: z.string().min(1),

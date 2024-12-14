@@ -1,8 +1,9 @@
 'use client'
 
-import { ReactNode, useEffect } from 'react'
 import { useUnit } from 'effector-react'
-import { $equipmentList, appStarted } from '@/app/model'
+import { ReactNode, useEffect } from 'react'
+
+import { $equipmentList, appStarted } from '@app/model'
 
 interface Props {
   children: ReactNode

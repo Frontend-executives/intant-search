@@ -1,7 +1,8 @@
 import { ReactElement } from 'react'
-import { Brands } from '@/shared/enums/brands'
-import { Typography } from '@/shared/ui/typography'
-import { Equipment } from '@/shared/api'
+
+import { Equipment } from '@shared/api'
+import { Brands } from '@shared/enums/brands'
+import { Typography } from '@shared/ui/typography'
 
 const TYPOGRAPHY_CLASS_NAME = 'font-semibold text-gray-500'
 

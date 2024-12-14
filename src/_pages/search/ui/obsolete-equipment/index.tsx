@@ -1,10 +1,11 @@
-import { ReactElement } from 'react'
-import { Typography } from '@/shared/ui/typography'
 import { BadgeX } from 'lucide-react'
+import { ReactElement } from 'react'
 
-import { BrandInfo } from '@/_pages/search/ui/brand-info'
-import { Equipment } from '@/shared/api'
-import { EquipmentAlternatives } from '@/_pages/search/ui/equipment-alternatives'
+import { BrandInfo } from '@pages/search/ui/brand-info'
+import { EquipmentAlternatives } from '@pages/search/ui/equipment-alternatives'
+
+import { Equipment } from '@shared/api'
+import { Typography } from '@shared/ui/typography'
 
 interface Props {
   replacement: Equipment['replacement']

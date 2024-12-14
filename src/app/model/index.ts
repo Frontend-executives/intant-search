@@ -1,12 +1,13 @@
-import { createEvent, createStore, sample } from 'effector'
 import {
   concurrency,
   createJsonQuery,
   JsonApiRequestError
 } from '@farfetched/core'
-import { APP_SCRIPT_URL } from '@/shared/settings/app-script'
 import { zodContract } from '@farfetched/zod'
-import { getGeneralDataQueryResponse } from '@/shared/api'
+import { createEvent, createStore, sample } from 'effector'
+
+import { getGeneralDataQueryResponse } from '@shared/api'
+import { APP_SCRIPT_URL } from '@shared/settings/app-script'
 
 export const appStarted = createEvent()
 

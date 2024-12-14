@@ -1,5 +1,5 @@
-import { ReactElement } from 'react'
 import Image from 'next/image'
+import { ReactElement } from 'react'
 
 export const Header = (): ReactElement => {
   return (

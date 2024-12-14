@@ -1,7 +1,7 @@
 'use client'
 
-import { ReactElement, ReactNode } from 'react'
 import { AppProgressBar } from 'next-nprogress-bar'
+import { ReactElement, ReactNode } from 'react'
 
 interface Props {
   children: ReactNode | ReactNode[]

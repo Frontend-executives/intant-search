@@ -1,7 +1,9 @@
-import { Typography } from '@/shared/ui/typography'
+import { ReactElement } from 'react'
+
+import { Typography } from '@shared/ui/typography'
+
 import { SearchInput } from './search-input'
 import { SearchResultsStepper } from './search-result-stepper'
-import { ReactElement } from 'react'
 
 export const SearchPage = (): ReactElement => {
   return (

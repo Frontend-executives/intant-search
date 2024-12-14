@@ -1,9 +1,11 @@
 'use client'
 
-import { ReactNode } from 'react'
-import { Notification } from '@/shared/ui/notification'
 import { useUnit } from 'effector-react'
-import { $isLoading } from '@/app/model'
+import { ReactNode } from 'react'
+
+import { $isLoading } from '@app/model'
+
+import { Notification } from '@shared/ui/notification'
 
 interface Props {
   children: ReactNode

@@ -1,8 +1,10 @@
-import { AnotherEquipmentInfo } from '@/_pages/search/ui/another-equipment-info'
-import { Brands } from '@/shared/enums/brands'
-import { Equipment } from '@/shared/api'
-import { Typography } from '@/shared/ui/typography'
 import { ReactElement } from 'react'
+
+import { AnotherEquipmentInfo } from '@pages/search/ui/another-equipment-info'
+
+import { Equipment } from '@shared/api'
+import { Brands } from '@shared/enums/brands'
+import { Typography } from '@shared/ui/typography'
 
 interface Props {
   hikvision: Equipment['hikvision']

@@ -1,17 +1,19 @@
 'use client'
 
-import { Input } from '@/shared/lib/shad-cn/components/ui/input'
 import { useUnit } from 'effector-react'
-import { $searchQuery, searchResultSet } from '../../model'
-import { Button } from '@/shared/lib/shad-cn/components/ui/button'
-import { ReactElement } from 'react'
 import { Eraser } from 'lucide-react'
+import { ReactElement } from 'react'
+
+import { Button } from '@shared/lib/shad-cn/components/ui/button'
+import { Input } from '@shared/lib/shad-cn/components/ui/input'
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger
-} from '@/shared/lib/shad-cn/components/ui/tooltip'
+} from '@shared/lib/shad-cn/components/ui/tooltip'
+
+import { $searchQuery, searchResultSet } from '../../model'
 
 export const SearchInput = (): ReactElement => {
   const onSearchResult = useUnit(searchResultSet)

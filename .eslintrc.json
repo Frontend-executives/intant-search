@@ -1,11 +1,41 @@
 {
-  "plugins": ["effector", "prettier"],
-  "extends": ["next/core-web-vitals", "next/typescript", "plugin:effector/react"],
+  "plugins": ["effector", "prettier", "simple-import-sort"],
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "plugin:effector/react"
+  ],
   "rules": {
     "react/jsx-curly-brace-presence": [
       "error",
       { "props": "never", "children": "never" }
     ],
-    "jsx-quotes": ["error", "prefer-single"]
+    "jsx-quotes": ["error", "prefer-single"],
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // Библиотеки из node_modules
+          ["^@?\\w"],
+
+          ["^@app"],
+          ["^@pages"],
+          ["^@widgets"],
+          ["^@features"],
+          ["^@entities"],
+          ["^@shared"],
+
+          // Shad CN
+          ["^@shared/lib/shad-cn"],
+
+          // Родственные пути (относительные импорты)
+          ["^\\."],
+
+          // Остальное
+          ["^"]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "error"
   }
 }

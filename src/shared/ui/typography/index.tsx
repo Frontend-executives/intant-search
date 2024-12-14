@@ -1,5 +1,5 @@
-import { ReactElement, ReactNode } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
+import { ReactElement, ReactNode } from 'react'
 
 const variants = cva('text-current', {
   variants: {

@@ -1,7 +1,9 @@
-import { ReactElement } from 'react'
 import Image from 'next/image'
-import { Typography } from '@/shared/ui/typography'
-import { Button } from '@/shared/lib/shad-cn/components/ui/button'
+import { ReactElement } from 'react'
+
+import { Typography } from '@shared/ui/typography'
+
+import { Button } from '@shared/lib/shad-cn/components/ui/button'
 
 const imageSizeBySizeProp = {
   S: 240,

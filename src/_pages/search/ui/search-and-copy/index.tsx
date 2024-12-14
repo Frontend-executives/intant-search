@@ -1,17 +1,20 @@
+import { cva } from 'class-variance-authority'
+import { useUnit } from 'effector-react'
+import { Check, Copy, Search } from 'lucide-react'
+import { ReactElement, useState } from 'react'
+import { toast } from 'sonner'
+
+import { replacementSelected } from '@pages/search/model'
+
+import { Equipment } from '@shared/api'
+
+import { Button } from '@shared/lib/shad-cn/components/ui/button'
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger
-} from '@/shared/lib/shad-cn/components/ui/tooltip'
-import { Button } from '@/shared/lib/shad-cn/components/ui/button'
-import { Check, Copy, Search } from 'lucide-react'
-import { useUnit } from 'effector-react'
-import { replacementSelected } from '@/_pages/search/model'
-import { Equipment } from '@/shared/api'
-import { cva } from 'class-variance-authority'
-import { ReactElement, useState } from 'react'
-import { toast } from 'sonner'
+} from '@shared/lib/shad-cn/components/ui/tooltip'
 
 const copyButtonVariants = cva('', {
   variants: {

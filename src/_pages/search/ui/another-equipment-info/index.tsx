@@ -1,7 +1,9 @@
 import { ReactElement } from 'react'
-import { Equipment } from '@/shared/api'
-import { SearchAndCopy } from '@/_pages/search/ui/search-and-copy'
-import { Typography } from '@/shared/ui/typography'
+
+import { SearchAndCopy } from '@pages/search/ui/search-and-copy'
+
+import { Equipment } from '@shared/api'
+import { Typography } from '@shared/ui/typography'
 
 interface Props {
   model:
