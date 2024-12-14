@@ -51,8 +51,8 @@ export const FoundEquipmentBadge = ({
   return (
     <HoverCard>
       <HoverCardTrigger>
-        <Badge className={badgeVariants({ relevance })} variant="default">
-          <Typography type="small">{model.toUpperCase()}</Typography>
+        <Badge className={badgeVariants({ relevance })} variant='default'>
+          <Typography type='small'>{model.toUpperCase()}</Typography>
         </Badge>
       </HoverCardTrigger>
 

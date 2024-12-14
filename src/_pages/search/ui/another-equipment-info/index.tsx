@@ -14,9 +14,9 @@ interface Props {
 
 export const AnotherEquipmentInfo = ({ model, text }: Props): ReactElement => {
   return (
-    <div className="flex items-center gap-2 justify-center">
-      <Typography type="small">
-        {text}: <span className="font-bold">{model.toUpperCase()}</span>
+    <div className='flex items-center gap-2 justify-center'>
+      <Typography type='small'>
+        {text}: <span className='font-bold'>{model.toUpperCase()}</span>
       </Typography>
 
       <SearchAndCopy model={model} />

@@ -18,11 +18,11 @@ export const SearchResultsStepper = (): ReactElement | null => {
     return (
       <Notification
         notesList={null}
-        title="Начните вводить запрос"
-        description="Мы сделаем всю магию 🪄"
-        image="/try-to-search.svg"
+        title='Начните вводить запрос'
+        description='Мы сделаем всю магию 🪄'
+        image='/try-to-search.svg'
         button={null}
-        size="S"
+        size='S'
       />
     )
   } else if (isSearchStarted && isSomeResults) {
@@ -30,27 +30,27 @@ export const SearchResultsStepper = (): ReactElement | null => {
       <Notification
         notesList={null}
         title={`У нас тут больше ${foundModels.length} вариантов`}
-        description="Попробуйте уточнить запрос"
-        image="/some-results.svg"
+        description='Попробуйте уточнить запрос'
+        image='/some-results.svg'
         button={null}
-        size="S"
+        size='S'
       />
     )
   } else if (isSearchStarted && isEmptyResults) {
     return (
       <Notification
         notesList={null}
-        size="S"
-        title="Этой модели нет в базе"
-        description="Свяжитесь с отделом СВН и мы обязательно её добавим"
-        image="/empty-search.svg"
+        size='S'
+        title='Этой модели нет в базе'
+        description='Свяжитесь с отделом СВН и мы обязательно её добавим'
+        image='/empty-search.svg'
         button={null}
       />
     )
   } else {
     return (
       <div
-        className="p-4 rounded-md flex items-center justify-center gap-2 flex-wrap"
+        className='p-4 rounded-md flex items-center justify-center gap-2 flex-wrap'
       >
         {foundModels.map((equipment) => {
           return (

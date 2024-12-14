@@ -20,14 +20,14 @@ export const EquipmentAlternatives = ({
   isRelevant
 }: Props): ReactElement => {
   return (
-    <div className="flex flex-col justify-center items-end gap-2">
+    <div className='flex flex-col justify-center items-end gap-2'>
       {!isRelevant &&
         (!replacement ? (
-          <Typography type="small">
+          <Typography type='small'>
             Рекомендуемая замена не предусмотрена
           </Typography>
         ) : (
-          <AnotherEquipmentInfo model={replacement} text="Замена" />
+          <AnotherEquipmentInfo model={replacement} text='Замена' />
         ))}
 
       {hikvision && (

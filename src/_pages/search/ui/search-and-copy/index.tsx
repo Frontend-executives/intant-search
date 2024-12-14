@@ -56,12 +56,12 @@ export const SearchAndCopy = ({ model }: Props): ReactElement => {
   }
 
   return (
-    <div className="flex items-center gap-2">
+    <div className='flex items-center gap-2'>
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
-              size="icon"
+              size='icon'
               onClick={(): string => onReplacementSelected(model)}
             >
               <Search />
@@ -76,7 +76,7 @@ export const SearchAndCopy = ({ model }: Props): ReactElement => {
           <TooltipTrigger asChild>
             <Button
               disabled={isCopied}
-              size="icon"
+              size='icon'
               className={copyButtonVariants({
                 isCopied: isCopied
               })}

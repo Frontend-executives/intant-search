@@ -25,17 +25,17 @@ export const RelevantEquipment = ({
   hilook
 }: Props): ReactElement => {
   return (
-    <div className="flex flex-col items-center justify-center gap-2">
-      <div className="flex items-center justify-center gap-2">
+    <div className='flex flex-col items-center justify-center gap-2'>
+      <div className='flex items-center justify-center gap-2'>
         <Typography>Оборудование актуально</Typography>
-        <BadgeCheck color="#16a34a" />
+        <BadgeCheck color='#16a34a' />
       </div>
 
       <BrandInfo brand={brand} />
 
       <EquipmentAlternatives
         isRelevant
-        replacement=""
+        replacement=''
         hiwatch={hiwatch}
         hilook={hilook}
         hikvision={hikvision}
@@ -43,7 +43,7 @@ export const RelevantEquipment = ({
 
       {brand === Brands.HIKVISION && (
         <Button asChild>
-          <a target="_blank" href={`${HIKVISION_SEARCH_URL}${model}`}>
+          <a target='_blank' href={`${HIKVISION_SEARCH_URL}${model}`}>
             Посмотреть на официальном сайте
           </a>
         </Button>

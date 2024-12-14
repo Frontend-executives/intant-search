@@ -34,15 +34,15 @@ export const Notification = ({
   notesList
 }: Props): ReactElement => {
   return (
-    <div className="flex-grow p-6 flex items-center justify-center w-full">
-      <div className="text-center flex flex-col items-center justify-center gap-4 w-full max-w-[768px]">
+    <div className='flex-grow p-6 flex items-center justify-center w-full'>
+      <div className='text-center flex flex-col items-center justify-center gap-4 w-full max-w-[768px]'>
         <Image
-          draggable="false"
+          draggable='false'
           src={image}
           alt={title}
           width={imageSizeBySizeProp[size]}
           height={imageSizeBySizeProp[size]}
-          className="aspect-square"
+          className='aspect-square'
         />
 
         <Typography type={typographyTypeBySizeProp[size]}>{title}</Typography>
@@ -54,7 +54,7 @@ export const Notification = ({
             {notesList.map((note) => {
               return (
                 <li key={note}>
-                  <Typography type="small">{note}</Typography>
+                  <Typography type='small'>{note}</Typography>
                 </li>
               )
             })}
@@ -62,7 +62,7 @@ export const Notification = ({
         )}
 
         {button && (
-          <Button className="w-1/2" onClick={button.handler}>
+          <Button className='w-1/2' onClick={button.handler}>
             {button.text}
           </Button>
         )}

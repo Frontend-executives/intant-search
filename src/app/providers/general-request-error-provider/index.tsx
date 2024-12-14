@@ -22,14 +22,14 @@ export const GeneralRequestErrorProvider = ({
     return (
       <Notification
         notesList={null}
-        title="Интернет улетел!"
-        description="Но обещал вернуться... На всякий случай проверьте сеть."
-        image="/network-problem.svg"
+        title='Интернет улетел!'
+        description='Но обещал вернуться... На всякий случай проверьте сеть.'
+        image='/network-problem.svg'
         button={{
           text: 'Повторить попытку',
           handler: (): void => window.location.reload()
         }}
-        size="M"
+        size='M'
       />
     )
   }
@@ -43,14 +43,14 @@ export const GeneralRequestErrorProvider = ({
           '3. Поле "relevance" — строго "yes" или "no".',
           '4. Поля "replacement" и "brand" могут быть пустыми, если данных нет.'
         ]}
-        title="Нарушен контракт"
+        title='Нарушен контракт'
         description={`Таблица не соответствует правилам. Ошибок найдено: ${requestError.validationErrors.length} - исправьте их.`}
-        image="/broken-contract.svg"
+        image='/broken-contract.svg'
         button={{
           text: 'Обновить',
           handler: (): void => window.location.reload()
         }}
-        size="M"
+        size='M'
       />
     )
   }
@@ -58,14 +58,14 @@ export const GeneralRequestErrorProvider = ({
   return (
     <Notification
       notesList={null}
-      title="Куда-то не туда..."
-      description="Произошла ошибка, которую мы не можем объяснить. Возможно, сервер сейчас пьёт кофе. Попробуйте обновить страницу позже."
-      image="/unknown-request-error.svg"
+      title='Куда-то не туда...'
+      description='Произошла ошибка, которую мы не можем объяснить. Возможно, сервер сейчас пьёт кофе. Попробуйте обновить страницу позже.'
+      image='/unknown-request-error.svg'
       button={{
         text: 'Обновить страницу',
         handler: (): void => window.location.reload()
       }}
-      size="M"
+      size='M'
     />
   )
 }

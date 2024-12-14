@@ -18,10 +18,10 @@ export const SearchInput = (): ReactElement => {
   const searchQuery = useUnit($searchQuery)
 
   return (
-    <div className="flex gap-2 py-6">
+    <div className='flex gap-2 py-6'>
       <Input
-        type="text"
-        placeholder="Введите модель..."
+        type='text'
+        placeholder='Введите модель...'
         value={searchQuery.toUpperCase()}
         onChange={(evt) => onSearchResult(evt.target.value)}
       />
@@ -30,7 +30,7 @@ export const SearchInput = (): ReactElement => {
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
-              size="icon"
+              size='icon'
               disabled={!searchQuery}
               onClick={(): void => {
                 onSearchResult('')

@@ -16,10 +16,10 @@ export const LoadingScreenProvider = ({ children }: Props) => {
     return (
       <Notification
         notesList={null}
-        size="M"
-        title="Загружаем..."
-        description="Секундочку, скачиваем на ваш компьютер всё, что нужно. И даже то, что не нужно"
-        image="/loading.svg"
+        size='M'
+        title='Загружаем...'
+        description='Секундочку, скачиваем на ваш компьютер всё, что нужно. И даже то, что не нужно'
+        image='/loading.svg'
         button={null}
       />
     )

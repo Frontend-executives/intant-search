@@ -22,8 +22,8 @@ const Layout = ({
   children: ReactNode
 }>): ReactElement => {
   return (
-    <html lang="ru">
-      <body className="min-h-dvh flex flex-col text-gray-700">
+    <html lang='ru'>
+      <body className='min-h-dvh flex flex-col text-gray-700'>
         <OnlyDesktopProvider>
           <EffectorNext>
             <GeneralRequestErrorProvider>
