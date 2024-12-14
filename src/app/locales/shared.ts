@@ -10,12 +10,12 @@ export const enum SharedLocales {
   NotFoundPageDescription = 'Вы открыли неизведанные земли... но здесь ничего нет. Пора вернуться на главную.',
   NotFoundPageButton = 'Вернуться на главную',
 
-  RequestNetworkErrorTitle = 'Кажется, интернет взял отпуск!',
-  RequestNetworkErrorDescription = 'Но он точно вернётся. Проверьте подключение, а мы пока подождём.',
-  RequestNetworkErrorButton = 'Попробовать ещё раз',
+  RequestNetworkErrorTitle = 'Потеряли сигнал!',
+  RequestNetworkErrorDescription = 'Мы его сейчас найдём. Проверьте подключение, чтобы всё заработало.',
+  RequestNetworkErrorButton = 'Попробовать ещё',
 
   RequestUnknownErrorTitle = 'Что-то пошло не так, но мы не знаем, что именно!',
-  RequestUnknownErrorDescription = 'Сервер явно в замешательстве. Возможно, ему нужно немного времени. Попробуйте обновить страницу позже.',
+  RequestUnknownErrorDescription = 'Пока непонятно, что пошло не так. Но ещё одна попытка может всё исправить.',
   RequestUnknownErrorButton = 'Попробовать обновить',
 
   RequestInvalidDataErrorTitle = 'Контракт нарушен!',
@@ -25,11 +25,11 @@ export const enum SharedLocales {
   RequestInvalidData1 = '1. Все поля должны быть в формате "Текст". Без исключений!',
   RequestInvalidData2 = '2. Поле "model" обязательно. Как же без него?!',
   RequestInvalidData3 = '3. Поле "relevance" — только "yes" или "no". Никаких "может быть".',
-  RequestInvalidData4 = '4. Поля "replacement" и "brand" могут быть пустыми, если данных нет. Но только в этом случае!',
+  RequestInvalidData4 = '4. Поля "replacement" и "brand" могут быть пустыми, если данных нет.',
 
   LoadingTitle = 'Загружаем данные...',
-  LoadingDescription = 'Секундочку, скачиваем на ваш компьютер всё, что нужно. И даже то, что не нужно',
+  LoadingDescription = 'Минуточку, скачиваем на ваш компьютер всё, что нужно. И даже то, что не нужно',
 
-  OnlyDesktopTitle = 'Кажется, наш сайт не дружит с маленькими экранами',
-  OnlyDesktopDescription = 'Но на большом экране всё супер — приходите!'
+  OnlyDesktopTitle = 'Маленький экран — не наш формат!',
+  OnlyDesktopDescription = 'Весь пейзаж не влезает на маленькие экраны. А вот на большом всё будет как надо!'
 }
