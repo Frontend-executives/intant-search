@@ -1,23 +1,38 @@
 'use client'
 
 import { useUnit } from 'effector-react'
-import { ReactNode, useEffect } from 'react'
+import { ReactElement, ReactNode, useEffect } from 'react'
 
-import { $equipmentList, appStarted } from '@app/model'
+import { SharedLocales } from '@app/locales/shared'
+import { $isLoading, equipmentLoaded } from '@app/model'
+
+import { Notification } from '@shared/ui/notification'
 
 interface Props {
-  children: ReactNode
+  children: ReactNode | ReactNode[]
 }
 
-export const CoreDataProvider = ({ children }: Props): ReactNode => {
-  const onMount = useUnit(appStarted)
-  const equipmentList = useUnit($equipmentList)
+export const CoreDataProvider = ({ children }: Props): ReactElement => {
+  const isLoading = useUnit($isLoading)
+
+  const loadEquipment = useUnit(equipmentLoaded)
 
   useEffect(() => {
-    if (!equipmentList.length) {
-      onMount()
-    }
-  }, [equipmentList, onMount])
+    loadEquipment()
+  }, [loadEquipment])
 
-  return children
+  if (isLoading) {
+    return (
+      <Notification
+        notesList={null}
+        size='M'
+        title={SharedLocales.LoadingTitle}
+        description={SharedLocales.LoadingDescription}
+        image='/loading.svg'
+        button={null}
+      />
+    )
+  }
+
+  return <>{children}</>
 }

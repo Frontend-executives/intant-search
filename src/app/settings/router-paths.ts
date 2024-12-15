@@ -1,3 +1,4 @@
 export const ROUTER_PATHS = {
-  search: '/'
+  search: '/',
+  signIn: '/sign-in'
 } as const

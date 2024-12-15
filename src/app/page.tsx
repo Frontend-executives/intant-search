@@ -1,12 +1,20 @@
 import { ReactElement } from 'react'
 
+import { CoreDataProvider } from '@app/providers/core-data-provider'
+
 import { SearchPage } from '@pages/search/ui'
+
+import { Container } from '@shared/ui/container'
+import { Header } from '@shared/ui/header'
 
 const Search = (): ReactElement => {
   return (
-    <section className='flex-grow p-6 flex flex-col gap-6 items-center text-center'>
-      <SearchPage />
-    </section>
+    <CoreDataProvider>
+      <Header />
+      <Container>
+        <SearchPage />
+      </Container>
+    </CoreDataProvider>
   )
 }
 

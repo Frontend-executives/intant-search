@@ -31,5 +31,8 @@ export const enum SharedLocales {
   LoadingDescription = 'Минуточку, скачиваем на ваш компьютер всё, что нужно. И даже то, что не нужно',
 
   OnlyDesktopTitle = 'Маленький экран — не наш формат!',
-  OnlyDesktopDescription = 'Весь пейзаж не влезает на маленькие экраны. А вот на большом всё будет как надо!'
+  OnlyDesktopDescription = 'Весь пейзаж не влезает на маленькие экраны. А вот на большом всё будет как надо!',
+
+  SearchPage = 'Главная',
+  SignIn = 'Войти'
 }

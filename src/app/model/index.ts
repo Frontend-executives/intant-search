@@ -10,7 +10,7 @@ import { APP_SCRIPT_URL } from '@app/settings/app-script'
 
 import { getGeneralDataQueryResponse } from '@shared/api'
 
-export const appStarted = createEvent()
+export const equipmentLoaded = createEvent()
 
 export const getGeneralDataQuery = createJsonQuery({
   request: {
@@ -28,12 +28,20 @@ export const $equipmentList = getGeneralDataQuery.$data.map(
   (data) => data?.equipmentList ?? []
 )
 
-export const $isLoading = createStore(true)
+export const $isLoading = createStore<boolean>(true)
 export const $requestError = createStore<JsonApiRequestError | null>(null)
+export const $isDataLoaded = createStore<boolean>(false)
 
 sample({
-  clock: appStarted,
+  clock: equipmentLoaded,
+  source: $isDataLoaded,
+  filter: (isDataLoaded) => !isDataLoaded,
   target: getGeneralDataQuery.start
+})
+
+sample({
+  clock: getGeneralDataQuery.$succeeded,
+  target: $isDataLoaded
 })
 
 sample({

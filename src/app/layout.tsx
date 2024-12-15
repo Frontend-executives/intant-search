@@ -4,13 +4,9 @@ import { ReactElement, ReactNode } from 'react'
 import { Toaster } from 'sonner'
 
 import { SharedLocales } from '@app/locales/shared'
-import { CoreDataProvider } from '@app/providers/core-data-provider'
 import { GeneralRequestErrorProvider } from '@app/providers/general-request-error-provider'
-import { LoadingScreenProvider } from '@app/providers/loading-screen-provider'
 import { NProgressProvider } from '@app/providers/n-progress-provider'
 import { OnlyDesktopProvider } from '@app/providers/only-desktop-provider'
-
-import { Header } from '@shared/ui/header'
 
 import './globals.css'
 
@@ -19,27 +15,24 @@ export const metadata: Metadata = {
   description: SharedLocales.AppDescription
 }
 
-const Layout = ({
+const Layout = async ({
   children
 }: Readonly<{
   children: ReactNode
-}>): ReactElement => {
+}>): Promise<ReactElement> => {
   return (
     <html lang='ru'>
       <body className='min-h-dvh flex flex-col text-gray-700'>
-        <OnlyDesktopProvider>
-          <EffectorNext>
-            <GeneralRequestErrorProvider>
-              <CoreDataProvider>
-                <LoadingScreenProvider>
-                  <Header />
-                  <NProgressProvider>{children}</NProgressProvider>
-                  <Toaster />
-                </LoadingScreenProvider>
-              </CoreDataProvider>
-            </GeneralRequestErrorProvider>
-          </EffectorNext>
-        </OnlyDesktopProvider>
+        <EffectorNext>
+          <GeneralRequestErrorProvider>
+            <NProgressProvider>
+              <OnlyDesktopProvider>
+                {children}
+                <Toaster />
+              </OnlyDesktopProvider>
+            </NProgressProvider>
+          </GeneralRequestErrorProvider>
+        </EffectorNext>
       </body>
     </html>
   )
