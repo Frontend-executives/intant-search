@@ -1,12 +1,12 @@
 import { ReactElement } from 'react'
 
-import { CoreDataProvider } from '@app/providers/core-data-provider'
+import { PageContainer } from '@shared/ui/page-container'
 
 const Duplicates = async (): Promise<ReactElement> => {
   return (
-    <CoreDataProvider>
+    <PageContainer>
       <div>Duplicates</div>
-    </CoreDataProvider>
+    </PageContainer>
   )
 }
 
