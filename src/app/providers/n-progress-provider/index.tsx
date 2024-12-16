@@ -11,6 +11,7 @@ export const NProgressProvider = ({ children }: Props): ReactElement => {
   return (
     <>
       <AppProgressBar
+        height='4px'
         color='#2463eb'
         options={{ showSpinner: false }}
         shallowRouting

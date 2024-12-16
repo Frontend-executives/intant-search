@@ -38,5 +38,6 @@ export const enum SharedLocales {
   SearchPage = 'Главная',
   SignIn = 'Войти',
   SignOut = 'Выйти',
-  Contract = 'Контракт'
+  Contract = 'Контракт',
+  Duplicates = 'Дубликаты'
 }
