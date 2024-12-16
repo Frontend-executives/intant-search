@@ -31,17 +31,14 @@ interface Props {
   equipmentList: Equipment[]
   title: string
   description: string
-  emptyEquipmentList: {
-    description: string
-    image: string
-  }
+  emptyEquipmentListDescription: string
 }
 
 export const EquipmentTable = ({
   equipmentList,
   title,
   description,
-  emptyEquipmentList
+  emptyEquipmentListDescription
 }: Props): ReactElement => {
   return (
     <div className='w-full flex flex-col gap-6 text-center'>
@@ -128,8 +125,8 @@ export const EquipmentTable = ({
       ) : (
         <Notification
           title={SharedLocales.EmptyTableTitle}
-          description={emptyEquipmentList.description}
-          image={emptyEquipmentList.image}
+          description={emptyEquipmentListDescription}
+          image='/slap.svg'
           button={null}
           size='S'
           notesList={null}

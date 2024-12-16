@@ -2,6 +2,7 @@
 
 import { useUnit } from 'effector-react'
 import {
+  CircleHelp,
   CopyIcon,
   LogIn,
   LogOut,
@@ -9,6 +10,7 @@ import {
   SearchIcon,
   VideoOff
 } from 'lucide-react'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ReactElement, useMemo } from 'react'
 
@@ -17,103 +19,139 @@ import { ROUTER_PATHS } from '@app/settings/router-paths'
 
 import { $isSignedIn, signedOut } from '@pages/sign-in/model'
 
-import { $duplicatesList, $invalidReplacementsList } from '@shared/model'
 import {
-  ButtonsList,
-  ButtonsListProps
-} from '@shared/ui/navigation/buttons-list'
+  $duplicatesList,
+  $invalidReplacementsList,
+  $obsoletesWithoutReplacement
+} from '@shared/model'
+
+import { Button } from '@shared/lib/shad-cn/components/ui/button'
 
 export const Navigation = (): ReactElement => {
   const isSignedIn = useUnit($isSignedIn)
   const signOut = useUnit(signedOut)
   const duplicatesList = useUnit($duplicatesList)
   const invalidReplacementsList = useUnit($invalidReplacementsList)
+  const obsoletesWithoutReplacement = useUnit($obsoletesWithoutReplacement)
 
   const pathname = usePathname()
 
-  const SIGNED_OUT_NAVIGATION_BUTTONS: ButtonsListProps['buttons'] = useMemo(
-    () => [
-      {
-        variant: pathname === ROUTER_PATHS.search ? 'default' : 'outline',
-        type: 'link',
-        href: ROUTER_PATHS.search,
-        text: SharedLocales.SearchPage,
-        icon: <SearchIcon />,
-        count: null,
-        onClick: null
-      },
-      {
-        variant: pathname === ROUTER_PATHS.signIn ? 'default' : 'outline',
-        type: 'link',
-        onClick: null,
-        text: SharedLocales.SignIn,
-        icon: <LogIn />,
-        count: null,
-        href: ROUTER_PATHS.signIn
-      }
-    ],
-    [pathname]
-  )
-
-  const SIGNED_IN_NAVIGATION_BUTTONS: ButtonsListProps['buttons'] = useMemo(
-    () => [
-      {
-        variant: pathname === ROUTER_PATHS.search ? 'default' : 'outline',
-        type: 'link',
-        href: ROUTER_PATHS.search,
-        text: SharedLocales.SearchPage,
-        icon: <SearchIcon />,
-        onClick: null,
-        count: null
-      },
-      {
-        variant: pathname === ROUTER_PATHS.duplicates ? 'default' : 'outline',
-        type: 'link',
-        href: ROUTER_PATHS.duplicates,
-        text: SharedLocales.Duplicates,
-        icon: <CopyIcon />,
-        onClick: null,
-        count: duplicatesList.length || null
-      },
-      {
-        variant:
-          pathname === ROUTER_PATHS.invalidReplacements ? 'default' : 'outline',
-        type: 'link',
-        href: ROUTER_PATHS.invalidReplacements,
-        text: SharedLocales.InvalidReplacements,
-        icon: <VideoOff />,
-        onClick: null,
-        count: invalidReplacementsList.length || null
-      },
-      {
-        variant: pathname === ROUTER_PATHS.contract ? 'default' : 'outline',
-        type: 'link',
-        href: ROUTER_PATHS.contract,
-        text: SharedLocales.Contract,
-        icon: <ReceiptText />,
-        onClick: null,
-        count: null
-      },
-      {
-        variant: 'destructive',
-        type: 'button',
-        onClick: signOut,
-        text: SharedLocales.SignOut,
-        icon: <LogOut />,
-        href: null,
-        count: null
-      }
-    ],
-    [pathname, signOut, duplicatesList, invalidReplacementsList]
+  const NAVIGATION_BUTTONS = useMemo(
+    () =>
+      [
+        {
+          isShown: true,
+          variant: pathname === ROUTER_PATHS.search ? 'default' : 'outline',
+          type: 'link',
+          href: ROUTER_PATHS.search,
+          text: SharedLocales.SearchPage,
+          icon: <SearchIcon />,
+          onClick: null,
+          count: null
+        },
+        {
+          isShown: isSignedIn,
+          variant: pathname === ROUTER_PATHS.duplicates ? 'default' : 'outline',
+          type: 'link',
+          href: ROUTER_PATHS.duplicates,
+          text: SharedLocales.Duplicates,
+          icon: <CopyIcon />,
+          onClick: null,
+          count: duplicatesList.length || null
+        },
+        {
+          isShown: isSignedIn,
+          variant:
+            pathname === ROUTER_PATHS.invalidReplacements
+              ? 'default'
+              : 'outline',
+          type: 'link',
+          href: ROUTER_PATHS.invalidReplacements,
+          text: SharedLocales.InvalidReplacements,
+          icon: <VideoOff />,
+          onClick: null,
+          count: invalidReplacementsList.length || null
+        },
+        {
+          isShown: isSignedIn,
+          variant:
+            pathname === ROUTER_PATHS.obsoletesWithoutReplacement
+              ? 'default'
+              : 'outline',
+          type: 'link',
+          href: ROUTER_PATHS.obsoletesWithoutReplacement,
+          text: SharedLocales.ObsoletesWithoutReplacement,
+          icon: <CircleHelp />,
+          onClick: null,
+          count: obsoletesWithoutReplacement.length || null
+        },
+        {
+          isShown: isSignedIn,
+          variant: pathname === ROUTER_PATHS.contract ? 'default' : 'outline',
+          type: 'link',
+          href: ROUTER_PATHS.contract,
+          text: SharedLocales.Contract,
+          icon: <ReceiptText />,
+          onClick: null,
+          count: null
+        },
+        {
+          isShown: !isSignedIn,
+          variant: pathname === ROUTER_PATHS.signIn ? 'default' : 'outline',
+          type: 'link',
+          href: ROUTER_PATHS.signIn,
+          text: SharedLocales.SignIn,
+          icon: <LogIn />,
+          onClick: null,
+          count: null
+        },
+        {
+          isShown: isSignedIn,
+          variant: 'destructive',
+          type: 'button',
+          onClick: signOut,
+          text: SharedLocales.SignOut,
+          icon: <LogOut />,
+          href: null,
+          count: null
+        }
+      ] as const,
+    [pathname, signOut, duplicatesList, invalidReplacementsList, isSignedIn]
   )
 
   return (
     <nav>
-      {isSignedIn ? (
-        <ButtonsList buttons={SIGNED_IN_NAVIGATION_BUTTONS} />
-      ) : (
-        <ButtonsList buttons={SIGNED_OUT_NAVIGATION_BUTTONS} />
-      )}
+      <ul className='flex items-center gap-2'>
+        {NAVIGATION_BUTTONS.map(
+          ({ type, icon, text, href, onClick, variant, count, isShown }) => {
+            return isShown ? (
+              <li key={text}>
+                {type === 'link' && (
+                  <Button asChild variant={variant} className='relative'>
+                    <Link href={href}>
+                      {text}
+                      {icon}
+
+                      {count && (
+                        <div className='absolute bottom-[-10px] text-xs bg-red-500 text-white min-w-6 p-2 h-5 flex items-center justify-center rounded-3xl shadow-lg'>
+                          {count}
+                        </div>
+                      )}
+                    </Link>
+                  </Button>
+                )}
+
+                {type === 'button' && (
+                  <Button variant={variant} onClick={onClick}>
+                    {text}
+                    {icon}
+                  </Button>
+                )}
+              </li>
+            ) : null
+          }
+        )}
+      </ul>
     </nav>
   )
 }

@@ -18,6 +18,7 @@ export const config = {
   matcher: [
     '/contract/:path*',
     '/duplicates/:path*',
-    '/invalid-replacements/:path*'
+    '/invalid-replacements/:path*',
+    '/obsoletes-without-replacement/:path*'
   ]
 }

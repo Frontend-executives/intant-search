@@ -3,5 +3,6 @@ export const ROUTER_PATHS = {
   signIn: '/sign-in',
   contract: '/contract',
   duplicates: '/duplicates',
-  invalidReplacements: '/invalid-replacements'
+  invalidReplacements: '/invalid-replacements',
+  obsoletesWithoutReplacement: '/obsoletes-without-replacement'
 } as const

@@ -16,10 +16,7 @@ export const DuplicatesPage = (): ReactElement => {
       equipmentList={duplicatesList}
       title={DuplicatesLocales.Title}
       description={DuplicatesLocales.Description}
-      emptyEquipmentList={{
-        description: DuplicatesLocales.EmptyDuplicatesDescription,
-        image: '/slap.svg'
-      }}
+      emptyEquipmentListDescription={DuplicatesLocales.EmptyListDescription}
     />
   )
 }

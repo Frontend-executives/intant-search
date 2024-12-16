@@ -16,10 +16,9 @@ export const InvalidReplacementsPage = (): ReactElement => {
       equipmentList={invalidReplacementsList}
       title={InvalidReplacementsLocales.Title}
       description={InvalidReplacementsLocales.Description}
-      emptyEquipmentList={{
-        description: InvalidReplacementsLocales.EmptyDuplicatesDescription,
-        image: '/slap.svg'
-      }}
+      emptyEquipmentListDescription={
+        InvalidReplacementsLocales.EmptyListDescription
+      }
     />
   )
 }
