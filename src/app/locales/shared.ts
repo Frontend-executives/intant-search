@@ -25,7 +25,7 @@ export const enum SharedLocales {
   RequestInvalidData1 = '1. Все заполненные поля должны быть текстовыми. Проверяйте форматирование ячеек в Google таблице.',
   RequestInvalidData2 = '2. Поле "model" обязательно и не может быть пустым.',
   RequestInvalidData3 = '3. Поле "relevance" принимает только значения yes / no.',
-  RequestInvalidData4 = '4. Поле "brand" должно содержать одно из значений: hilook / hiwatch / hikvision. Регистр имеет значение.',
+  RequestInvalidData4 = '4. Поле "brand" должно содержать одно из значений: hilook / hiwatch / hikvision.',
   RequestInvalidData5 = '5. Поля "hilook", "hiwatch" и "hikvision" должны содержать текстовые значения, соответствующие бренду.',
   RequestInvalidData6 = '6. Поле "replacement" должно содержать текстовое значение или может быть пустым.',
 
@@ -39,5 +39,8 @@ export const enum SharedLocales {
   SignIn = 'Войти',
   SignOut = 'Выйти',
   Contract = 'Контракт',
-  Duplicates = 'Дубликаты'
+  Duplicates = 'Дубликаты',
+
+  CellLink = 'Ссылка на ячейку',
+  ToCell = 'К ячейке'
 }

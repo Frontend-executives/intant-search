@@ -1,13 +1,9 @@
 import { ReactElement } from 'react'
 
-import { PageContainer } from '@shared/ui/page-container'
+import { DuplicatesPage } from '@pages/duplicates/ui'
 
 const Duplicates = async (): Promise<ReactElement> => {
-  return (
-    <PageContainer>
-      <div>Duplicates</div>
-    </PageContainer>
-  )
+  return <DuplicatesPage />
 }
 
 export default Duplicates

@@ -11,7 +11,7 @@ interface Props {
 export const OnlyDesktopProvider = ({ children }: Props): ReactElement => {
   return (
     <>
-      <div className='sm:hidden flex-grow flex flex-col items-center justify-center'>
+      <div className='lg:hidden flex-grow flex flex-col items-center justify-center'>
         <Notification
           notesList={null}
           size='M'
@@ -21,7 +21,7 @@ export const OnlyDesktopProvider = ({ children }: Props): ReactElement => {
           button={null}
         />
       </div>
-      <div className='hidden sm:flex flex-grow flex-col'>{children}</div>
+      <div className='hidden lg:flex flex-grow flex-col'>{children}</div>
     </>
   )
 }

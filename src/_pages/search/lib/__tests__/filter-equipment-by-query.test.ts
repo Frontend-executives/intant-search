@@ -15,7 +15,7 @@ describe('filterEquipmentByQuery', () => {
       link: 'https://www.example.com',
       hikvision: 'model-hikvision',
       hilook: 'model-hilook',
-      hiwatch: 'modek-hiwatch',
+      hiwatch: 'model-hiwatch',
       brand: Brands.HIKVISION
     },
     {
@@ -25,7 +25,7 @@ describe('filterEquipmentByQuery', () => {
       link: 'https://www.example.com',
       hikvision: 'model-hikvision',
       hilook: 'model-hilook',
-      hiwatch: 'modek-hiwatch',
+      hiwatch: 'model-hiwatch',
       brand: Brands.HIKVISION
     },
     {
@@ -35,7 +35,7 @@ describe('filterEquipmentByQuery', () => {
       link: 'https://www.example.com',
       hikvision: 'model-hikvision',
       hilook: 'model-hilook',
-      hiwatch: 'modek-hiwatch',
+      hiwatch: 'model-hiwatch',
       brand: Brands.HIKVISION
     }
   ]
@@ -54,7 +54,7 @@ describe('filterEquipmentByQuery', () => {
         link: 'https://www.example.com',
         hikvision: 'model-hikvision',
         hilook: 'model-hilook',
-        hiwatch: 'modek-hiwatch',
+        hiwatch: 'model-hiwatch',
         brand: Brands.HIKVISION
       }
     ])
@@ -83,7 +83,7 @@ describe('filterEquipmentByQuery', () => {
         link: 'https://www.example.com',
         hikvision: 'model-hikvision',
         hilook: 'model-hilook',
-        hiwatch: 'modek-hiwatch',
+        hiwatch: 'model-hiwatch',
         brand: Brands.HIKVISION
       }
     ])
@@ -103,7 +103,7 @@ describe('filterEquipmentByQuery', () => {
         link: 'https://www.example.com',
         hikvision: 'model-hikvision',
         hilook: 'model-hilook',
-        hiwatch: 'modek-hiwatch',
+        hiwatch: 'model-hiwatch',
         brand: Brands.HIKVISION
       }
     ])

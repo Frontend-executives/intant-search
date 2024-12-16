@@ -1,6 +1,5 @@
 import { createEvent, createStore, sample } from 'effector'
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
-import { debug } from 'patronum'
 
 import { $equipmentList } from '@app/model'
 
@@ -43,5 +42,3 @@ sample({
   clock: replacementSelected,
   target: $searchQuery
 })
-
-debug($router)
