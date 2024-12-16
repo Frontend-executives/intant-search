@@ -35,7 +35,7 @@ export const enum SharedLocales {
   OnlyDesktopTitle = 'Маленький экран — не наш формат!',
   OnlyDesktopDescription = 'Весь пейзаж не влезает на маленькие экраны. А вот на большом всё будет как надо!',
 
-  SearchPage = 'Главная',
+  SearchPage = 'Поиск',
   SignIn = 'Войти',
   SignOut = 'Выйти',
   Contract = 'Контракт',

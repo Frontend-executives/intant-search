@@ -35,7 +35,6 @@ export const Navigation = (): ReactElement => {
     () => [
       {
         variant: pathname === ROUTER_PATHS.search ? 'default' : 'outline',
-        isShown: pathname !== ROUTER_PATHS.search,
         type: 'link',
         href: ROUTER_PATHS.search,
         text: SharedLocales.SearchPage,
@@ -45,7 +44,6 @@ export const Navigation = (): ReactElement => {
       },
       {
         variant: pathname === ROUTER_PATHS.signIn ? 'default' : 'outline',
-        isShown: true,
         type: 'link',
         onClick: null,
         text: SharedLocales.SignIn,
@@ -61,7 +59,6 @@ export const Navigation = (): ReactElement => {
     () => [
       {
         variant: pathname === ROUTER_PATHS.search ? 'default' : 'outline',
-        isShown: pathname !== ROUTER_PATHS.search,
         type: 'link',
         href: ROUTER_PATHS.search,
         text: SharedLocales.SearchPage,
@@ -71,7 +68,6 @@ export const Navigation = (): ReactElement => {
       },
       {
         variant: pathname === ROUTER_PATHS.duplicates ? 'default' : 'outline',
-        isShown: true,
         type: 'link',
         href: ROUTER_PATHS.duplicates,
         text: SharedLocales.Duplicates,
@@ -82,7 +78,6 @@ export const Navigation = (): ReactElement => {
       {
         variant:
           pathname === ROUTER_PATHS.invalidReplacements ? 'default' : 'outline',
-        isShown: true,
         type: 'link',
         href: ROUTER_PATHS.invalidReplacements,
         text: SharedLocales.InvalidReplacements,
@@ -92,7 +87,6 @@ export const Navigation = (): ReactElement => {
       },
       {
         variant: pathname === ROUTER_PATHS.contract ? 'default' : 'outline',
-        isShown: true,
         type: 'link',
         href: ROUTER_PATHS.contract,
         text: SharedLocales.Contract,
@@ -102,7 +96,6 @@ export const Navigation = (): ReactElement => {
       },
       {
         variant: 'destructive',
-        isShown: true,
         type: 'button',
         onClick: signOut,
         text: SharedLocales.SignOut,
@@ -111,7 +104,7 @@ export const Navigation = (): ReactElement => {
         count: null
       }
     ],
-    [pathname, signOut, duplicatesList]
+    [pathname, signOut, duplicatesList, invalidReplacementsList]
   )
 
   return (
