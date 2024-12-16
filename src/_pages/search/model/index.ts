@@ -1,4 +1,6 @@
 import { createEvent, createStore, sample } from 'effector'
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
+import { debug } from 'patronum'
 
 import { $equipmentList } from '@app/model'
 
@@ -8,9 +10,16 @@ import { Equipment } from '@shared/api'
 
 export const searchResultSet = createEvent<string>()
 export const replacementSelected = createEvent<string>()
+export const routerSet = createEvent<AppRouterInstance>()
 
+export const $router = createStore<null | AppRouterInstance>(null)
 export const $searchQuery = createStore<string>('')
 export const $foundModels = createStore<Equipment[]>([])
+
+sample({
+  clock: routerSet,
+  target: $router
+})
 
 sample({
   clock: searchResultSet,
@@ -34,3 +43,5 @@ sample({
   clock: replacementSelected,
   target: $searchQuery
 })
+
+debug($router)

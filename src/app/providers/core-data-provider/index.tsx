@@ -4,7 +4,7 @@ import { useUnit } from 'effector-react'
 import { ReactElement, ReactNode, useEffect } from 'react'
 
 import { SharedLocales } from '@app/locales/shared'
-import { $isLoading, equipmentLoaded } from '@app/model'
+import { $isLoading, appStarted } from '@app/model'
 
 import { Notification } from '@shared/ui/notification'
 
@@ -15,11 +15,11 @@ interface Props {
 export const CoreDataProvider = ({ children }: Props): ReactElement => {
   const isLoading = useUnit($isLoading)
 
-  const loadEquipment = useUnit(equipmentLoaded)
+  const startApp = useUnit(appStarted)
 
   useEffect(() => {
-    loadEquipment()
-  }, [loadEquipment])
+    startApp()
+  }, [startApp])
 
   if (isLoading) {
     return (

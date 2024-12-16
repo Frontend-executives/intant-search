@@ -1,13 +1,7 @@
-import { Container } from '@shared/ui/container'
-import { Header } from '@shared/ui/header'
+import { SignInPage } from '@pages/sign-in/ui'
 
 const SignIn = () => {
-  return (
-    <>
-      <Header />
-      <Container>Sign In</Container>
-    </>
-  )
+  return <SignInPage />
 }
 
 export default SignIn

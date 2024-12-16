@@ -8,9 +8,9 @@ import { createEvent, createStore, sample } from 'effector'
 
 import { APP_SCRIPT_URL } from '@app/settings/app-script'
 
-import { getGeneralDataQueryResponse } from '@shared/api'
+import { Equipment, getGeneralDataQueryResponse } from '@shared/api'
 
-export const equipmentLoaded = createEvent()
+export const appStarted = createEvent()
 
 export const getGeneralDataQuery = createJsonQuery({
   request: {
@@ -25,7 +25,10 @@ export const getGeneralDataQuery = createJsonQuery({
 concurrency(getGeneralDataQuery, { strategy: 'TAKE_FIRST' })
 
 export const $equipmentList = getGeneralDataQuery.$data.map(
-  (data) => data?.equipmentList ?? []
+  (data): Equipment[] => data?.equipmentList ?? []
+)
+export const $password = getGeneralDataQuery.$data.map(
+  (data) => data?.password ?? null
 )
 
 export const $isLoading = createStore<boolean>(true)
@@ -33,7 +36,7 @@ export const $requestError = createStore<JsonApiRequestError | null>(null)
 export const $isDataLoaded = createStore<boolean>(false)
 
 sample({
-  clock: equipmentLoaded,
+  clock: appStarted,
   source: $isDataLoaded,
   filter: (isDataLoaded) => !isDataLoaded,
   target: getGeneralDataQuery.start
