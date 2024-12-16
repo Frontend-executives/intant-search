@@ -14,6 +14,7 @@ type Link = {
   text: SharedLocales
   icon: ReactElement
   onClick: null
+  count: number | null
 }
 
 type Button = {
@@ -24,6 +25,7 @@ type Button = {
   text: SharedLocales
   icon: ReactElement
   onClick: () => void
+  count: null
 }
 
 export interface ButtonsListProps {
@@ -33,27 +35,35 @@ export interface ButtonsListProps {
 export const ButtonsList = ({ buttons }: ButtonsListProps): ReactElement => {
   return (
     <ul className='flex items-center gap-2'>
-      {buttons.map(({ type, icon, text, href, onClick, variant, isShown }) => {
-        return isShown ? (
-          <li key={text}>
-            {type === 'link' && (
-              <Button asChild variant={variant}>
-                <Link href={href}>
+      {buttons.map(
+        ({ type, icon, text, href, onClick, variant, isShown, count }) => {
+          return isShown ? (
+            <li key={text}>
+              {type === 'link' && (
+                <Button asChild variant={variant} className='relative'>
+                  <Link href={href}>
+                    {text}
+                    {icon}
+
+                    {count && (
+                      <div className='absolute bottom-[-10px] text-xs bg-red-500 text-white min-w-6 p-2 h-5 flex items-center justify-center rounded-3xl shadow-lg'>
+                        {count}
+                      </div>
+                    )}
+                  </Link>
+                </Button>
+              )}
+
+              {type === 'button' && (
+                <Button variant={variant} onClick={onClick}>
                   {text}
                   {icon}
-                </Link>
-              </Button>
-            )}
-
-            {type === 'button' && (
-              <Button variant={variant} onClick={onClick}>
-                {text}
-                {icon}
-              </Button>
-            )}
-          </li>
-        ) : null
-      })}
+                </Button>
+              )}
+            </li>
+          ) : null
+        }
+      )}
     </ul>
   )
 }

@@ -32,7 +32,6 @@ interface Props {
   title: string
   description: string
   emptyEquipmentList: {
-    title: string
     description: string
     image: string
   }
@@ -128,7 +127,7 @@ export const EquipmentTable = ({
         </>
       ) : (
         <Notification
-          title={emptyEquipmentList.title}
+          title={SharedLocales.EmptyTableTitle}
           description={emptyEquipmentList.description}
           image={emptyEquipmentList.image}
           button={null}

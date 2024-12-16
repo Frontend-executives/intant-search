@@ -5,8 +5,7 @@ import { ReactElement } from 'react'
 
 import { DuplicatesLocales } from '@app/locales/duplicates'
 
-import { $duplicatesList } from '@pages/duplicates/model'
-
+import { $duplicatesList } from '@shared/model'
 import { EquipmentTable } from '@shared/ui/equipment-table'
 
 export const DuplicatesPage = (): ReactElement => {
@@ -18,7 +17,6 @@ export const DuplicatesPage = (): ReactElement => {
       title={DuplicatesLocales.Title}
       description={DuplicatesLocales.Description}
       emptyEquipmentList={{
-        title: DuplicatesLocales.EmptyDuplicatesTitle,
         description: DuplicatesLocales.EmptyDuplicatesDescription,
         image: '/slap.svg'
       }}

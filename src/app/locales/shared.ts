@@ -40,7 +40,9 @@ export const enum SharedLocales {
   SignOut = 'Выйти',
   Contract = 'Контракт',
   Duplicates = 'Дубликаты',
+  InvalidReplacements = 'Невалидные замены',
 
   CellLink = 'Ссылка на ячейку',
-  ToCell = 'К ячейке'
+  ToCell = 'К ячейке',
+  EmptyTableTitle = 'Отличная работа! Все чисто!'
 }

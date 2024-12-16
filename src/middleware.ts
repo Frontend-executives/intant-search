@@ -15,5 +15,9 @@ export function middleware({ cookies, url }: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/duplicates/:path*', '/contract/:path*']
+  matcher: [
+    '/contract/:path*',
+    '/duplicates/:path*',
+    '/invalid-replacements/:path*'
+  ]
 }

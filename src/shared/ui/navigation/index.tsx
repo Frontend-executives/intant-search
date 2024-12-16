@@ -1,7 +1,14 @@
 'use client'
 
 import { useUnit } from 'effector-react'
-import { CopyIcon, LogIn, LogOut, ReceiptText, SearchIcon } from 'lucide-react'
+import {
+  CopyIcon,
+  LogIn,
+  LogOut,
+  ReceiptText,
+  SearchIcon,
+  VideoOff
+} from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { ReactElement, useMemo } from 'react'
 
@@ -10,6 +17,7 @@ import { ROUTER_PATHS } from '@app/settings/router-paths'
 
 import { $isSignedIn, signedOut } from '@pages/sign-in/model'
 
+import { $duplicatesList, $invalidReplacementsList } from '@shared/model'
 import {
   ButtonsList,
   ButtonsListProps
@@ -18,6 +26,8 @@ import {
 export const Navigation = (): ReactElement => {
   const isSignedIn = useUnit($isSignedIn)
   const signOut = useUnit(signedOut)
+  const duplicatesList = useUnit($duplicatesList)
+  const invalidReplacementsList = useUnit($invalidReplacementsList)
 
   const pathname = usePathname()
 
@@ -30,6 +40,7 @@ export const Navigation = (): ReactElement => {
         href: ROUTER_PATHS.search,
         text: SharedLocales.SearchPage,
         icon: <SearchIcon />,
+        count: null,
         onClick: null
       },
       {
@@ -39,6 +50,7 @@ export const Navigation = (): ReactElement => {
         onClick: null,
         text: SharedLocales.SignIn,
         icon: <LogIn />,
+        count: null,
         href: ROUTER_PATHS.signIn
       }
     ],
@@ -54,7 +66,8 @@ export const Navigation = (): ReactElement => {
         href: ROUTER_PATHS.search,
         text: SharedLocales.SearchPage,
         icon: <SearchIcon />,
-        onClick: null
+        onClick: null,
+        count: null
       },
       {
         variant: pathname === ROUTER_PATHS.duplicates ? 'default' : 'outline',
@@ -63,7 +76,19 @@ export const Navigation = (): ReactElement => {
         href: ROUTER_PATHS.duplicates,
         text: SharedLocales.Duplicates,
         icon: <CopyIcon />,
-        onClick: null
+        onClick: null,
+        count: duplicatesList.length || null
+      },
+      {
+        variant:
+          pathname === ROUTER_PATHS.invalidReplacements ? 'default' : 'outline',
+        isShown: true,
+        type: 'link',
+        href: ROUTER_PATHS.invalidReplacements,
+        text: SharedLocales.InvalidReplacements,
+        icon: <VideoOff />,
+        onClick: null,
+        count: invalidReplacementsList.length || null
       },
       {
         variant: pathname === ROUTER_PATHS.contract ? 'default' : 'outline',
@@ -72,7 +97,8 @@ export const Navigation = (): ReactElement => {
         href: ROUTER_PATHS.contract,
         text: SharedLocales.Contract,
         icon: <ReceiptText />,
-        onClick: null
+        onClick: null,
+        count: null
       },
       {
         variant: 'destructive',
@@ -81,10 +107,11 @@ export const Navigation = (): ReactElement => {
         onClick: signOut,
         text: SharedLocales.SignOut,
         icon: <LogOut />,
-        href: null
+        href: null,
+        count: null
       }
     ],
-    [pathname, signOut]
+    [pathname, signOut, duplicatesList]
   )
 
   return (

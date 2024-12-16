@@ -9,6 +9,7 @@ import { ROUTER_PATHS } from '@app/settings/router-paths'
 import { $router } from '@pages/search/model'
 
 export const passwordEntered = createEvent<string>()
+export const setIsSignedIn = createEvent<boolean>()
 export const signedIn = createEvent()
 export const signedOut = createEvent()
 

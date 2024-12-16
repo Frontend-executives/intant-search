@@ -8,7 +8,7 @@ import { createEvent, createStore, sample } from 'effector'
 
 import { APP_SCRIPT_URL } from '@app/settings/app-script'
 
-import { Equipment, getGeneralDataQueryResponse } from '@shared/api'
+import { getGeneralDataQueryResponse } from '@shared/api'
 
 export const appStarted = createEvent()
 
@@ -24,9 +24,6 @@ export const getGeneralDataQuery = createJsonQuery({
 
 concurrency(getGeneralDataQuery, { strategy: 'TAKE_FIRST' })
 
-export const $equipmentList = getGeneralDataQuery.$data.map(
-  (data): Equipment[] => data?.equipmentList ?? []
-)
 export const $password = getGeneralDataQuery.$data.map(
   (data) => data?.password ?? null
 )
