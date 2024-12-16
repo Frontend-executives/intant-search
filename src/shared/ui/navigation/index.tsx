@@ -1,7 +1,7 @@
 'use client'
 
 import { useUnit } from 'effector-react'
-import { LogIn, LogOut, SearchIcon } from 'lucide-react'
+import { LogIn, LogOut, ReceiptText, SearchIcon } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ReactElement } from 'react'
@@ -22,6 +22,19 @@ export const Navigation = (): ReactElement => {
     <nav>
       {isSignedIn ? (
         <ul className='flex items-center gap-2'>
+          <li>
+            <Button
+              asChild
+              variant={
+                pathname === ROUTER_PATHS.contract ? 'default' : 'outline'
+              }
+            >
+              <Link shallow href={ROUTER_PATHS.contract}>
+                {SharedLocales.Contract}
+                <ReceiptText />
+              </Link>
+            </Button>
+          </li>
           <li>
             <Button variant='destructive' onClick={signOut}>
               {SharedLocales.SignOut}

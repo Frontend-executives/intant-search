@@ -37,7 +37,7 @@ export const Notification = ({
 }: Props): ReactElement => {
   return (
     <div className='flex-grow p-6 flex items-center justify-center w-full'>
-      <div className='text-center flex flex-col items-center justify-center gap-4 w-full max-w-[768px]'>
+      <div className='text-center flex flex-col items-center justify-center gap-4 w-full max-w-[800px]'>
         <Image
           draggable='false'
           src={image}
@@ -52,7 +52,7 @@ export const Notification = ({
         <Typography>{description}</Typography>
 
         {notesList && (
-          <ul>
+          <ul className='flex flex-col items-start gap-1'>
             {notesList.map((note) => {
               return (
                 <li key={note}>

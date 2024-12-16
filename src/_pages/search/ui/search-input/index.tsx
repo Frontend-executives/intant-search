@@ -22,7 +22,7 @@ export const SearchInput = (): ReactElement => {
   const searchQuery = useUnit($searchQuery)
 
   return (
-    <div className='flex gap-2 py-6'>
+    <div className='flex gap-2 py-6 w-full'>
       <Input
         type='text'
         placeholder={SearchLocales.InputPlaceholder}

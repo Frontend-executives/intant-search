@@ -1,4 +1,5 @@
 export const ROUTER_PATHS = {
   search: '/',
-  signIn: '/sign-in'
+  signIn: '/sign-in',
+  contract: '/contract'
 } as const

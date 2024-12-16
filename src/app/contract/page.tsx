@@ -1,15 +1,15 @@
 import { ReactElement } from 'react'
 
-import { SearchPage } from '@pages/search/ui'
+import { ContractPage } from '@pages/contract/ui'
 
 import { PageContainer } from '@shared/ui/page-container'
 
-const Search = (): ReactElement => {
+const Contract = (): ReactElement => {
   return (
     <PageContainer>
-      <SearchPage />
+      <ContractPage />
     </PageContainer>
   )
 }
 
-export default Search
+export default Contract

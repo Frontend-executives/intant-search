@@ -44,7 +44,9 @@ export const GeneralRequestErrorProvider = ({
           SharedLocales.RequestInvalidData1,
           SharedLocales.RequestInvalidData2,
           SharedLocales.RequestInvalidData3,
-          SharedLocales.RequestInvalidData4
+          SharedLocales.RequestInvalidData4,
+          SharedLocales.RequestInvalidData5,
+          SharedLocales.RequestInvalidData6
         ]}
         title={SharedLocales.RequestInvalidDataErrorTitle}
         description={`${SharedLocales.RequestInvalidDataErrorDescription} ${requestError.validationErrors.length}`}
