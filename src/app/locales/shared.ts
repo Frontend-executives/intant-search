@@ -45,5 +45,7 @@ export const enum SharedLocales {
 
   CellLink = 'Ссылка на ячейку',
   ToCell = 'К ячейке',
-  EmptyTableTitle = 'Отличная работа! Все чисто!'
+  EmptyTableTitle = 'Отличная работа! Все чисто!',
+
+  WrongPassword = 'Неверный пароль'
 }

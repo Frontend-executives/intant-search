@@ -25,6 +25,7 @@ import {
   $obsoletesWithoutReplacement
 } from '@shared/model'
 
+import { Badge } from '@shared/lib/shad-cn/components/ui/badge'
 import { Button } from '@shared/lib/shad-cn/components/ui/button'
 
 export const Navigation = (): ReactElement => {
@@ -133,9 +134,12 @@ export const Navigation = (): ReactElement => {
                       {icon}
 
                       {count && (
-                        <div className='absolute bottom-[-10px] text-xs bg-red-500 text-white min-w-6 p-2 h-5 flex items-center justify-center rounded-3xl shadow-lg'>
+                        <Badge
+                          className='absolute bottom-[-14px]'
+                          variant='destructive'
+                        >
                           {count}
-                        </div>
+                        </Badge>
                       )}
                     </Link>
                   </Button>

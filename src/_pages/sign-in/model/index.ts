@@ -9,7 +9,6 @@ import { ROUTER_PATHS } from '@app/settings/router-paths'
 import { $router } from '@pages/search/model'
 
 export const passwordEntered = createEvent<string>()
-export const setIsSignedIn = createEvent<boolean>()
 export const signedIn = createEvent()
 export const signedOut = createEvent()
 
@@ -25,6 +24,7 @@ const signedOutFx = createEffect(() => {
 })
 
 export const $isSignedIn = createStore<boolean>(false)
+export const $isWrongPassword = createStore<boolean>(false)
 
 sample({
   clock: appStarted,
@@ -39,6 +39,17 @@ sample({
   filter: (password, query) => password === query,
   fn: (password, query) => password === query,
   target: signedIn
+})
+
+sample({
+  clock: passwordEntered,
+  source: $password,
+  fn: (password, query) => {
+    if (!password) return false
+
+    return query.length === password.length && query !== password
+  },
+  target: $isWrongPassword
 })
 
 sample({
