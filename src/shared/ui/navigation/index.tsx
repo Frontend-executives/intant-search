@@ -7,6 +7,7 @@ import {
   LogIn,
   LogOut,
   ReceiptText,
+  RotateCw,
   SearchIcon,
   TriangleAlert,
   VideoOff
@@ -23,8 +24,9 @@ import { $isSignedIn, signedOut } from '@pages/sign-in/model'
 import {
   $duplicatesList,
   $invalidReplacementsList,
-  $obsoletesWithoutReplacement,
-  $relevantsWithReplacement
+  $obsoletesWithoutReplacementList,
+  $relevantsWithReplacementList,
+  $selfReplacementList
 } from '@shared/model'
 
 import { Badge } from '@shared/lib/shad-cn/components/ui/badge'
@@ -35,8 +37,11 @@ export const Navigation = (): ReactElement => {
   const signOut = useUnit(signedOut)
   const duplicatesList = useUnit($duplicatesList)
   const invalidReplacementsList = useUnit($invalidReplacementsList)
-  const obsoletesWithoutReplacement = useUnit($obsoletesWithoutReplacement)
-  const relevantsWithReplacement = useUnit($relevantsWithReplacement)
+  const obsoletesWithoutReplacementList = useUnit(
+    $obsoletesWithoutReplacementList
+  )
+  const relevantsWithReplacementList = useUnit($relevantsWithReplacementList)
+  const selftReplacementList = useUnit($selfReplacementList)
 
   const pathname = usePathname()
 
@@ -87,7 +92,7 @@ export const Navigation = (): ReactElement => {
           text: SharedLocales.ObsoletesWithoutReplacement,
           icon: <CircleHelp />,
           onClick: null,
-          count: obsoletesWithoutReplacement.length || null
+          count: obsoletesWithoutReplacementList.length || null
         },
         {
           isShown: isSignedIn,
@@ -100,7 +105,18 @@ export const Navigation = (): ReactElement => {
           text: SharedLocales.RelevantsWithReplacement,
           icon: <TriangleAlert />,
           onClick: null,
-          count: relevantsWithReplacement.length || null
+          count: relevantsWithReplacementList.length || null
+        },
+        {
+          isShown: isSignedIn,
+          variant:
+            pathname === ROUTER_PATHS.selfReplacement ? 'default' : 'outline',
+          type: 'link',
+          href: ROUTER_PATHS.selfReplacement,
+          text: SharedLocales.SelfReplacement,
+          icon: <RotateCw />,
+          onClick: null,
+          count: selftReplacementList.length || null
         },
         {
           isShown: isSignedIn,

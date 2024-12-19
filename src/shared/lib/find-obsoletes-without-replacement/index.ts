@@ -1,9 +1,9 @@
 import { Equipment } from '@shared/api'
 
 export const findObsoletesWithoutReplacement = (
-  equipments: Equipment[]
+  equipmentList: Equipment[]
 ): Equipment[] => {
-  return equipments.filter(({ relevance, replacement }) => {
+  return equipmentList.filter(({ relevance, replacement }) => {
     return relevance === 'no' && !replacement
   })
 }

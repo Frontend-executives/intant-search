@@ -5,5 +5,6 @@ export const ROUTER_PATHS = {
   duplicates: '/duplicates',
   invalidReplacements: '/invalid-replacements',
   obsoletesWithoutReplacement: '/obsoletes-without-replacement',
-  relevantsWithReplacement: '/relevants-with-replacement'
+  relevantsWithReplacement: '/relevants-with-replacement',
+  selfReplacement: '/self-replacement'
 } as const

@@ -5,15 +5,17 @@ import { ReactElement } from 'react'
 
 import { ObsoletesWithoutReplacementLocales } from '@app/locales/obsoletes-without-replacement'
 
-import { $obsoletesWithoutReplacement } from '@shared/model'
+import { $obsoletesWithoutReplacementList } from '@shared/model'
 import { EquipmentTable } from '@shared/ui/equipment-table'
 
 export const ObsoletesWithoutReplacementPage = (): ReactElement => {
-  const obsoletesWithoutReplacement = useUnit($obsoletesWithoutReplacement)
+  const obsoletesWithoutReplacementList = useUnit(
+    $obsoletesWithoutReplacementList
+  )
 
   return (
     <EquipmentTable
-      equipmentList={obsoletesWithoutReplacement}
+      equipmentList={obsoletesWithoutReplacementList}
       title={ObsoletesWithoutReplacementLocales.Title}
       description={ObsoletesWithoutReplacementLocales.Description}
       emptyEquipmentListDescription={

@@ -20,6 +20,7 @@ export const config = {
     '/duplicates/:path*',
     '/invalid-replacements/:path*',
     '/obsoletes-without-replacement/:path*',
-    '/relevants-with-replacement/:path*'
+    '/relevants-with-replacement/:path*',
+    '/self-replacement/:path*'
   ]
 }

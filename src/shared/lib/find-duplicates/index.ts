@@ -1,10 +1,10 @@
 import { Equipment } from '@shared/api'
 
-export const findDuplicates = (equipments: Equipment[]): Equipment[] => {
+export const findDuplicates = (equipmentList: Equipment[]): Equipment[] => {
   const duplicates: Equipment[] = []
   const modelCountMap: Record<string, number> = {}
 
-  equipments.forEach(({ model }) => {
+  equipmentList.forEach(({ model }) => {
     if (!modelCountMap[model]) {
       modelCountMap[model] = 1
     } else {
@@ -14,7 +14,7 @@ export const findDuplicates = (equipments: Equipment[]): Equipment[] => {
 
   for (const model in modelCountMap) {
     if (modelCountMap[model] > 1) {
-      const duplicateEquipments = equipments.filter(
+      const duplicateEquipments = equipmentList.filter(
         (equipment) => equipment.model === model
       )
 
