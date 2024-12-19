@@ -16,11 +16,11 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ReactElement, useMemo } from 'react'
 
-import { SharedLocales } from '@app/locales/shared'
 import { ROUTER_PATHS } from '@app/settings/router-paths'
 
 import { $isSignedIn, signedOut } from '@pages/sign-in/model'
 
+import { SharedLocales } from '@shared/locales/shared'
 import {
   $duplicatesList,
   $invalidReplacementsList,

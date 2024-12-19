@@ -3,9 +3,9 @@
 import { useUnit } from 'effector-react'
 import { ReactElement, ReactNode } from 'react'
 
-import { SharedLocales } from '@app/locales/shared'
 import { $requestError } from '@app/model'
 
+import { SharedLocales } from '@shared/locales/shared'
 import { Notification } from '@shared/ui/notification'
 
 interface Props {
