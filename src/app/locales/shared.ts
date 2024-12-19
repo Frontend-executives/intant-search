@@ -42,6 +42,7 @@ export const enum SharedLocales {
   Duplicates = 'Дубликаты',
   InvalidReplacements = 'Невалидные замены',
   ObsoletesWithoutReplacement = 'Без замены',
+  RelevantsWithReplacement = 'Актуальные с заменой',
 
   CellLink = 'Ссылка на ячейку',
   ToCell = 'К ячейке',

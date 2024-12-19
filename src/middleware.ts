@@ -19,6 +19,7 @@ export const config = {
     '/contract/:path*',
     '/duplicates/:path*',
     '/invalid-replacements/:path*',
-    '/obsoletes-without-replacement/:path*'
+    '/obsoletes-without-replacement/:path*',
+    '/relevants-with-replacement/:path*'
   ]
 }

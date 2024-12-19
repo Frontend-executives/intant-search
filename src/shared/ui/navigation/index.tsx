@@ -8,6 +8,7 @@ import {
   LogOut,
   ReceiptText,
   SearchIcon,
+  TriangleAlert,
   VideoOff
 } from 'lucide-react'
 import Link from 'next/link'
@@ -22,7 +23,8 @@ import { $isSignedIn, signedOut } from '@pages/sign-in/model'
 import {
   $duplicatesList,
   $invalidReplacementsList,
-  $obsoletesWithoutReplacement
+  $obsoletesWithoutReplacement,
+  $relevantsWithReplacement
 } from '@shared/model'
 
 import { Badge } from '@shared/lib/shad-cn/components/ui/badge'
@@ -34,6 +36,7 @@ export const Navigation = (): ReactElement => {
   const duplicatesList = useUnit($duplicatesList)
   const invalidReplacementsList = useUnit($invalidReplacementsList)
   const obsoletesWithoutReplacement = useUnit($obsoletesWithoutReplacement)
+  const relevantsWithReplacement = useUnit($relevantsWithReplacement)
 
   const pathname = usePathname()
 
@@ -85,6 +88,19 @@ export const Navigation = (): ReactElement => {
           icon: <CircleHelp />,
           onClick: null,
           count: obsoletesWithoutReplacement.length || null
+        },
+        {
+          isShown: isSignedIn,
+          variant:
+            pathname === ROUTER_PATHS.relevantsWithReplacement
+              ? 'default'
+              : 'outline',
+          type: 'link',
+          href: ROUTER_PATHS.relevantsWithReplacement,
+          text: SharedLocales.RelevantsWithReplacement,
+          icon: <TriangleAlert />,
+          onClick: null,
+          count: relevantsWithReplacement.length || null
         },
         {
           isShown: isSignedIn,

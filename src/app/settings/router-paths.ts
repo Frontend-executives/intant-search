@@ -4,5 +4,6 @@ export const ROUTER_PATHS = {
   contract: '/contract',
   duplicates: '/duplicates',
   invalidReplacements: '/invalid-replacements',
-  obsoletesWithoutReplacement: '/obsoletes-without-replacement'
+  obsoletesWithoutReplacement: '/obsoletes-without-replacement',
+  relevantsWithReplacement: '/relevants-with-replacement'
 } as const
