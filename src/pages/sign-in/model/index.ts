@@ -2,36 +2,26 @@ import { createEffect, createEvent, createStore, sample } from 'effector'
 import Cookies from 'js-cookie'
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 
-import { $password, appStarted } from '@app/model'
-import { AUTH } from '@app/settings/auth'
-import { ROUTER_PATHS } from '@app/settings/router-paths'
-
-import { $router } from '@pages/search/model'
+import { Auth } from '@shared/enums/auth'
+import { RouterPaths } from '@shared/enums/router-paths'
+import { $isSignedIn, $password, $router } from '@shared/model'
 
 export const passwordEntered = createEvent<string>()
 export const signedIn = createEvent()
 export const signedOut = createEvent()
 
 const redirectFx = createEffect((router: AppRouterInstance) => {
-  router.push(ROUTER_PATHS.search)
+  router.push(RouterPaths.SEARCH)
 })
 
 const signedInFx = createEffect(() => {
-  Cookies.set(AUTH.cookieKey, AUTH.cookiePassValue)
+  Cookies.set(Auth.KEY, Auth.VALUE)
 })
 const signedOutFx = createEffect(() => {
-  Cookies.remove(AUTH.cookieKey)
+  Cookies.remove(Auth.KEY)
 })
 
-export const $isSignedIn = createStore<boolean>(false)
 export const $isWrongPassword = createStore<boolean>(false)
-
-sample({
-  clock: appStarted,
-  filter: () => Cookies.get(AUTH.cookieKey) === AUTH.cookiePassValue,
-  fn: () => true,
-  target: $isSignedIn
-})
 
 sample({
   clock: passwordEntered,

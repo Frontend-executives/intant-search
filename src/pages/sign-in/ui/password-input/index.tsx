@@ -3,9 +3,9 @@
 import { useUnit } from 'effector-react/compat'
 import { ReactElement } from 'react'
 
-import { $password } from '@app/model'
-
 import { passwordEntered } from '@pages/sign-in/model'
+
+import { $password } from '@shared/model'
 
 import {
   InputOTP,

@@ -4,7 +4,7 @@ import { useUnit } from 'effector-react'
 import { useRouter } from 'next/navigation'
 import { ReactElement, ReactNode, useEffect } from 'react'
 
-import { routerSet } from '@pages/search/model'
+import { routerSet } from '@shared/model'
 
 interface Props {
   children: ReactNode | ReactNode[]

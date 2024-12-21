@@ -1,7 +1,7 @@
 'use client'
 
 import { useUnit } from 'effector-react'
-import { ReactElement, ReactNode, useEffect } from 'react'
+import { ReactElement, ReactNode, useLayoutEffect } from 'react'
 
 import { $isLoading, appStarted } from '@app/model'
 
@@ -14,10 +14,9 @@ interface Props {
 
 export const CoreDataProvider = ({ children }: Props): ReactElement => {
   const isLoading = useUnit($isLoading)
-
   const startApp = useUnit(appStarted)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     startApp()
   }, [startApp])
 

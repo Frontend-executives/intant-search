@@ -3,8 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { ReactElement } from 'react'
 
-import { ROUTER_PATHS } from '@app/settings/router-paths'
-
+import { RouterPaths } from '@shared/enums/router-paths'
 import { SharedLocales } from '@shared/locales/shared'
 import { Notification } from '@shared/ui/notification'
 
@@ -20,7 +19,7 @@ const NotFound = (): ReactElement => {
       image='/404.svg'
       button={{
         text: SharedLocales.NotFoundPageButton,
-        handler: (): void => router.push(ROUTER_PATHS.search)
+        handler: (): void => router.push(RouterPaths.SEARCH)
       }}
     />
   )

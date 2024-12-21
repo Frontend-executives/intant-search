@@ -16,14 +16,14 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ReactElement, useMemo } from 'react'
 
-import { ROUTER_PATHS } from '@app/settings/router-paths'
+import { signedOut } from '@pages/sign-in/model'
 
-import { $isSignedIn, signedOut } from '@pages/sign-in/model'
-
+import { RouterPaths } from '@shared/enums/router-paths'
 import { SharedLocales } from '@shared/locales/shared'
 import {
   $duplicatesList,
   $invalidReplacementsList,
+  $isSignedIn,
   $obsoletesWithoutReplacementList,
   $relevantsWithReplacementList,
   $selfReplacementList
@@ -50,9 +50,9 @@ export const Navigation = (): ReactElement => {
       [
         {
           isShown: true,
-          variant: pathname === ROUTER_PATHS.search ? 'default' : 'outline',
+          variant: pathname === RouterPaths.SEARCH ? 'default' : 'outline',
           type: 'link',
-          href: ROUTER_PATHS.search,
+          href: RouterPaths.SEARCH,
           text: SharedLocales.SearchPage,
           icon: <SearchIcon />,
           onClick: null,
@@ -60,9 +60,9 @@ export const Navigation = (): ReactElement => {
         },
         {
           isShown: isSignedIn,
-          variant: pathname === ROUTER_PATHS.duplicates ? 'default' : 'outline',
+          variant: pathname === RouterPaths.DUPLICATES ? 'default' : 'outline',
           type: 'link',
-          href: ROUTER_PATHS.duplicates,
+          href: RouterPaths.DUPLICATES,
           text: SharedLocales.Duplicates,
           icon: <CopyIcon />,
           onClick: null,
@@ -71,11 +71,11 @@ export const Navigation = (): ReactElement => {
         {
           isShown: isSignedIn,
           variant:
-            pathname === ROUTER_PATHS.invalidReplacements
+            pathname === RouterPaths.INVALID_REPLACEMENTS
               ? 'default'
               : 'outline',
           type: 'link',
-          href: ROUTER_PATHS.invalidReplacements,
+          href: RouterPaths.INVALID_REPLACEMENTS,
           text: SharedLocales.InvalidReplacements,
           icon: <VideoOff />,
           onClick: null,
@@ -84,11 +84,11 @@ export const Navigation = (): ReactElement => {
         {
           isShown: isSignedIn,
           variant:
-            pathname === ROUTER_PATHS.obsoletesWithoutReplacement
+            pathname === RouterPaths.OBSOLETES_WITHOUT_REPLACEMENT
               ? 'default'
               : 'outline',
           type: 'link',
-          href: ROUTER_PATHS.obsoletesWithoutReplacement,
+          href: RouterPaths.OBSOLETES_WITHOUT_REPLACEMENT,
           text: SharedLocales.ObsoletesWithoutReplacement,
           icon: <CircleHelp />,
           onClick: null,
@@ -97,11 +97,11 @@ export const Navigation = (): ReactElement => {
         {
           isShown: isSignedIn,
           variant:
-            pathname === ROUTER_PATHS.relevantsWithReplacement
+            pathname === RouterPaths.RELEVANTS_WITH_REPLACEMENT
               ? 'default'
               : 'outline',
           type: 'link',
-          href: ROUTER_PATHS.relevantsWithReplacement,
+          href: RouterPaths.RELEVANTS_WITH_REPLACEMENT,
           text: SharedLocales.RelevantsWithReplacement,
           icon: <TriangleAlert />,
           onClick: null,
@@ -110,9 +110,9 @@ export const Navigation = (): ReactElement => {
         {
           isShown: isSignedIn,
           variant:
-            pathname === ROUTER_PATHS.selfReplacement ? 'default' : 'outline',
+            pathname === RouterPaths.SELF_REPLACEMENT ? 'default' : 'outline',
           type: 'link',
-          href: ROUTER_PATHS.selfReplacement,
+          href: RouterPaths.SELF_REPLACEMENT,
           text: SharedLocales.SelfReplacement,
           icon: <RotateCw />,
           onClick: null,
@@ -120,9 +120,9 @@ export const Navigation = (): ReactElement => {
         },
         {
           isShown: isSignedIn,
-          variant: pathname === ROUTER_PATHS.contract ? 'default' : 'outline',
+          variant: pathname === RouterPaths.CONTRACT ? 'default' : 'outline',
           type: 'link',
-          href: ROUTER_PATHS.contract,
+          href: RouterPaths.CONTRACT,
           text: SharedLocales.Contract,
           icon: <ReceiptText />,
           onClick: null,
@@ -130,9 +130,9 @@ export const Navigation = (): ReactElement => {
         },
         {
           isShown: !isSignedIn,
-          variant: pathname === ROUTER_PATHS.signIn ? 'default' : 'outline',
+          variant: pathname === RouterPaths.SIGN_IN ? 'default' : 'outline',
           type: 'link',
-          href: ROUTER_PATHS.signIn,
+          href: RouterPaths.SIGN_IN,
           text: SharedLocales.SignIn,
           icon: <LogIn />,
           onClick: null,
@@ -149,7 +149,16 @@ export const Navigation = (): ReactElement => {
           count: null
         }
       ] as const,
-    [pathname, signOut, duplicatesList, invalidReplacementsList, isSignedIn]
+    [
+      pathname,
+      signOut,
+      duplicatesList,
+      invalidReplacementsList,
+      obsoletesWithoutReplacementList,
+      selftReplacementList,
+      relevantsWithReplacementList,
+      isSignedIn
+    ]
   )
 
   return (

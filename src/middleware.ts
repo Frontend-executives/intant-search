@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-import { AUTH } from '@app/settings/auth'
-import { ROUTER_PATHS } from '@app/settings/router-paths'
+import { Auth } from '@shared/enums/auth'
+import { RouterPaths } from '@shared/enums/router-paths'
 
 export function middleware({ cookies, url }: NextRequest) {
-  const cookieValue = cookies.get(AUTH.cookieKey)?.value ?? ''
-  const isSignedIn = cookieValue === AUTH.cookiePassValue
+  const cookieValue = cookies.get(Auth.KEY)?.value ?? ''
+  const isSignedIn = cookieValue === Auth.VALUE
 
   if (!isSignedIn) {
-    return NextResponse.redirect(new URL(ROUTER_PATHS.signIn, url))
+    return NextResponse.redirect(new URL(RouterPaths.SIGN_IN, url))
   }
 
   return NextResponse.next()

@@ -1,32 +1,16 @@
-import {
-  concurrency,
-  createJsonQuery,
-  JsonApiRequestError
-} from '@farfetched/core'
-import { zodContract } from '@farfetched/zod'
+import { JsonApiRequestError } from '@farfetched/core'
 import { createEvent, createStore, sample } from 'effector'
+import { createEffect } from 'effector/compat'
+import Cookies from 'js-cookie'
 
-import { APP_SCRIPT_URL } from '@app/settings/app-script'
-
-import { getGeneralDataQueryResponse } from '@shared/api'
+import { Auth } from '@shared/enums/auth'
+import { $isSignedIn, getGeneralDataQuery } from '@shared/model'
 
 export const appStarted = createEvent()
 
-export const getGeneralDataQuery = createJsonQuery({
-  request: {
-    method: 'GET',
-    url: APP_SCRIPT_URL
-  },
-  response: {
-    contract: zodContract(getGeneralDataQueryResponse)
-  }
+const checkAuthFx = createEffect((): boolean => {
+  return Cookies.get(Auth.KEY) === Auth.VALUE
 })
-
-concurrency(getGeneralDataQuery, { strategy: 'TAKE_FIRST' })
-
-export const $password = getGeneralDataQuery.$data.map(
-  (data) => data?.password ?? null
-)
 
 export const $isLoading = createStore<boolean>(true)
 export const $requestError = createStore<JsonApiRequestError | null>(null)
@@ -40,11 +24,6 @@ sample({
 })
 
 sample({
-  clock: getGeneralDataQuery.$succeeded,
-  target: $isDataLoaded
-})
-
-sample({
   clock: getGeneralDataQuery.$pending,
   target: $isLoading
 })
@@ -53,4 +32,19 @@ sample({
   clock: getGeneralDataQuery.$failed,
   source: getGeneralDataQuery.$error,
   target: $requestError
+})
+
+sample({
+  clock: getGeneralDataQuery.$succeeded,
+  target: $isDataLoaded
+})
+
+sample({
+  clock: appStarted,
+  target: checkAuthFx
+})
+
+sample({
+  clock: checkAuthFx.doneData,
+  target: $isSignedIn
 })
