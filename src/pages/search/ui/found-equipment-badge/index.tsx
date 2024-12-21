@@ -4,8 +4,8 @@ import { ReactElement } from 'react'
 import { ObsoleteEquipment } from '@pages/search/ui/obsolete-equipment'
 import { RelevantEquipment } from '@pages/search/ui/relevant-equipment'
 
-import { Equipment } from '@shared/api'
 import { Relevance } from '@shared/enums/relevance'
+import { Equipment } from '@shared/types'
 import { Typography } from '@shared/ui/typography'
 
 import { Badge } from '@shared/lib/shad-cn/components/ui/badge'

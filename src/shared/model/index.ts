@@ -1,29 +1,15 @@
-import { concurrency, createJsonQuery } from '@farfetched/core'
-import { zodContract } from '@farfetched/zod'
 import { createEvent, createStore, sample } from 'effector'
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 
-import { Equipment, getGeneralDataQueryResponse } from '@shared/api'
-import { APP_SCRIPT_URL } from '@shared/config/app-script'
+import { getGeneralDataQuery } from '@shared/api'
 import { findDuplicates } from '@shared/lib/find-duplicates'
 import { findInvalidReplacements } from '@shared/lib/find-invalid-replacements'
 import { findObsoletesWithoutReplacement } from '@shared/lib/find-obsoletes-without-replacement'
 import { findRelevantsWithReplacement } from '@shared/lib/find-relevants-with-replacement'
 import { findSelfReplacement } from '@shared/lib/find-self-replacement'
+import { Equipment } from '@shared/types'
 
 export const routerSet = createEvent<AppRouterInstance>()
-
-export const getGeneralDataQuery = createJsonQuery({
-  request: {
-    method: 'GET',
-    url: APP_SCRIPT_URL
-  },
-  response: {
-    contract: zodContract(getGeneralDataQueryResponse)
-  }
-})
-
-concurrency(getGeneralDataQuery, { strategy: 'TAKE_FIRST' })
 
 export const $router = createStore<null | AppRouterInstance>(null)
 export const $isSignedIn = createStore<boolean>(false)

@@ -2,7 +2,7 @@ import { ReactElement } from 'react'
 
 import { SearchAndCopy } from '@pages/search/ui/search-and-copy'
 
-import { Equipment } from '@shared/api'
+import { Equipment } from '@shared/types'
 import { Typography } from '@shared/ui/typography'
 
 interface Props {

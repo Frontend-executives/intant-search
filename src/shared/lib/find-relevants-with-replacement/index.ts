@@ -1,4 +1,4 @@
-import { Equipment } from '@shared/api'
+import { Equipment } from '@shared/types'
 
 export const findRelevantsWithReplacement = (
   equipmentList: Equipment[]

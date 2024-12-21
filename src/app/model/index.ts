@@ -3,8 +3,9 @@ import { createEvent, createStore, sample } from 'effector'
 import { createEffect } from 'effector/compat'
 import Cookies from 'js-cookie'
 
+import { getGeneralDataQuery } from '@shared/api'
 import { Auth } from '@shared/enums/auth'
-import { $isSignedIn, getGeneralDataQuery } from '@shared/model'
+import { $isSignedIn } from '@shared/model'
 
 export const appStarted = createEvent()
 

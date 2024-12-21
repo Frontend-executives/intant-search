@@ -6,8 +6,8 @@ import { toast } from 'sonner'
 
 import { replacementSelected } from '@pages/search/model'
 
-import { Equipment } from '@shared/api'
 import { SearchLocales } from '@shared/locales/search'
+import { Equipment } from '@shared/types'
 
 import { Button } from '@shared/lib/shad-cn/components/ui/button'
 import {

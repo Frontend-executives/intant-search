@@ -4,8 +4,8 @@ import { ReactElement } from 'react'
 import { BrandInfo } from '@pages/search/ui/brand-info'
 import { EquipmentAlternatives } from '@pages/search/ui/equipment-alternatives'
 
-import { Equipment } from '@shared/api'
 import { SearchLocales } from '@shared/locales/search'
+import { Equipment } from '@shared/types'
 import { Typography } from '@shared/ui/typography'
 
 interface Props {

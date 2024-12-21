@@ -1,9 +1,12 @@
+import { concurrency, createJsonQuery } from '@farfetched/core'
+import { zodContract } from '@farfetched/zod'
 import { z } from 'zod'
 
+import { APP_SCRIPT_URL } from '@shared/config/app-script'
 import { Brands } from '@shared/enums/brands'
 import { Relevance } from '@shared/enums/relevance'
 
-const equipmentSchema = z.object({
+export const equipmentSchema = z.object({
   model: z.string().min(1),
   relevance: z.union([z.literal(Relevance.YES), z.literal(Relevance.NO)]),
   brand: z.union([
@@ -19,9 +22,19 @@ const equipmentSchema = z.object({
   link: z.string().min(1)
 })
 
-export const getGeneralDataQueryResponse = z.object({
+const getGeneralDataQueryResponse = z.object({
   equipmentList: z.array(equipmentSchema).nonempty(),
   password: z.string().min(1)
 })
 
-export type Equipment = z.infer<typeof equipmentSchema>
+export const getGeneralDataQuery = createJsonQuery({
+  request: {
+    method: 'GET',
+    url: APP_SCRIPT_URL
+  },
+  response: {
+    contract: zodContract(getGeneralDataQueryResponse)
+  }
+})
+
+concurrency(getGeneralDataQuery, { strategy: 'TAKE_FIRST' })

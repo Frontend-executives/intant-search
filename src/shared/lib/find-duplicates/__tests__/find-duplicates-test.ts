@@ -1,8 +1,8 @@
 import { describe, expect, it } from '@jest/globals'
 
-import { Equipment } from '@shared/api'
 import { Brands } from '@shared/enums/brands'
 import { Relevance } from '@shared/enums/relevance'
+import { Equipment } from '@shared/types'
 
 import { findDuplicates } from '..'
 

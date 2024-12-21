@@ -2,9 +2,9 @@ import { describe, expect, test } from '@jest/globals'
 
 import { filterEquipmentByQuery } from '@pages/search/lib/filter-equipment-by-query'
 
-import { Equipment } from '@shared/api'
 import { Brands } from '@shared/enums/brands'
 import { Relevance } from '@shared/enums/relevance'
+import { Equipment } from '@shared/types'
 
 describe('filterEquipmentByQuery', () => {
   const mockEquipmentList: Equipment[] = [
