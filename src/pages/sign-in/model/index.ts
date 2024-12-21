@@ -3,8 +3,8 @@ import Cookies from 'js-cookie'
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 
 import { Auth } from '@shared/enums/auth'
-import { RouterPaths } from '@shared/enums/router-paths'
 import { $isSignedIn, $password, $router } from '@shared/model'
+import { RouterPaths } from '@shared/router/router-paths'
 
 export const passwordEntered = createEvent<string>()
 export const signedIn = createEvent()

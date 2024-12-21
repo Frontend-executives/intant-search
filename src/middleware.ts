@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 import { Auth } from '@shared/enums/auth'
-import { RouterPaths } from '@shared/enums/router-paths'
+import { RouterPaths } from '@shared/router/router-paths'
 
 export function middleware({ cookies, url }: NextRequest) {
   const cookieValue = cookies.get(Auth.KEY)?.value ?? ''

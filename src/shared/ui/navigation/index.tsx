@@ -18,7 +18,6 @@ import { ReactElement, useMemo } from 'react'
 
 import { signedOut } from '@pages/sign-in/model'
 
-import { RouterPaths } from '@shared/enums/router-paths'
 import { SharedLocales } from '@shared/locales/shared'
 import {
   $duplicatesList,
@@ -28,6 +27,7 @@ import {
   $relevantsWithReplacementList,
   $selfReplacementList
 } from '@shared/model'
+import { RouterPaths } from '@shared/router/router-paths'
 
 import { Badge } from '@shared/lib/shad-cn/components/ui/badge'
 import { Button } from '@shared/lib/shad-cn/components/ui/button'
