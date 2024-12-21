@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 
-import { RelevantsWithReplacementPage } from '@pages/relevants-with-replacement/ui'
+import { RelevantsWithReplacementPage } from '@pages/relevants-with-replacement'
 
 const RelevantsWithReplacement = (): ReactElement => {
   return <RelevantsWithReplacementPage />

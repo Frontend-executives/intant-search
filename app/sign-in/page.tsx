@@ -1,4 +1,4 @@
-import { SignInPage } from '@pages/sign-in/ui'
+import { SignInPage } from '@pages/sign-in'
 
 import { PageContainer } from '@shared/ui/page-container'
 

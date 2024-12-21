@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 
-import { ContractPage } from '@pages/contract/ui'
+import { ContractPage } from '@pages/contract'
 
 import { PageContainer } from '@shared/ui/page-container'
 

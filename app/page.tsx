@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 
-import { SearchPage } from '@pages/search/ui'
+import { SearchPage } from '@pages/search'
 
 import { PageContainer } from '@shared/ui/page-container'
 

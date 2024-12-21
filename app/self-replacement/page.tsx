@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 
-import { SelfReplacementPage } from '@pages/self-replacement/ui'
+import { SelfReplacementPage } from '@pages/self-replacement'
 
 const SelfReplacement = (): ReactElement => {
   return <SelfReplacementPage />
