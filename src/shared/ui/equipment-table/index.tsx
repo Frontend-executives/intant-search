@@ -40,7 +40,7 @@ export const EquipmentTable = ({
   emptyEquipmentListDescription
 }: Props): ReactElement => {
   return (
-    <div className='w-full flex flex-col gap-6 text-center'>
+    <div className='w-full flex flex-col gap-6 text-center  p-6'>
       <Typography type='h1'>{title}</Typography>
 
       {equipmentList.length ? (

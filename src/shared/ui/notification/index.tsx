@@ -52,7 +52,7 @@ export const Notification = ({
         <Typography>{description}</Typography>
 
         {notesList && (
-          <ul className='flex flex-col items-start gap-1'>
+          <ul className='flex flex-col text-start items-start gap-1'>
             {notesList.map((note) => {
               return (
                 <li key={note}>

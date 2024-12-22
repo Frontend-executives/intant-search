@@ -12,7 +12,6 @@ import { RouterSetProvider } from '@app/providers/router-set-provider'
 import { Header } from '@widgets/header'
 
 import { SharedLocales } from '@shared/locales/shared'
-import { Container } from '@shared/ui/container'
 
 import '@app/styles/globals.css'
 
@@ -36,7 +35,7 @@ const Layout = async ({
                 <CoreDataProvider>
                   <RouterSetProvider>
                     <Header />
-                    <Container>{children}</Container>
+                    {children}
                     <Toaster />
                   </RouterSetProvider>
                 </CoreDataProvider>

@@ -6,6 +6,7 @@ import { ReactElement } from 'react'
 
 import { SharedLocales } from '@shared/locales/shared'
 import { SignInLocales } from '@shared/locales/sign-in'
+import { Container } from '@shared/ui/container'
 import { Typography } from '@shared/ui/typography'
 
 import { $isWrongPassword } from '../model/index'
@@ -15,7 +16,7 @@ export const SignInPage = (): ReactElement => {
   const isWrongPassword = useUnit($isWrongPassword)
 
   return (
-    <>
+    <Container>
       {isWrongPassword ? (
         <Typography type='h1' className='text-red-500'>
           {SharedLocales.WrongPassword}
@@ -29,6 +30,6 @@ export const SignInPage = (): ReactElement => {
       <Typography>{SignInLocales.SignInPageDescription}</Typography>
 
       <Image src='/password.svg' alt='password' width={300} height={300} />
-    </>
+    </Container>
   )
 }

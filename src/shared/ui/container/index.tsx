@@ -6,7 +6,7 @@ interface Props {
 
 export const Container = ({ children }: Props) => {
   return (
-    <section className='flex-grow p-6 flex flex-col items-center gap-6'>
+    <section className='flex-grow flex flex-col items-center justify-center gap-4 text-center p-6 m-auto w-full max-w-4xl'>
       {children}
     </section>
   )
