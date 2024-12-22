@@ -1,17 +1,8 @@
 'use client'
 
+import { cva } from 'class-variance-authority'
 import { useUnit } from 'effector-react'
-import {
-  CircleHelp,
-  CopyIcon,
-  LogIn,
-  LogOut,
-  ReceiptText,
-  RotateCw,
-  SearchIcon,
-  TriangleAlert,
-  VideoOff
-} from 'lucide-react'
+import { LogIn, LogOut, ReceiptText, SearchIcon } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ReactElement, useMemo } from 'react'
@@ -28,9 +19,25 @@ import {
   $selfReplacementList
 } from '@shared/model'
 import { RouterPaths } from '@shared/router/router-paths'
+import { Typography } from '@shared/ui/typography'
 
 import { Badge } from '@shared/lib/shad-cn/components/ui/badge'
 import { Button } from '@shared/lib/shad-cn/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from '@shared/lib/shad-cn/components/ui/dropdown-menu'
+
+const variants = cva('flex gap-2 items-center px-3 py-1 rounded-sm w-full', {
+  variants: {
+    isActive: {
+      true: 'bg-primary text-white',
+      false: ''
+    }
+  }
+})
 
 export const Navigation = (): ReactElement => {
   const isSignedIn = useUnit($isSignedIn)
@@ -41,161 +48,132 @@ export const Navigation = (): ReactElement => {
     $obsoletesWithoutReplacementList
   )
   const relevantsWithReplacementList = useUnit($relevantsWithReplacementList)
-  const selftReplacementList = useUnit($selfReplacementList)
+  const selfReplacementList = useUnit($selfReplacementList)
 
   const pathname = usePathname()
 
-  const NAVIGATION_BUTTONS = useMemo(
+  const navigationLinks = useMemo(
     () =>
       [
         {
-          isShown: true,
-          variant: pathname === RouterPaths.SEARCH ? 'default' : 'outline',
-          type: 'link',
-          href: RouterPaths.SEARCH,
-          text: SharedLocales.SearchPage,
-          icon: <SearchIcon />,
-          onClick: null,
-          count: null
-        },
-        {
-          isShown: isSignedIn,
-          variant: pathname === RouterPaths.DUPLICATES ? 'default' : 'outline',
-          type: 'link',
+          isActive: pathname === RouterPaths.DUPLICATES,
           href: RouterPaths.DUPLICATES,
           text: SharedLocales.Duplicates,
-          icon: <CopyIcon />,
-          onClick: null,
-          count: duplicatesList.length || null
+          count: duplicatesList.length
         },
         {
-          isShown: isSignedIn,
-          variant:
-            pathname === RouterPaths.INVALID_REPLACEMENTS
-              ? 'default'
-              : 'outline',
-          type: 'link',
+          isActive: pathname === RouterPaths.INVALID_REPLACEMENTS,
           href: RouterPaths.INVALID_REPLACEMENTS,
           text: SharedLocales.InvalidReplacements,
-          icon: <VideoOff />,
-          onClick: null,
-          count: invalidReplacementsList.length || null
+          count: invalidReplacementsList.length
         },
         {
-          isShown: isSignedIn,
-          variant:
-            pathname === RouterPaths.OBSOLETES_WITHOUT_REPLACEMENT
-              ? 'default'
-              : 'outline',
-          type: 'link',
+          isActive: pathname === RouterPaths.OBSOLETES_WITHOUT_REPLACEMENT,
           href: RouterPaths.OBSOLETES_WITHOUT_REPLACEMENT,
           text: SharedLocales.ObsoletesWithoutReplacement,
-          icon: <CircleHelp />,
-          onClick: null,
-          count: obsoletesWithoutReplacementList.length || null
+          count: obsoletesWithoutReplacementList.length
         },
         {
-          isShown: isSignedIn,
-          variant:
-            pathname === RouterPaths.RELEVANTS_WITH_REPLACEMENT
-              ? 'default'
-              : 'outline',
-          type: 'link',
+          isActive: pathname === RouterPaths.RELEVANTS_WITH_REPLACEMENT,
           href: RouterPaths.RELEVANTS_WITH_REPLACEMENT,
           text: SharedLocales.RelevantsWithReplacement,
-          icon: <TriangleAlert />,
-          onClick: null,
-          count: relevantsWithReplacementList.length || null
+          count: relevantsWithReplacementList.length
         },
         {
-          isShown: isSignedIn,
-          variant:
-            pathname === RouterPaths.SELF_REPLACEMENT ? 'default' : 'outline',
-          type: 'link',
+          isActive: pathname === RouterPaths.SELF_REPLACEMENT,
           href: RouterPaths.SELF_REPLACEMENT,
           text: SharedLocales.SelfReplacement,
-          icon: <RotateCw />,
-          onClick: null,
-          count: selftReplacementList.length || null
-        },
-        {
-          isShown: isSignedIn,
-          variant: pathname === RouterPaths.CONTRACT ? 'default' : 'outline',
-          type: 'link',
-          href: RouterPaths.CONTRACT,
-          text: SharedLocales.Contract,
-          icon: <ReceiptText />,
-          onClick: null,
-          count: null
-        },
-        {
-          isShown: !isSignedIn,
-          variant: pathname === RouterPaths.SIGN_IN ? 'default' : 'outline',
-          type: 'link',
-          href: RouterPaths.SIGN_IN,
-          text: SharedLocales.SignIn,
-          icon: <LogIn />,
-          onClick: null,
-          count: null
-        },
-        {
-          isShown: isSignedIn,
-          variant: 'destructive',
-          type: 'button',
-          onClick: signOut,
-          text: SharedLocales.SignOut,
-          icon: <LogOut />,
-          href: null,
-          count: null
+          count: selfReplacementList.length
         }
       ] as const,
     [
       pathname,
-      signOut,
       duplicatesList,
       invalidReplacementsList,
       obsoletesWithoutReplacementList,
-      selftReplacementList,
-      relevantsWithReplacementList,
-      isSignedIn
+      selfReplacementList,
+      relevantsWithReplacementList
     ]
   )
 
   return (
     <nav>
       <ul className='flex items-center gap-2'>
-        {NAVIGATION_BUTTONS.map(
-          ({ type, icon, text, href, onClick, variant, count, isShown }) => {
-            return isShown ? (
-              <li key={text}>
-                {type === 'link' && (
-                  <Button asChild variant={variant} className='relative'>
-                    <Link href={href}>
-                      {text}
-                      {icon}
+        <li>
+          <Button
+            asChild
+            variant={pathname === RouterPaths.SEARCH ? 'default' : 'outline'}
+          >
+            <Link href={RouterPaths.SEARCH}>
+              {SharedLocales.SearchPage}
+              <SearchIcon />
+            </Link>
+          </Button>
+        </li>
 
-                      {count && (
-                        <Badge
-                          className='absolute bottom-[-14px]'
-                          variant='destructive'
-                        >
+        {isSignedIn && (
+          <>
+            <DropdownMenu>
+              <li>
+                <DropdownMenuTrigger>
+                  <Button variant='outline'>
+                    Проблемы
+                    <Badge>
+                      {navigationLinks.reduce((acc, cur) => acc + cur.count, 0)}
+                    </Badge>
+                  </Button>
+                </DropdownMenuTrigger>
+              </li>
+              <DropdownMenuContent>
+                {navigationLinks.map(({ href, text, count, isActive }) => (
+                  <DropdownMenuItem key={href}>
+                    <Link href={href} className={variants({ isActive })}>
+                      <Typography type='small'>{text}</Typography>
+                      {count > 0 && (
+                        <Badge variant={isActive ? 'secondary' : 'default'}>
                           {count}
                         </Badge>
                       )}
                     </Link>
-                  </Button>
-                )}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
 
-                {type === 'button' && (
-                  <Button variant={variant} onClick={onClick}>
-                    {text}
-                    {icon}
-                  </Button>
-                )}
-              </li>
-            ) : null
-          }
+            <li>
+              <Button
+                asChild
+                variant={
+                  pathname === RouterPaths.CONTRACT ? 'default' : 'outline'
+                }
+              >
+                <Link href={RouterPaths.CONTRACT}>
+                  {SharedLocales.Contract}
+                  <ReceiptText />
+                </Link>
+              </Button>
+            </li>
+          </>
         )}
+
+        <li>
+          {isSignedIn ? (
+            <Button variant='destructive' onClick={signOut}>
+              {SharedLocales.SignOut}
+              <LogOut />
+            </Button>
+          ) : (
+            <Button
+              asChild
+              variant={pathname === RouterPaths.SIGN_IN ? 'default' : 'outline'}
+            >
+              <Link href={RouterPaths.SIGN_IN}>
+                {SharedLocales.SignIn}
+                <LogIn />
+              </Link>
+            </Button>
+          )}
+        </li>
       </ul>
     </nav>
   )

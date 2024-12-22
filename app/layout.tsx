@@ -9,9 +9,10 @@ import { NProgressProvider } from '@app/providers/n-progress-provider'
 import { OnlyDesktopProvider } from '@app/providers/only-desktop-provider'
 import { RouterSetProvider } from '@app/providers/router-set-provider'
 
+import { Header } from '@widgets/header'
+
 import { SharedLocales } from '@shared/locales/shared'
 import { Container } from '@shared/ui/container'
-import { Header } from '@shared/ui/header'
 
 import '@app/styles/globals.css'
 
