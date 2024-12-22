@@ -4,12 +4,12 @@ import { useUnit } from 'effector-react'
 import Image from 'next/image'
 import { ReactElement } from 'react'
 
-import { $isWrongPassword } from '@pages/sign-in/model'
-import { PasswordInput } from '@pages/sign-in/ui/password-input'
-
 import { SharedLocales } from '@shared/locales/shared'
 import { SignInLocales } from '@shared/locales/sign-in'
 import { Typography } from '@shared/ui/typography'
+
+import { $isWrongPassword } from '../model/index'
+import { PasswordInput } from './password-input'
 
 export const SignInPage = (): ReactElement => {
   const isWrongPassword = useUnit($isWrongPassword)

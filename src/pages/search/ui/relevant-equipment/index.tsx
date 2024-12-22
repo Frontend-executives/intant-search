@@ -4,9 +4,9 @@ import { ReactElement } from 'react'
 import { BrandInfo } from '@pages/search/ui/brand-info'
 import { EquipmentAlternatives } from '@pages/search/ui/equipment-alternatives'
 
+import { Equipment } from '@shared/api'
 import { Brands } from '@shared/enums/brands'
 import { SearchLocales } from '@shared/locales/search'
-import { Equipment } from '@shared/types'
 import { Typography } from '@shared/ui/typography'
 
 import { Button } from '@shared/lib/shad-cn/components/ui/button'

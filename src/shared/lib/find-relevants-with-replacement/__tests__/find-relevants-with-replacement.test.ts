@@ -1,9 +1,9 @@
 import { describe, expect, it } from '@jest/globals'
 
+import { Equipment } from '@shared/api'
 import { Brands } from '@shared/enums/brands'
 import { Relevance } from '@shared/enums/relevance'
 import { findRelevantsWithReplacement } from '@shared/lib/find-relevants-with-replacement'
-import { Equipment } from '@shared/types'
 
 describe('findRelevantsWithReplacement', () => {
   it('should return an empty array when the equipment list is empty', () => {

@@ -1,9 +1,9 @@
 import { describe, expect, it } from '@jest/globals'
 
+import { Equipment } from '@shared/api'
 import { Brands } from '@shared/enums/brands'
 import { Relevance } from '@shared/enums/relevance'
 import { findObsoletesWithoutReplacement } from '@shared/lib/find-obsoletes-without-replacement'
-import { Equipment } from '@shared/types'
 
 describe('findObsoletesWithoutReplacements', () => {
   it('should return an empty array when the equipment list is empty', () => {

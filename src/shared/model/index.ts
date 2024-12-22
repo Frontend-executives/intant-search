@@ -2,12 +2,12 @@ import { createEvent, createStore, sample } from 'effector'
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 
 import { getGeneralDataQuery } from '@shared/api'
+import { Equipment } from '@shared/api'
 import { findDuplicates } from '@shared/lib/find-duplicates'
 import { findInvalidReplacements } from '@shared/lib/find-invalid-replacements'
 import { findObsoletesWithoutReplacement } from '@shared/lib/find-obsoletes-without-replacement'
 import { findRelevantsWithReplacement } from '@shared/lib/find-relevants-with-replacement'
 import { findSelfReplacement } from '@shared/lib/find-self-replacement'
-import { Equipment } from '@shared/types'
 
 export const routerSet = createEvent<AppRouterInstance>()
 

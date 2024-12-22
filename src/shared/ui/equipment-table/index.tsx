@@ -1,9 +1,9 @@
 import { ArrowRight } from 'lucide-react'
 import { ReactElement } from 'react'
 
+import { Equipment } from '@shared/api'
 import { Brands } from '@shared/enums/brands'
 import { SharedLocales } from '@shared/locales/shared'
-import { Equipment } from '@shared/types'
 import { Notification } from '@shared/ui/notification'
 import { Typography } from '@shared/ui/typography'
 
