@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { ReactElement } from 'react'
 
-import { Navigation } from '@shared/ui/navigation'
+import { Navigation } from './navigation'
 
 export const Header = (): ReactElement => {
   return (

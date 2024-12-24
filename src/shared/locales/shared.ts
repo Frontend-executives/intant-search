@@ -44,9 +44,11 @@ export const enum SharedLocales {
   ObsoletesWithoutReplacement = 'Без замены',
   RelevantsWithReplacement = 'Актуальные с заменой',
   SelfReplacement = 'Заменены сами на себя',
+  WithoutProblems = 'Проблем нет',
+  WithProblems = 'Проблем:',
 
   CellLink = 'Ссылка на ячейку',
-  ToCell = 'К ячейке',
+  ToCell = 'Перейти',
   EmptyTableTitle = 'Отличная работа! Все чисто!',
 
   WrongPassword = 'Неверный пароль'

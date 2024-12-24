@@ -9,6 +9,8 @@ import { ReactElement, useMemo } from 'react'
 
 import { signedOut } from '@pages/sign-in/model'
 
+import { Problems } from '@widgets/header/ui/problems'
+
 import { SharedLocales } from '@shared/locales/shared'
 import {
   $duplicatesList,
@@ -52,7 +54,7 @@ export const Navigation = (): ReactElement => {
 
   const pathname = usePathname()
 
-  const navigationLinks = useMemo(
+  const equipmentLinks = useMemo(
     () =>
       [
         {
@@ -96,6 +98,11 @@ export const Navigation = (): ReactElement => {
     ]
   )
 
+  const totalProblemsCount = equipmentLinks.reduce(
+    (acc, cur) => acc + cur.count,
+    0
+  )
+
   return (
     <nav>
       <ul className='flex items-center gap-2'>
@@ -116,16 +123,11 @@ export const Navigation = (): ReactElement => {
             <DropdownMenu>
               <li>
                 <DropdownMenuTrigger>
-                  <Button variant='outline'>
-                    Проблемы
-                    <Badge>
-                      {navigationLinks.reduce((acc, cur) => acc + cur.count, 0)}
-                    </Badge>
-                  </Button>
+                  <Problems count={totalProblemsCount} />
                 </DropdownMenuTrigger>
               </li>
               <DropdownMenuContent>
-                {navigationLinks.map(({ href, text, count, isActive }) => (
+                {equipmentLinks.map(({ href, text, count, isActive }) => (
                   <DropdownMenuItem key={href}>
                     <Link href={href} className={variants({ isActive })}>
                       <Typography type='small'>{text}</Typography>
