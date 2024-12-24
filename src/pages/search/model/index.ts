@@ -9,7 +9,7 @@ export const searchResultSet = createEvent<string>()
 export const replacementSelected = createEvent<string>()
 
 export const $searchQuery = createStore<string>('')
-export const $foundModels = createStore<Equipment[]>([])
+export const $foundModelsList = createStore<Equipment[]>([])
 
 sample({
   clock: searchResultSet,
@@ -26,7 +26,7 @@ sample({
       equipmentList
     })
   },
-  target: $foundModels
+  target: $foundModelsList
 })
 
 sample({
