@@ -18,7 +18,8 @@ import {
   $isSignedIn,
   $obsoletesWithoutReplacementList,
   $relevantsWithReplacementList,
-  $selfReplacementList
+  $selfReplacementList,
+  $withoutBrandList
 } from '@shared/model'
 import { RouterPaths } from '@shared/router/router-paths'
 import { Typography } from '@shared/ui/typography'
@@ -51,6 +52,7 @@ export const Navigation = (): ReactElement => {
   )
   const relevantsWithReplacementList = useUnit($relevantsWithReplacementList)
   const selfReplacementList = useUnit($selfReplacementList)
+  const withoutBrandList = useUnit($withoutBrandList)
 
   const pathname = usePathname()
 
@@ -86,6 +88,12 @@ export const Navigation = (): ReactElement => {
           href: RouterPaths.SELF_REPLACEMENT,
           text: SharedLocales.SelfReplacement,
           count: selfReplacementList.length
+        },
+        {
+          isActive: pathname === RouterPaths.WITHOUT_BRAND,
+          href: RouterPaths.WITHOUT_BRAND,
+          text: SharedLocales.WithoutBrand,
+          count: withoutBrandList.length
         }
       ] as const,
     [
@@ -94,7 +102,8 @@ export const Navigation = (): ReactElement => {
       invalidReplacementsList,
       obsoletesWithoutReplacementList,
       selfReplacementList,
-      relevantsWithReplacementList
+      relevantsWithReplacementList,
+      withoutBrandList
     ]
   )
 

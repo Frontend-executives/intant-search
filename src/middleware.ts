@@ -21,6 +21,7 @@ export const config = {
     '/invalid-replacements/:path*',
     '/obsoletes-without-replacement/:path*',
     '/relevants-with-replacement/:path*',
-    '/self-replacement/:path*'
+    '/self-replacement/:path*',
+    '/without-brand/:path*'
   ]
 }
