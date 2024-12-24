@@ -1,4 +1,4 @@
-import { BadgeX } from 'lucide-react'
+import { CircleX } from 'lucide-react'
 import { ReactElement } from 'react'
 
 import { BrandInfo } from '@pages/search/ui/brand-info'
@@ -27,7 +27,7 @@ export const ObsoleteEquipment = ({
     <div className='flex flex-col items-center justify-center gap-2'>
       <div className='flex items-center justify-center gap-2'>
         <Typography>{SearchLocales.ObsoleteEquipment}</Typography>
-        <BadgeX color='#dc2625' />
+        <CircleX color='#dc2625' />
       </div>
 
       <BrandInfo brand={brand} />

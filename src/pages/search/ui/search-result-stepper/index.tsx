@@ -52,7 +52,7 @@ export const SearchResultsStepper = (): ReactElement | null => {
     )
   } else {
     return (
-      <div className='p-4 rounded-md flex items-center justify-center gap-2 flex-wrap'>
+      <div className='flex items-center justify-center gap-2 flex-wrap'>
         {foundModelsList.map((equipment) => {
           return (
             <FoundEquipmentBadge key={equipment.link} equipment={equipment} />

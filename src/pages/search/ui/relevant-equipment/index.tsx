@@ -1,4 +1,4 @@
-import { BadgeCheck } from 'lucide-react'
+import { CircleCheck } from 'lucide-react'
 import { ReactElement } from 'react'
 
 import { BrandInfo } from '@pages/search/ui/brand-info'
@@ -32,7 +32,7 @@ export const RelevantEquipment = ({
     <div className='flex flex-col items-center justify-center gap-2'>
       <div className='flex items-center justify-center gap-2'>
         <Typography>{SearchLocales.RelevantEquipment}</Typography>
-        <BadgeCheck color='#16a34a' />
+        <CircleCheck color='#16a34a' />
       </div>
 
       <BrandInfo brand={brand} />

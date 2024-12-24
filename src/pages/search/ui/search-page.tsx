@@ -9,7 +9,7 @@ import { SearchResultsStepper } from './search-result-stepper'
 
 export const SearchPage = (): ReactElement => {
   return (
-    <Container>
+    <Container className='mb-auto flex-grow-0 mt-12'>
       <Typography type='h1'>{SearchLocales.Title}</Typography>
       <Typography>{SearchLocales.Subtitle}</Typography>
 
