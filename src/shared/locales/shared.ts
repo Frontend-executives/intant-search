@@ -48,6 +48,10 @@ export const enum SharedLocales {
   WithoutProblems = 'Проблем нет',
   WithProblems = 'Проблем:',
 
+  Model = 'Модель',
+  Relevance = 'Актуальность',
+  Brand = 'Бренд',
+  Replacement = 'Замена',
   CellLink = 'Ссылка на ячейку',
   ToCell = 'Перейти',
   EmptyTableTitle = 'Отличная работа! Все чисто!',

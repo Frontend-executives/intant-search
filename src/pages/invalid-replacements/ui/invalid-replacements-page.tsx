@@ -3,9 +3,10 @@
 import { useUnit } from 'effector-react'
 import { ReactElement } from 'react'
 
+import { EquipmentTable } from '@widgets/equipment-table'
+
 import { InvalidReplacementsLocales } from '@shared/locales/invalid-replacements'
 import { $invalidReplacementsList } from '@shared/model'
-import { EquipmentTable } from '@shared/ui/equipment-table'
 
 export const InvalidReplacementsPage = (): ReactElement => {
   const invalidReplacementsList = useUnit($invalidReplacementsList)

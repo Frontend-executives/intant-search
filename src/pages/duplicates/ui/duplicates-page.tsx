@@ -3,9 +3,10 @@
 import { useUnit } from 'effector-react'
 import { ReactElement } from 'react'
 
+import { EquipmentTable } from '@widgets/equipment-table'
+
 import { DuplicatesLocales } from '@shared/locales/duplicates'
 import { $duplicatesList } from '@shared/model'
-import { EquipmentTable } from '@shared/ui/equipment-table'
 
 export const DuplicatesPage = (): ReactElement => {
   const duplicatesList = useUnit($duplicatesList)
