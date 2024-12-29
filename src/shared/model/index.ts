@@ -4,10 +4,10 @@ import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.share
 import { getGeneralDataQuery } from '@shared/api'
 import { Equipment } from '@shared/api'
 import { findDuplicates } from '@shared/lib/find-duplicates'
-import { findInvalidReplacements } from '@shared/lib/find-invalid-replacements'
 import { findObsoletesWithoutReplacement } from '@shared/lib/find-obsoletes-without-replacement'
 import { findRelevantsWithReplacement } from '@shared/lib/find-relevants-with-replacement'
 import { findSelfReplacement } from '@shared/lib/find-self-replacement'
+import { findUnverifiedReplacements } from '@shared/lib/find-unverified-replacements'
 import { findWithComma } from '@shared/lib/find-with-comma'
 import { findWithoutBrand } from '@shared/lib/find-without-brand'
 
@@ -26,8 +26,8 @@ export const $password = getGeneralDataQuery.$data.map(
 export const $duplicatesList = $equipmentList.map((equipmentList) =>
   findDuplicates(equipmentList)
 )
-export const $invalidReplacementsList = $equipmentList.map((equipmentList) =>
-  findInvalidReplacements(equipmentList)
+export const $unverifiedReplacementsList = $equipmentList.map((equipmentList) =>
+  findUnverifiedReplacements(equipmentList)
 )
 export const $obsoletesWithoutReplacementList = $equipmentList.map(
   (equipmentList) => findObsoletesWithoutReplacement(equipmentList)

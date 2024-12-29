@@ -14,26 +14,26 @@ describe('findObsoletesWithoutReplacements', () => {
     expect(result).toEqual([])
   })
 
-  it('should return models that are obsolete and have no replacements', () => {
+  it('should return models that are obsolete and have no replacements or analogs', () => {
     const equipments = [
       {
         model: 'model-a',
         relevance: Relevance.NO,
         replacement: '',
         link: 'https://www.example.com',
-        hikvision: 'model-hikvision',
-        hilook: 'model-hilook',
-        hiwatch: 'model-hiwatch',
+        hikvision: '',
+        hilook: '',
+        hiwatch: '',
         brand: Brands.HIKVISION
       },
       {
         model: 'model-b',
-        relevance: Relevance.YES,
+        relevance: Relevance.NO,
         replacement: '',
         link: 'https://www.example.com',
         hikvision: 'model-hikvision',
-        hilook: 'model-hilook',
-        hiwatch: 'model-hiwatch',
+        hilook: '',
+        hiwatch: '',
         brand: Brands.HIKVISION
       },
       {
@@ -41,9 +41,9 @@ describe('findObsoletesWithoutReplacements', () => {
         relevance: Relevance.NO,
         replacement: '',
         link: 'https://www.example.com',
-        hikvision: 'model-hikvision',
-        hilook: 'model-hilook',
-        hiwatch: 'model-hiwatch',
+        hikvision: '',
+        hilook: '',
+        hiwatch: '',
         brand: Brands.HIKVISION
       }
     ]
@@ -56,9 +56,9 @@ describe('findObsoletesWithoutReplacements', () => {
         relevance: Relevance.NO,
         replacement: '',
         link: 'https://www.example.com',
-        hikvision: 'model-hikvision',
-        hilook: 'model-hilook',
-        hiwatch: 'model-hiwatch',
+        hikvision: '',
+        hilook: '',
+        hiwatch: '',
         brand: Brands.HIKVISION
       },
       {
@@ -66,9 +66,9 @@ describe('findObsoletesWithoutReplacements', () => {
         relevance: Relevance.NO,
         replacement: '',
         link: 'https://www.example.com',
-        hikvision: 'model-hikvision',
-        hilook: 'model-hilook',
-        hiwatch: 'model-hiwatch',
+        hikvision: '',
+        hilook: '',
+        hiwatch: '',
         brand: Brands.HIKVISION
       }
     ])
@@ -81,9 +81,9 @@ describe('findObsoletesWithoutReplacements', () => {
         relevance: Relevance.YES,
         replacement: '',
         link: 'https://www.example.com',
-        hikvision: 'model-hikvision',
-        hilook: 'model-hilook',
-        hiwatch: 'model-hiwatch',
+        hikvision: '',
+        hilook: '',
+        hiwatch: '',
         brand: Brands.HIKVISION
       },
       {
@@ -91,9 +91,9 @@ describe('findObsoletesWithoutReplacements', () => {
         relevance: Relevance.YES,
         replacement: '',
         link: 'https://www.example.com',
-        hikvision: 'model-hikvision',
-        hilook: 'model-hilook',
-        hiwatch: 'model-hiwatch',
+        hikvision: '',
+        hilook: '',
+        hiwatch: '',
         brand: Brands.HIKVISION
       }
     ]
@@ -103,26 +103,26 @@ describe('findObsoletesWithoutReplacements', () => {
     expect(result).toEqual([])
   })
 
-  it('should return an empty array when all obsolete models have replacements', () => {
+  it('should return an empty array when all obsolete models have replacements or analogs', () => {
     const equipments = [
       {
         model: 'model-a',
         relevance: Relevance.NO,
         replacement: 'model-b',
         link: 'https://www.example.com',
-        hikvision: 'model-hikvision',
-        hilook: 'model-hilook',
-        hiwatch: 'model-hiwatch',
+        hikvision: '',
+        hilook: '',
+        hiwatch: '',
         brand: Brands.HIKVISION
       },
       {
         model: 'model-b',
         relevance: Relevance.NO,
-        replacement: 'model-c',
+        replacement: '',
         link: 'https://www.example.com',
         hikvision: 'model-hikvision',
-        hilook: 'model-hilook',
-        hiwatch: 'model-hiwatch',
+        hilook: '',
+        hiwatch: '',
         brand: Brands.HIKVISION
       }
     ]

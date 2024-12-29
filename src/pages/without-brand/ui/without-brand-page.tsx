@@ -13,6 +13,7 @@ export const WithoutBrandPage = (): ReactElement => {
 
   return (
     <EquipmentTable
+      emptyEquipmentListTitle={WithoutBrandLocales.EmptyListTitle}
       equipmentList={withoutBrandList}
       title={WithoutBrandLocales.Title}
       description={WithoutBrandLocales.Description}

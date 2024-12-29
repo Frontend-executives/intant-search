@@ -3,18 +3,19 @@ import { describe, expect, it } from '@jest/globals'
 import { Equipment } from '@shared/api'
 import { Brands } from '@shared/enums/brands'
 import { Relevance } from '@shared/enums/relevance'
-import { findInvalidReplacements } from '@shared/lib/find-invalid-replacements'
 
-describe('findInvalidReplacements', () => {
+import { findUnverifiedReplacements } from '..'
+
+describe('findUnverifiedReplacements', () => {
   it('should return an empty array when the equipment list is empty', () => {
     const equipments: Equipment[] = []
 
-    const result = findInvalidReplacements(equipments)
+    const result = findUnverifiedReplacements(equipments)
 
     expect(result).toEqual([])
   })
 
-  it('should return an empty array when no invalid replacements are found', () => {
+  it('should return an empty array when no unverified replacements are found', () => {
     const equipments = [
       {
         model: 'model-a',
@@ -58,7 +59,7 @@ describe('findInvalidReplacements', () => {
       }
     ]
 
-    const result = findInvalidReplacements(equipments)
+    const result = findUnverifiedReplacements(equipments)
 
     expect(result).toEqual([])
   })
@@ -77,12 +78,12 @@ describe('findInvalidReplacements', () => {
       }
     ]
 
-    const result = findInvalidReplacements(equipments)
+    const result = findUnverifiedReplacements(equipments)
 
     expect(result).toEqual([])
   })
 
-  it('should return equipments with invalid replacements', () => {
+  it('should return equipments with unverified replacements', () => {
     const equipments = [
       {
         model: 'model-a',
@@ -136,7 +137,7 @@ describe('findInvalidReplacements', () => {
       }
     ]
 
-    const result = findInvalidReplacements(equipments)
+    const result = findUnverifiedReplacements(equipments)
 
     expect(result).toEqual([
       {

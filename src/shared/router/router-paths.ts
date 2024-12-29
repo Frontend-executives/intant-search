@@ -3,7 +3,7 @@ export const enum RouterPaths {
   SIGN_IN = '/sign-in',
   CONTRACT = '/contract',
   DUPLICATES = '/duplicates',
-  INVALID_REPLACEMENTS = '/invalid-replacements',
+  UNVERIFIED_REPLACEMENTS = '/unverified-replacements',
   OBSOLETES_WITHOUT_REPLACEMENT = '/obsoletes-without-replacement',
   RELEVANTS_WITH_REPLACEMENT = '/relevants-with-replacement',
   SELF_REPLACEMENT = '/self-replacement',

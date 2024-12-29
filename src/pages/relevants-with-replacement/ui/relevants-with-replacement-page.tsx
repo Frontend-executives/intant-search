@@ -13,6 +13,7 @@ export const RelevantsWithReplacementPage = (): ReactElement => {
 
   return (
     <EquipmentTable
+      emptyEquipmentListTitle={RelevantsWithReplacementLocales.EmptyListTitle}
       equipmentList={relevantsWithReplacementList}
       title={RelevantsWithReplacementLocales.Title}
       description={RelevantsWithReplacementLocales.Description}

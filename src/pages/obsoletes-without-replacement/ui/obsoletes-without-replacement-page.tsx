@@ -16,6 +16,9 @@ export const ObsoletesWithoutReplacementPage = (): ReactElement => {
   return (
     <EquipmentTable
       equipmentList={obsoletesWithoutReplacementList}
+      emptyEquipmentListTitle={
+        ObsoletesWithoutReplacementLocales.EmptyListTitle
+      }
       title={ObsoletesWithoutReplacementLocales.Title}
       description={ObsoletesWithoutReplacementLocales.Description}
       emptyEquipmentListDescription={

@@ -40,7 +40,7 @@ export const enum SharedLocales {
   SignOut = 'Выйти',
   Contract = 'Контракт',
   Duplicates = 'Дубликаты',
-  InvalidReplacements = 'Невалидные замены',
+  UnverifiedReplacements = 'Неподтвержденные замены',
   ObsoletesWithoutReplacement = 'Без замены',
   RelevantsWithReplacement = 'Актуальные с заменой',
   SelfReplacement = 'Заменены сами на себя',
@@ -48,10 +48,8 @@ export const enum SharedLocales {
   WithComma = 'Через запятую',
   WithoutMistakes = 'Ошибок нет',
   WithMistakes = 'Ошибок:',
-  MistakesDescription = 'Ошибки',
   WithWarnings = 'Предупреждений:',
   WithoutWarnings = 'Предупреждений нет',
-  WarningsDescription = 'Предупреждения',
 
   Model = 'Модель',
   Relevance = 'Актуальность',
@@ -59,7 +57,6 @@ export const enum SharedLocales {
   Replacement = 'Замена',
   CellLink = 'Ссылка на ячейку',
   ToCell = 'Перейти',
-  EmptyTableTitle = 'Отличная работа! Все чисто!',
 
   WrongPassword = 'Неверный пароль'
 }

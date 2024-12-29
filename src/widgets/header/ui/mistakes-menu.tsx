@@ -9,16 +9,16 @@ import { Menu } from '@widgets/header/ui/menu'
 import { SharedLocales } from '@shared/locales/shared'
 import {
   $duplicatesList,
-  $invalidReplacementsList,
   $obsoletesWithoutReplacementList,
   $relevantsWithReplacementList,
-  $selfReplacementList
+  $selfReplacementList,
+  $unverifiedReplacementsList
 } from '@shared/model'
 import { RouterPaths } from '@shared/router/router-paths'
 
 export const MistakesMenu = (): ReactElement => {
   const duplicatesList = useUnit($duplicatesList)
-  const invalidReplacementsList = useUnit($invalidReplacementsList)
+  const unverifiedReplacementsList = useUnit($unverifiedReplacementsList)
   const obsoletesWithoutReplacementList = useUnit(
     $obsoletesWithoutReplacementList
   )
@@ -36,10 +36,10 @@ export const MistakesMenu = (): ReactElement => {
         count: duplicatesList.length
       },
       {
-        isActive: pathname === RouterPaths.INVALID_REPLACEMENTS,
-        href: RouterPaths.INVALID_REPLACEMENTS,
-        text: SharedLocales.InvalidReplacements,
-        count: invalidReplacementsList.length
+        isActive: pathname === RouterPaths.UNVERIFIED_REPLACEMENTS,
+        href: RouterPaths.UNVERIFIED_REPLACEMENTS,
+        text: SharedLocales.UnverifiedReplacements,
+        count: unverifiedReplacementsList.length
       },
       {
         isActive: pathname === RouterPaths.OBSOLETES_WITHOUT_REPLACEMENT,
@@ -63,7 +63,7 @@ export const MistakesMenu = (): ReactElement => {
     [
       pathname,
       duplicatesList,
-      invalidReplacementsList,
+      unverifiedReplacementsList,
       obsoletesWithoutReplacementList,
       selfReplacementList,
       relevantsWithReplacementList

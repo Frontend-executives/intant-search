@@ -13,6 +13,7 @@ export const SelfReplacementPage = (): ReactElement => {
 
   return (
     <EquipmentTable
+      emptyEquipmentListTitle={SelfReplacementsLocales.EmptyListTitle}
       equipmentList={selfReplacementList}
       title={SelfReplacementsLocales.Title}
       description={SelfReplacementsLocales.Description}

@@ -13,6 +13,7 @@ export const DuplicatesPage = (): ReactElement => {
 
   return (
     <EquipmentTable
+      emptyEquipmentListTitle={DuplicatesLocales.EmptyListTitle}
       equipmentList={duplicatesList}
       title={DuplicatesLocales.Title}
       description={DuplicatesLocales.Description}

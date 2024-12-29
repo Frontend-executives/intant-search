@@ -1,9 +1,9 @@
 import { Equipment } from '@shared/api'
 
-export const findInvalidReplacements = (
+export const findUnverifiedReplacements = (
   equipmentList: Equipment[]
 ): Equipment[] => {
-  const invalidReplacements: Equipment[] = []
+  const unverifiedReplacements: Equipment[] = []
 
   equipmentList.forEach((equipment) => {
     const replacement = equipment.replacement
@@ -14,8 +14,8 @@ export const findInvalidReplacements = (
       return model === replacement
     })
 
-    if (!foundReplacement) invalidReplacements.push(equipment)
+    if (!foundReplacement) unverifiedReplacements.push(equipment)
   })
 
-  return invalidReplacements
+  return unverifiedReplacements
 }

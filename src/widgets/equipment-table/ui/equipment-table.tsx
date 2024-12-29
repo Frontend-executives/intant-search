@@ -4,7 +4,6 @@ import { ReactElement } from 'react'
 import { CustomizedTableBody } from '@widgets/equipment-table/ui/customized-table-body'
 
 import { Equipment } from '@shared/api'
-import { SharedLocales } from '@shared/locales/shared'
 import { Notification } from '@shared/ui/notification'
 import { Typography } from '@shared/ui/typography'
 
@@ -24,18 +23,20 @@ interface Props {
   title: string
   description: string
   emptyEquipmentListDescription: string
+  emptyEquipmentListTitle: string
 }
 
 export const EquipmentTable = ({
   title,
   description,
   equipmentList,
-  emptyEquipmentListDescription
+  emptyEquipmentListDescription,
+  emptyEquipmentListTitle
 }: Props): ReactElement => {
   if (equipmentList.length <= 0) {
     return (
       <Notification
-        title={SharedLocales.EmptyTableTitle}
+        title={emptyEquipmentListTitle}
         description={emptyEquipmentListDescription}
         image='/slap.svg'
         button={null}

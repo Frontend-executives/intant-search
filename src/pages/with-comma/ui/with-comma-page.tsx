@@ -13,6 +13,7 @@ export const WithCommaPage = (): ReactElement => {
 
   return (
     <EquipmentTable
+      emptyEquipmentListTitle={WithCommaLocales.EmptyListTitle}
       equipmentList={withCommaList}
       title={WithCommaLocales.Title}
       description={WithCommaLocales.Description}
