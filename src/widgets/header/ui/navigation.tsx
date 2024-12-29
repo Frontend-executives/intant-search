@@ -19,6 +19,7 @@ import {
   $obsoletesWithoutReplacementList,
   $relevantsWithReplacementList,
   $selfReplacementList,
+  $withCommaList,
   $withoutBrandList
 } from '@shared/model'
 import { RouterPaths } from '@shared/router/router-paths'
@@ -53,49 +54,55 @@ export const Navigation = (): ReactElement => {
   const relevantsWithReplacementList = useUnit($relevantsWithReplacementList)
   const selfReplacementList = useUnit($selfReplacementList)
   const withoutBrandList = useUnit($withoutBrandList)
+  const withCommaList = useUnit($withCommaList)
 
   const pathname = usePathname()
 
   const equipmentLinks = useMemo(
-    () =>
-      [
-        {
-          isActive: pathname === RouterPaths.DUPLICATES,
-          href: RouterPaths.DUPLICATES,
-          text: SharedLocales.Duplicates,
-          count: duplicatesList.length
-        },
-        {
-          isActive: pathname === RouterPaths.INVALID_REPLACEMENTS,
-          href: RouterPaths.INVALID_REPLACEMENTS,
-          text: SharedLocales.InvalidReplacements,
-          count: invalidReplacementsList.length
-        },
-        {
-          isActive: pathname === RouterPaths.OBSOLETES_WITHOUT_REPLACEMENT,
-          href: RouterPaths.OBSOLETES_WITHOUT_REPLACEMENT,
-          text: SharedLocales.ObsoletesWithoutReplacement,
-          count: obsoletesWithoutReplacementList.length
-        },
-        {
-          isActive: pathname === RouterPaths.RELEVANTS_WITH_REPLACEMENT,
-          href: RouterPaths.RELEVANTS_WITH_REPLACEMENT,
-          text: SharedLocales.RelevantsWithReplacement,
-          count: relevantsWithReplacementList.length
-        },
-        {
-          isActive: pathname === RouterPaths.SELF_REPLACEMENT,
-          href: RouterPaths.SELF_REPLACEMENT,
-          text: SharedLocales.SelfReplacement,
-          count: selfReplacementList.length
-        },
-        {
-          isActive: pathname === RouterPaths.WITHOUT_BRAND,
-          href: RouterPaths.WITHOUT_BRAND,
-          text: SharedLocales.WithoutBrand,
-          count: withoutBrandList.length
-        }
-      ] as const,
+    () => [
+      {
+        isActive: pathname === RouterPaths.DUPLICATES,
+        href: RouterPaths.DUPLICATES,
+        text: SharedLocales.Duplicates,
+        count: duplicatesList.length
+      },
+      {
+        isActive: pathname === RouterPaths.INVALID_REPLACEMENTS,
+        href: RouterPaths.INVALID_REPLACEMENTS,
+        text: SharedLocales.InvalidReplacements,
+        count: invalidReplacementsList.length
+      },
+      {
+        isActive: pathname === RouterPaths.OBSOLETES_WITHOUT_REPLACEMENT,
+        href: RouterPaths.OBSOLETES_WITHOUT_REPLACEMENT,
+        text: SharedLocales.ObsoletesWithoutReplacement,
+        count: obsoletesWithoutReplacementList.length
+      },
+      {
+        isActive: pathname === RouterPaths.RELEVANTS_WITH_REPLACEMENT,
+        href: RouterPaths.RELEVANTS_WITH_REPLACEMENT,
+        text: SharedLocales.RelevantsWithReplacement,
+        count: relevantsWithReplacementList.length
+      },
+      {
+        isActive: pathname === RouterPaths.SELF_REPLACEMENT,
+        href: RouterPaths.SELF_REPLACEMENT,
+        text: SharedLocales.SelfReplacement,
+        count: selfReplacementList.length
+      },
+      {
+        isActive: pathname === RouterPaths.WITHOUT_BRAND,
+        href: RouterPaths.WITHOUT_BRAND,
+        text: SharedLocales.WithoutBrand,
+        count: withoutBrandList.length
+      },
+      {
+        isActive: pathname === RouterPaths.WITH_COMMA,
+        href: RouterPaths.WITH_COMMA,
+        text: SharedLocales.WithComma,
+        count: withCommaList.length
+      }
+    ],
     [
       pathname,
       duplicatesList,
@@ -103,7 +110,8 @@ export const Navigation = (): ReactElement => {
       obsoletesWithoutReplacementList,
       selfReplacementList,
       relevantsWithReplacementList,
-      withoutBrandList
+      withoutBrandList,
+      withCommaList
     ]
   )
 

@@ -12,12 +12,12 @@ import { Table } from '@shared/lib/shad-cn/components/ui/table'
 
 import { CustomizedTableHeader } from './customized-table-header'
 
-const CELL_CLASSNAME = 'flex items-center text-left py-0'
+const CELL_CLASSNAME = 'flex items-center text-left py-0 break-all'
 const CELL_WITHOUT_MODEL_CLASSNAME = cx(CELL_CLASSNAME, 'justify-center')
 const CELL_WITH_MODEL_CLASSNAME = cx(CELL_CLASSNAME, 'justify-start')
 
 const ROW_CLASSNAME =
-  'grid grid-cols-[80px_1fr_120px_120px_1fr_1fr_1fr_1fr_160px]'
+  'grid grid-cols-[80px_1fr_140px_140px_1fr_1fr_1fr_1fr_160px]'
 
 interface Props {
   equipmentList: Equipment[]

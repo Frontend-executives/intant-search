@@ -8,6 +8,7 @@ import { findInvalidReplacements } from '@shared/lib/find-invalid-replacements'
 import { findObsoletesWithoutReplacement } from '@shared/lib/find-obsoletes-without-replacement'
 import { findRelevantsWithReplacement } from '@shared/lib/find-relevants-with-replacement'
 import { findSelfReplacement } from '@shared/lib/find-self-replacement'
+import { findWithComma } from '@shared/lib/find-with-comma'
 import { findWithoutBrand } from '@shared/lib/find-without-brand'
 
 export const routerSet = createEvent<AppRouterInstance>()
@@ -37,9 +38,11 @@ export const $relevantsWithReplacementList = $equipmentList.map(
 export const $selfReplacementList = $equipmentList.map((equipmentList) =>
   findSelfReplacement(equipmentList)
 )
-
 export const $withoutBrandList = $equipmentList.map((equipmentList) =>
   findWithoutBrand(equipmentList)
+)
+export const $withCommaList = $equipmentList.map((equipmentList) =>
+  findWithComma(equipmentList)
 )
 
 sample({

@@ -7,5 +7,6 @@ export const enum RouterPaths {
   OBSOLETES_WITHOUT_REPLACEMENT = '/obsoletes-without-replacement',
   RELEVANTS_WITH_REPLACEMENT = '/relevants-with-replacement',
   SELF_REPLACEMENT = '/self-replacement',
-  WITHOUT_BRAND = '/without-brand'
+  WITHOUT_BRAND = '/without-brand',
+  WITH_COMMA = '/with-comma'
 }

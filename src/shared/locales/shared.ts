@@ -45,6 +45,7 @@ export const enum SharedLocales {
   RelevantsWithReplacement = 'Актуальные с заменой',
   SelfReplacement = 'Заменены сами на себя',
   WithoutBrand = 'Без бренда',
+  WithComma = 'Через запятую',
   WithoutProblems = 'Проблем нет',
   WithProblems = 'Проблем:',
 
