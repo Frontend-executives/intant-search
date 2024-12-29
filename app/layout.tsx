@@ -18,7 +18,11 @@ import '@app/styles/globals.css'
 
 export const metadata: Metadata = {
   title: SharedLocales.AppTitle,
-  description: SharedLocales.AppDescription
+  description: SharedLocales.AppDescription,
+  robots: {
+    index: false,
+    follow: false
+  }
 }
 
 const Layout = async ({
