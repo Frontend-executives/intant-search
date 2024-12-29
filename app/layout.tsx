@@ -9,6 +9,7 @@ import { NProgressProvider } from '@app/providers/n-progress-provider'
 import { OnlyDesktopProvider } from '@app/providers/only-desktop-provider'
 import { RouterSetProvider } from '@app/providers/router-set-provider'
 
+import { Footer } from '@widgets/footer'
 import { Header } from '@widgets/header'
 
 import { SharedLocales } from '@shared/locales/shared'
@@ -36,6 +37,7 @@ const Layout = async ({
                   <RouterSetProvider>
                     <Header />
                     {children}
+                    <Footer />
                     <Toaster />
                   </RouterSetProvider>
                 </CoreDataProvider>

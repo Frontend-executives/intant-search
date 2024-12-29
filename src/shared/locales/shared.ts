@@ -64,5 +64,7 @@ export const enum SharedLocales {
   CellLink = 'Ссылка на ячейку',
   ToCell = 'Перейти',
 
-  WrongPassword = 'Неверный пароль'
+  WrongPassword = 'Неверный пароль',
+
+  EquipmentCount = 'Количество оборудования в каталоге поиска:'
 }
