@@ -7,6 +7,11 @@ import { Equipment } from '@shared/api'
 import { Notification } from '@shared/ui/notification'
 import { Typography } from '@shared/ui/typography'
 
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle
+} from '@shared/lib/shad-cn/components/ui/alert'
 import { Table } from '@shared/lib/shad-cn/components/ui/table'
 
 import { CustomizedTableHeader } from './customized-table-header'
@@ -24,6 +29,12 @@ interface Props {
   description: string
   emptyEquipmentListDescription: string
   emptyEquipmentListTitle: string
+  alert: {
+    title: string
+    description: string
+    icon: ReactElement
+    variant: 'default' | 'destructive'
+  }
 }
 
 export const EquipmentTable = ({
@@ -31,7 +42,8 @@ export const EquipmentTable = ({
   description,
   equipmentList,
   emptyEquipmentListDescription,
-  emptyEquipmentListTitle
+  emptyEquipmentListTitle,
+  alert
 }: Props): ReactElement => {
   if (equipmentList.length <= 0) {
     return (
@@ -49,12 +61,21 @@ export const EquipmentTable = ({
   const problemsCount = `(${equipmentList.length})`
 
   return (
-    <div className='w-full flex-grow flex-col text-center p-6'>
+    <div className='w-full flex-grow flex flex-col gap-6 text-center px-6 pb-6'>
+      <Alert
+        variant={alert.variant}
+        className='w-full max-w-3xl text-start ml-auto'
+      >
+        {alert.icon}
+        <AlertTitle>{alert.title}</AlertTitle>
+        <AlertDescription>{alert.description}</AlertDescription>
+      </Alert>
+
       <Typography type='h1'>
         {title} {problemsCount}
       </Typography>
 
-      <Typography className='my-6'>{description}</Typography>
+      <Typography>{description}</Typography>
 
       <Table>
         <CustomizedTableHeader
