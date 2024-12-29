@@ -1,124 +1,27 @@
 'use client'
 
-import { cva } from 'class-variance-authority'
 import { useUnit } from 'effector-react'
 import { LogIn, LogOut, ReceiptText, SearchIcon } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ReactElement, useMemo } from 'react'
+import { ReactElement } from 'react'
 
 import { signedOut } from '@pages/sign-in/model'
 
-import { Problems } from '@widgets/header/ui/problems'
+import { MistakesMenu } from '@widgets/header/ui/mistakes-menu'
+import { WarningsMenu } from '@widgets/header/ui/warnings-menu'
 
 import { SharedLocales } from '@shared/locales/shared'
-import {
-  $duplicatesList,
-  $invalidReplacementsList,
-  $isSignedIn,
-  $obsoletesWithoutReplacementList,
-  $relevantsWithReplacementList,
-  $selfReplacementList,
-  $withCommaList,
-  $withoutBrandList
-} from '@shared/model'
+import { $isSignedIn } from '@shared/model'
 import { RouterPaths } from '@shared/router/router-paths'
-import { Typography } from '@shared/ui/typography'
 
-import { Badge } from '@shared/lib/shad-cn/components/ui/badge'
 import { Button } from '@shared/lib/shad-cn/components/ui/button'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger
-} from '@shared/lib/shad-cn/components/ui/dropdown-menu'
-
-const variants = cva('flex gap-2 items-center px-3 py-1 rounded-sm w-full', {
-  variants: {
-    isActive: {
-      true: 'bg-primary text-white',
-      false: ''
-    }
-  }
-})
 
 export const Navigation = (): ReactElement => {
   const isSignedIn = useUnit($isSignedIn)
   const signOut = useUnit(signedOut)
-  const duplicatesList = useUnit($duplicatesList)
-  const invalidReplacementsList = useUnit($invalidReplacementsList)
-  const obsoletesWithoutReplacementList = useUnit(
-    $obsoletesWithoutReplacementList
-  )
-  const relevantsWithReplacementList = useUnit($relevantsWithReplacementList)
-  const selfReplacementList = useUnit($selfReplacementList)
-  const withoutBrandList = useUnit($withoutBrandList)
-  const withCommaList = useUnit($withCommaList)
 
   const pathname = usePathname()
-
-  const equipmentLinks = useMemo(
-    () => [
-      {
-        isActive: pathname === RouterPaths.DUPLICATES,
-        href: RouterPaths.DUPLICATES,
-        text: SharedLocales.Duplicates,
-        count: duplicatesList.length
-      },
-      {
-        isActive: pathname === RouterPaths.INVALID_REPLACEMENTS,
-        href: RouterPaths.INVALID_REPLACEMENTS,
-        text: SharedLocales.InvalidReplacements,
-        count: invalidReplacementsList.length
-      },
-      {
-        isActive: pathname === RouterPaths.OBSOLETES_WITHOUT_REPLACEMENT,
-        href: RouterPaths.OBSOLETES_WITHOUT_REPLACEMENT,
-        text: SharedLocales.ObsoletesWithoutReplacement,
-        count: obsoletesWithoutReplacementList.length
-      },
-      {
-        isActive: pathname === RouterPaths.RELEVANTS_WITH_REPLACEMENT,
-        href: RouterPaths.RELEVANTS_WITH_REPLACEMENT,
-        text: SharedLocales.RelevantsWithReplacement,
-        count: relevantsWithReplacementList.length
-      },
-      {
-        isActive: pathname === RouterPaths.SELF_REPLACEMENT,
-        href: RouterPaths.SELF_REPLACEMENT,
-        text: SharedLocales.SelfReplacement,
-        count: selfReplacementList.length
-      },
-      {
-        isActive: pathname === RouterPaths.WITHOUT_BRAND,
-        href: RouterPaths.WITHOUT_BRAND,
-        text: SharedLocales.WithoutBrand,
-        count: withoutBrandList.length
-      },
-      {
-        isActive: pathname === RouterPaths.WITH_COMMA,
-        href: RouterPaths.WITH_COMMA,
-        text: SharedLocales.WithComma,
-        count: withCommaList.length
-      }
-    ],
-    [
-      pathname,
-      duplicatesList,
-      invalidReplacementsList,
-      obsoletesWithoutReplacementList,
-      selfReplacementList,
-      relevantsWithReplacementList,
-      withoutBrandList,
-      withCommaList
-    ]
-  )
-
-  const totalProblemsCount = equipmentLinks.reduce(
-    (acc, cur) => acc + cur.count,
-    0
-  )
 
   return (
     <nav>
@@ -137,27 +40,8 @@ export const Navigation = (): ReactElement => {
 
         {isSignedIn && (
           <>
-            <DropdownMenu>
-              <li>
-                <DropdownMenuTrigger>
-                  <Problems count={totalProblemsCount} />
-                </DropdownMenuTrigger>
-              </li>
-              <DropdownMenuContent>
-                {equipmentLinks.map(({ href, text, count, isActive }) => (
-                  <DropdownMenuItem key={href}>
-                    <Link href={href} className={variants({ isActive })}>
-                      <Typography type='small'>{text}</Typography>
-                      {count > 0 && (
-                        <Badge variant={isActive ? 'secondary' : 'default'}>
-                          {count}
-                        </Badge>
-                      )}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <MistakesMenu />
+            <WarningsMenu />
 
             <li>
               <Button

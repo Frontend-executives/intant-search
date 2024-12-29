@@ -1,27 +1,31 @@
 import { CircleCheck } from 'lucide-react'
 import { ReactElement } from 'react'
 
-import { SharedLocales } from '@shared/locales/shared'
-
 import { Badge } from '@shared/lib/shad-cn/components/ui/badge'
 import { Button } from '@shared/lib/shad-cn/components/ui/button'
 
 interface Props {
   count: number
+  withProblemsTitle: string
+  withoutProblemsTitle: string
 }
 
-export const Problems = ({ count }: Props): ReactElement => {
+export const Problems = ({
+  count,
+  withoutProblemsTitle,
+  withProblemsTitle
+}: Props): ReactElement => {
   return (
     <Button variant='outline' asChild>
       <div className='flex gap-2'>
         {count > 0 ? (
           <>
-            {SharedLocales.WithProblems}
-            <Badge>{count}</Badge>
+            {withProblemsTitle}
+            <Badge className='pointer-events-none'>{count}</Badge>
           </>
         ) : (
           <>
-            {SharedLocales.WithoutProblems}
+            {withoutProblemsTitle}
             <CircleCheck className='text-green-600' />
           </>
         )}
