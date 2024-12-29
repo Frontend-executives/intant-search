@@ -1,4 +1,5 @@
 import { EffectorNext } from '@effector/next'
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { ReactElement, ReactNode } from 'react'
 import { Toaster } from 'sonner'
@@ -42,7 +43,9 @@ const Layout = async ({
                     <Header />
                     {children}
                     <Footer />
+
                     <Toaster />
+                    <Analytics />
                   </RouterSetProvider>
                 </CoreDataProvider>
               </OnlyDesktopProvider>
