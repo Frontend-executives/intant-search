@@ -22,7 +22,6 @@ export const config = {
     '/obsoletes-without-replacement/:path*',
     '/relevants-with-replacement/:path*',
     '/self-replacement/:path*',
-    '/without-brand/:path*',
     '/with-comma/:path*'
   ]
 }

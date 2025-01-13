@@ -7,7 +7,6 @@ export const equipmentSchema = z.object({
   model: z.string().min(1),
   relevance: z.union([z.literal(Relevance.YES), z.literal(Relevance.NO)]),
   brand: z.union([
-    z.literal(''),
     z.literal(Brands.HILOOK),
     z.literal(Brands.HIWATCH),
     z.literal(Brands.HIKVISION)
